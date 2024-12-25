@@ -19,7 +19,7 @@ const eslintConfig = [
     rules: {
       ...perfectionist.configs["recommended-natural"].rules,
       ...unicorn.configs["flat/all"].rules,
-      // Custom
+      "@next/next/no-img-element": "off",
       "perfectionist/sort-imports": ["error", { newlinesBetween: "never" }],
       "unicorn/import-style": "off",
     },
