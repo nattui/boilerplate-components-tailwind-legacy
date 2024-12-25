@@ -27,15 +27,9 @@ importers:
       '@eslint/eslintrc':
         specifier: ^3.2.0
         version: 3.2.0
-      '@eslint/js':
-        specifier: ^9.17.0
-        version: 9.17.0
       '@nattui/tailwind-theme-config':
         specifier: 0.0.1-alpha.11
         version: 0.0.1-alpha.11
-      '@types/eslint__js':
-        specifier: ^8.42.3
-        version: 8.42.3
       '@types/node':
         specifier: ^20.17.10
         version: 20.17.10
@@ -81,9 +75,6 @@ importers:
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
-      typescript-eslint:
-        specifier: ^8.18.2
-        version: 8.18.2(eslint@9.17.0(jiti@1.21.7))(typescript@5.7.2)
 
 packages:
 
@@ -385,12 +376,6 @@ packages:
 
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
-
-  '@types/eslint@9.6.1':
-    resolution: {integrity: sha512-FXx2pKgId/WyYo2jXw63kk7/+TY7u7AziEJxJAnSFzHlqTAS3Ync6SvgYAN/k4/PQpnnVuzoMuVnByKK2qp0ag==}
-
-  '@types/eslint__js@8.42.3':
-    resolution: {integrity: sha512-alfG737uhmPdnvkrLdZLcEKJ/B8s9Y4hrZ+YAdzUeoArBlSUERA2E87ROfOaS4jd/C45fzOoZzidLc1IPwLqOw==}
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
@@ -1980,13 +1965,6 @@ packages:
     resolution: {integrity: sha512-3KS2b+kL7fsuk/eJZ7EQdnEmQoaho/r6KUef7hxvltNA5DR8NAUM+8wJMbJyZ4G9/7i3v5zPBIMN5aybAh2/Jg==}
     engines: {node: '>= 0.4'}
 
-  typescript-eslint@8.18.2:
-    resolution: {integrity: sha512-KuXezG6jHkvC3MvizeXgupZzaG5wjhU3yE8E7e6viOvAvD9xAWYp8/vy0WULTGe9DYDWcQu7aW03YIV3mSitrQ==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-    peerDependencies:
-      eslint: ^8.57.0 || ^9.0.0
-      typescript: '>=4.8.4 <5.8.0'
-
   typescript@5.7.2:
     resolution: {integrity: sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==}
     engines: {node: '>=14.17'}
@@ -2295,15 +2273,6 @@ snapshots:
   '@swc/helpers@0.5.15':
     dependencies:
       tslib: 2.8.1
-
-  '@types/eslint@9.6.1':
-    dependencies:
-      '@types/estree': 1.0.6
-      '@types/json-schema': 7.0.15
-
-  '@types/eslint__js@8.42.3':
-    dependencies:
-      '@types/eslint': 9.6.1
 
   '@types/estree@1.0.6': {}
 
@@ -4119,16 +4088,6 @@ snapshots:
       is-typed-array: 1.1.15
       possible-typed-array-names: 1.0.0
       reflect.getprototypeof: 1.0.9
-
-  typescript-eslint@8.18.2(eslint@9.17.0(jiti@1.21.7))(typescript@5.7.2):
-    dependencies:
-      '@typescript-eslint/eslint-plugin': 8.18.2(@typescript-eslint/parser@8.18.2(eslint@9.17.0(jiti@1.21.7))(typescript@5.7.2))(eslint@9.17.0(jiti@1.21.7))(typescript@5.7.2)
-      '@typescript-eslint/parser': 8.18.2(eslint@9.17.0(jiti@1.21.7))(typescript@5.7.2)
-      '@typescript-eslint/utils': 8.18.2(eslint@9.17.0(jiti@1.21.7))(typescript@5.7.2)
-      eslint: 9.17.0(jiti@1.21.7)
-      typescript: 5.7.2
-    transitivePeerDependencies:
-      - supports-color
 
   typescript@5.7.2: {}
 
