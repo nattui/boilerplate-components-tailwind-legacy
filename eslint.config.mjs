@@ -1,4 +1,5 @@
 import { FlatCompat } from "@eslint/eslintrc"
+import prettier from "eslint-config-prettier"
 import perfectionist from "eslint-plugin-perfectionist"
 import unicorn from "eslint-plugin-unicorn"
 import { dirname } from "node:path"
@@ -14,6 +15,7 @@ const eslintConfig = [
   {
     plugins: {
       perfectionist,
+      prettier,
       unicorn,
     },
     rules: {

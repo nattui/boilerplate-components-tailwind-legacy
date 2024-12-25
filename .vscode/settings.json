@@ -1,0 +1,6 @@
+{
+    // Fixes `Unknown at rule @tailwindpostcss(unknownAtRules)`
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+}
