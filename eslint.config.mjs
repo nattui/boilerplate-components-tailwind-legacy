@@ -22,7 +22,13 @@ const eslintConfig = [
       ...perfectionist.configs["recommended-natural"].rules,
       ...unicorn.configs["flat/all"].rules,
       "@next/next/no-img-element": "off",
-      "perfectionist/sort-imports": ["error", { newlinesBetween: "never" }],
+      "perfectionist/sort-imports": [
+        "error",
+        {
+          newlinesBetween: "never",
+          sortSideEffects: true,
+        },
+      ],
       "unicorn/import-style": "off",
     },
   },
