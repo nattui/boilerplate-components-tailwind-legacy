@@ -1,18 +1,43 @@
 import type { Config } from "tailwindcss"
+import {
+  borderRadius10 as borderRadius,
+  colors,
+  fontFamily,
+  fontSize10 as fontSize,
+  fontWeight,
+  screens10 as screens,
+  spacing10 as spacing,
+} from "@nattui/tailwind-theme-config"
 
-export default {
+const config: Config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  plugins: [],
+  darkMode: "class",
   theme: {
+    borderRadius,
+    colors,
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        border: "var(--mauve-a4)",
+      },
+      fontSize: {
+        "10": "1rem",
+        "13": "1.3rem",
+        "15": "1.5rem",
+      },
+      lineHeight: {
+        reading: "1.875",
       },
     },
+    fontFamily,
+    fontSize,
+    fontWeight,
+    screens,
+    spacing,
   },
-} satisfies Config
+}
+
+export default config

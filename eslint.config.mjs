@@ -30,6 +30,7 @@ const eslintConfig = [
         },
       ],
       "unicorn/import-style": "off",
+      "unicorn/prevent-abbreviations": "off",
     },
   },
 ]
