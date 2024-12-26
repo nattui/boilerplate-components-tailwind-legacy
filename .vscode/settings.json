@@ -1,8 +1,4 @@
 {
-  // Fixes `Unknown at rule @tailwindpostcss(unknownAtRules)`
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
   // Peacock theme
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#65c89b",
