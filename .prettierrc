@@ -1,4 +1,5 @@
 {
+  "jsonRecursiveSort": true,
   "plugins": [
     "prettier-plugin-css-order",
     "prettier-plugin-packagejson",
