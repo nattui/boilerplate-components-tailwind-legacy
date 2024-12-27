@@ -1,13 +1,12 @@
-import { forwardRef, type LabelHTMLAttributes } from "react"
-
-export type LabelProps = LabelHTMLAttributes<LabelRef>
-export type LabelRef = HTMLLabelElement
+import type { JSX } from "react"
 
 export const labelStyles = {
   base: ["w-fit", "text-13"].join(" "),
 } as const
 
-export const Label = forwardRef<LabelRef, LabelProps>((props, ref) => {
+type LabelProps = JSX.IntrinsicElements["label"]
+
+export default function Label(props: LabelProps) {
   const { className: customStyles = "", ...rest } = props
 
   const combinedStyles = `
@@ -15,9 +14,5 @@ export const Label = forwardRef<LabelRef, LabelProps>((props, ref) => {
     ${customStyles}
   `.trim()
 
-  return <label className={combinedStyles} ref={ref} {...rest} />
-})
-
-Label.displayName = "Label"
-
-export default Label
+  return <label className={combinedStyles} {...rest} />
+}
