@@ -23,6 +23,7 @@ h6 {
 
 /* Fonts ------------------------------------------------- */
 body {
+  font-size: 14px;
   font-family: var(--font-sans);
 }
 

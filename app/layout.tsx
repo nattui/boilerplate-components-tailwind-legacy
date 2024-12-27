@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import type { PropsWithChildren } from "react"
 import { fontsVariables } from "@/app/fonts"
 import "@/styles/global.css"
+import Topbar from "./topbar"
 
 export const metadata: Metadata = {
   description: "Boilerplate Components",
@@ -11,7 +12,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className={`${fontsVariables} antialiased`}>{children}</body>
+      <body className={`${fontsVariables} antialiased`}>
+        <Topbar />
+        {children}
+      </body>
     </html>
   )
 }
