@@ -1,4 +1,4 @@
-import { type ButtonHTMLAttributes, forwardRef } from "react"
+import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from "react"
 
 export const buttonStyles = {
   base: [
@@ -30,14 +30,20 @@ export const buttonStyles = {
 }
 
 type ButtonProps = ButtonHTMLAttributes<ButtonRef> & {
+  children?: string
+  endIcon?: ReactNode
   size?: "large" | "medium" | "small"
+  startIcon?: ReactNode
 }
 type ButtonRef = HTMLButtonElement
 
 const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) => {
   const {
+    children = "",
     className: customStyles = "",
+    endIcon,
     size = "medium",
+    startIcon,
     type = "button",
     ...rest
   } = props
@@ -48,7 +54,13 @@ const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) => {
     ${customStyles}
   `.trim()
 
-  return <button className={combinedStyles} ref={ref} type={type} {...rest} />
+  return (
+    <button className={combinedStyles} ref={ref} type={type} {...rest}>
+      {startIcon}
+      <span>{children}</span>
+      {endIcon}
+    </button>
+  )
 })
 
 Button.displayName = "Button"

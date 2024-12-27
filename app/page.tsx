@@ -5,50 +5,50 @@ export default function Home() {
   return (
     <div className="flex h-[100dvh] flex-col items-center justify-center gap-16">
       <div className="flex items-center justify-center gap-4">
-        <Button size="small">
-          <ArrowLeft size={14} />
-          <span>Small</span>
+        <Button size="small" startIcon={<ArrowLeft size={14} />}>
+          Small
         </Button>
-        <Button size="medium">
-          <ArrowLeft size={16} />
-          <span>Medium</span>
+        <Button size="medium" startIcon={<ArrowLeft size={16} />}>
+          Medium
         </Button>
-        <Button size="large">
-          <ArrowLeft size={18} />
-          <span>Large</span>
+        <Button size="large" startIcon={<ArrowLeft size={18} />}>
+          Large
         </Button>
       </div>
 
       <div className="flex items-center justify-center gap-4">
-        <Button size="small">
-          <span>Small</span>
-          <ArrowRight size={14} />
+        <Button endIcon={<ArrowRight size={14} />} size="small">
+          Small
         </Button>
-        <Button size="medium">
-          <span>Medium</span>
-          <ArrowRight size={16} />
+        <Button endIcon={<ArrowRight size={16} />} size="medium">
+          Medium
         </Button>
-        <Button size="large">
-          <span>Large</span>
-          <ArrowRight size={18} />
+        <Button endIcon={<ArrowRight size={18} />} size="large">
+          Large
         </Button>
       </div>
 
       <div className="flex items-center justify-center gap-4">
-        <Button size="small">
-          <ArrowLeft size={14} />
-          <span>Small</span>
-          <ArrowRight size={14} />
+        <Button
+          endIcon={<ArrowRight size={14} />}
+          size="small"
+          startIcon={<ArrowLeft size={14} />}
+        >
+          Small
         </Button>
-        <Button size="medium">
-          <ArrowLeft size={14} />
-          <span>Medium</span>
-          <ArrowRight size={16} />
+        <Button
+          endIcon={<ArrowRight size={16} />}
+          size="medium"
+          startIcon={<ArrowLeft size={14} />}
+        >
+          Medium
         </Button>
-        <Button size="large">
-          <ArrowLeft size={14} />
-          <span>Large</span>
-          <ArrowRight size={18} />
+        <Button
+          endIcon={<ArrowRight size={18} />}
+          size="large"
+          startIcon={<ArrowLeft size={14} />}
+        >
+          Large
         </Button>
       </div>
     </div>
