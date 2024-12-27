@@ -28,8 +28,8 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0
       '@nattui/tailwind-theme-config':
-        specifier: 0.0.1-alpha.13
-        version: 0.0.1-alpha.13
+        specifier: 0.0.1-alpha.14
+        version: 0.0.1-alpha.14
       '@types/node':
         specifier: ^20.17.10
         version: 20.17.10
@@ -277,8 +277,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@nattui/tailwind-theme-config@0.0.1-alpha.13':
-    resolution: {integrity: sha512-chfdbTEv3h9CGqS4pyDb9YAXBFFFkbe1f5n9Ln6oeSFZXb9v6E/RSsqDncCllIB3bL0IPCFJwyJ8awD00mwzlw==}
+  '@nattui/tailwind-theme-config@0.0.1-alpha.14':
+    resolution: {integrity: sha512-fHvSMMkwXl/FGqOIFs3BGehvn6zGxdMd7LH+HcT5d8dPe1xy2TjRiuRAM5n/CPsfOisI4VclFVCm2OZU4S+2eQ==}
 
   '@next/env@15.1.2':
     resolution: {integrity: sha512-Hm3jIGsoUl6RLB1vzY+dZeqb+/kWPZ+h34yiWxW0dV87l8Im/eMOwpOA+a0L78U0HM04syEjXuRlCozqpwuojQ==}
@@ -2215,7 +2215,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@nattui/tailwind-theme-config@0.0.1-alpha.13': {}
+  '@nattui/tailwind-theme-config@0.0.1-alpha.14': {}
 
   '@next/env@15.1.2': {}
 

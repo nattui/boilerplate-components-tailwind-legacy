@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss"
 import {
   borderRadius10 as borderRadius,
+  boxShadow,
   colors,
   fontFamily,
   fontSize10 as fontSize,
@@ -18,6 +19,7 @@ const config: Config = {
   darkMode: "class",
   theme: {
     borderRadius,
+    boxShadow,
     colors,
     extend: {
       colors: {
