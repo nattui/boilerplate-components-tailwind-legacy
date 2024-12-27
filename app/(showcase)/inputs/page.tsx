@@ -2,6 +2,7 @@
 
 import Button from "@/components/button"
 import { Input } from "@/components/input"
+import Label from "@/components/label"
 import { FormEvent } from "react"
 
 export default function InputsPage() {
@@ -12,9 +13,9 @@ export default function InputsPage() {
   return (
     <div className="flex h-[100dvh] flex-col items-center gap-16 overflow-y-auto py-128">
       <form className="flex w-320 flex-col" onSubmit={onSubmit}>
-        <label className="mb-8 w-fit text-13" htmlFor="name">
+        <Label className="mb-8" htmlFor="name">
           Your Name
-        </label>
+        </Label>
         <Input
           autoFocus
           className="mb-16"
