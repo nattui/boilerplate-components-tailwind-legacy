@@ -12,20 +12,13 @@ A modern React component library built with Next.js 15, React 19, and Tailwind C
 
 ### Installation
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/boilerplate-components.git
-cd boilerplate-components
-```
-
-2. Install dependencies:
+1. Install dependencies:
 
 ```bash
 pnpm install
 ```
 
-3. Start the development server:
+2. Start the development server:
 
 ```bash
 pnpm dev
