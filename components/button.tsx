@@ -1,14 +1,5 @@
-import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from "react"
+import type { JSX, ReactNode } from "react"
 
-export interface ButtonProps extends ButtonHTMLAttributes<ButtonRef> {
-  children?: string
-  fullWidth?: boolean
-  leadingVisual?: ReactNode
-  size?: ButtonSize
-  trailingVisual?: ReactNode
-  variant?: ButtonVariant
-}
-export type ButtonRef = HTMLButtonElement
 export type ButtonSize =
   | "extraLarge"
   | "extraSmall"
@@ -16,6 +7,14 @@ export type ButtonSize =
   | "medium"
   | "small"
 export type ButtonVariant = "primary" | "secondary"
+type ButtonProps = JSX.IntrinsicElements["button"] & {
+  children?: string
+  fullWidth?: boolean
+  leadingVisual?: ReactNode
+  size?: ButtonSize
+  trailingVisual?: ReactNode
+  variant?: ButtonVariant
+}
 
 export const buttonStyles = {
   base: [
@@ -78,7 +77,7 @@ export const buttonStyles = {
   },
 } as const
 
-export const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) => {
+export default function Button(props: ButtonProps) {
   const {
     children = "",
     className: customStyles = "",
@@ -100,14 +99,10 @@ export const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) => {
   `.trim()
 
   return (
-    <button className={combinedStyles} ref={ref} type={type} {...rest}>
+    <button className={combinedStyles} type={type} {...rest}>
       {leadingVisual}
       <span>{children}</span>
       {trailingVisual}
     </button>
   )
-})
-
-Button.displayName = "Button"
-
-export default Button
+}
