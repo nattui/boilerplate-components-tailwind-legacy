@@ -24,6 +24,24 @@ export default function ButtonsPage() {
         <Button size="extraLarge">Extra large</Button>
       </div>
 
+      <div className="flex items-center justify-center gap-8">
+        <Button size="extraSmall" variant="secondary">
+          Extra small
+        </Button>
+        <Button size="small" variant="secondary">
+          Small
+        </Button>
+        <Button size="medium" variant="secondary">
+          Medium
+        </Button>
+        <Button size="large" variant="secondary">
+          Large
+        </Button>
+        <Button size="extraLarge" variant="secondary">
+          Extra large
+        </Button>
+      </div>
+
       {/* Leading visual */}
       <div className="flex items-center justify-center gap-8">
         <Button leadingVisual={<ArrowLeft />} size="extraSmall">
@@ -120,9 +138,30 @@ export default function ButtonsPage() {
         </Button>
       </div>
 
+      <div className="flex items-center justify-center gap-8">
+        <Button disabled size="extraSmall" variant="secondary">
+          Extra small
+        </Button>
+        <Button disabled size="small" variant="secondary">
+          Small
+        </Button>
+        <Button disabled size="medium" variant="secondary">
+          Medium
+        </Button>
+        <Button disabled size="large" variant="secondary">
+          Large
+        </Button>
+        <Button disabled size="extraLarge" variant="secondary">
+          Extra large
+        </Button>
+      </div>
+
       {/* Full width */}
       <div className="flex w-320 items-center justify-center gap-8">
         <Button fullWidth size="large">
+          Full width
+        </Button>
+        <Button fullWidth size="large" variant="secondary">
           Full width
         </Button>
       </div>
