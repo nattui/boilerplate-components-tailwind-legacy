@@ -4,64 +4,73 @@ import { ArrowLeft, ArrowRight } from "@phosphor-icons/react/dist/ssr"
 export default function Home() {
   return (
     <div className="flex h-[100dvh] flex-col items-center justify-center gap-16">
-      <div className="flex items-center justify-center gap-4">
-        <Button size="small" startIcon={<ArrowLeft size={14} />}>
-          Small
-        </Button>
-        <Button size="medium" startIcon={<ArrowLeft size={16} />}>
-          Medium
-        </Button>
-        <Button size="large" startIcon={<ArrowLeft size={18} />}>
-          Large
-        </Button>
+      <div className="flex items-center justify-center gap-8">
+        <Button size="small" text="Small" />
+        <Button size="medium" text="Medium" />
+        <Button size="large" text="Large" />
       </div>
 
-      <div className="flex items-center justify-center gap-4">
-        <Button endIcon={<ArrowRight size={14} />} size="small">
-          Small
-        </Button>
-        <Button endIcon={<ArrowRight size={16} />} size="medium">
-          Medium
-        </Button>
-        <Button endIcon={<ArrowRight size={18} />} size="large">
-          Large
-        </Button>
-      </div>
-
-      <div className="flex items-center justify-center gap-4">
+      <div className="flex items-center justify-center gap-8">
         <Button
-          endIcon={<ArrowRight size={14} />}
+          leadingVisual={<ArrowLeft size={14} />}
           size="small"
-          startIcon={<ArrowLeft size={14} />}
-        >
-          Small
-        </Button>
+          text="Small"
+        />
         <Button
-          endIcon={<ArrowRight size={16} />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="medium"
-          startIcon={<ArrowLeft size={14} />}
-        >
-          Medium
-        </Button>
+          text="Medium"
+        />
         <Button
-          endIcon={<ArrowRight size={18} />}
+          leadingVisual={<ArrowLeft size={18} />}
           size="large"
-          startIcon={<ArrowLeft size={14} />}
-        >
-          Large
-        </Button>
+          text="Large"
+        />
       </div>
 
-      <div className="flex items-center justify-center gap-4">
-        <Button disabled size="small">
-          Small
-        </Button>
-        <Button disabled size="medium">
-          Medium
-        </Button>
-        <Button disabled size="large">
-          Large
-        </Button>
+      <div className="flex items-center justify-center gap-8">
+        <Button
+          size="small"
+          text="Small"
+          trailingVisual={<ArrowRight size={14} />}
+        />
+        <Button
+          size="medium"
+          text="Medium"
+          trailingVisual={<ArrowRight size={16} />}
+        />
+        <Button
+          size="large"
+          text="Large"
+          trailingVisual={<ArrowRight size={18} />}
+        />
+      </div>
+
+      <div className="flex items-center justify-center gap-8">
+        <Button
+          leadingVisual={<ArrowLeft size={14} />}
+          size="small"
+          text="Small"
+          trailingVisual={<ArrowRight size={14} />}
+        />
+        <Button
+          leadingVisual={<ArrowLeft size={14} />}
+          size="medium"
+          text="Medium"
+          trailingVisual={<ArrowRight size={16} />}
+        />
+        <Button
+          leadingVisual={<ArrowLeft size={14} />}
+          size="large"
+          text="Large"
+          trailingVisual={<ArrowRight size={18} />}
+        />
+      </div>
+
+      <div className="flex items-center justify-center gap-8">
+        <Button disabled size="small" text="Small" />
+        <Button disabled size="medium" text="Medium" />
+        <Button disabled size="large" text="Large" />
       </div>
     </div>
   )

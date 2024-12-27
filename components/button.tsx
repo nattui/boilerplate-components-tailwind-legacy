@@ -17,18 +17,23 @@ export const buttonStyles = {
     "disabled:!text-mauve-a11",
     "disabled:cursor-not-allowed",
     "disabled:opacity-50",
+    "duration-150",
     "flex",
+    "focus-visible:outline-2",
+    "focus-visible:outline-crimson-9",
+    "focus-visible:outline-offset-2",
     "font-500",
     "hover:bg-mauve-3",
     "hover:border-mauve-a5",
     "hover:text-mauve-12",
     "items-center",
     "justify-center",
+    "outline-none",
     "rounded-6",
     "select-none",
     "shrink-0",
     "text-mauve-a11",
-    "transition-all",
+    "transition-[background-color,border-color,color,opacity]",
   ].join(" "),
   size: {
     large: ["px-12", "gap-8", "text-16", "h-36"].join(" "),
@@ -37,21 +42,21 @@ export const buttonStyles = {
   },
 }
 
-type ButtonProps = ButtonHTMLAttributes<ButtonRef> & {
-  children?: string
-  endIcon?: ReactNode
+type ButtonProps = Omit<ButtonHTMLAttributes<ButtonRef>, "children"> & {
+  leadingVisual?: ReactNode
   size?: "large" | "medium" | "small"
-  startIcon?: ReactNode
+  text?: string
+  trailingVisual?: ReactNode
 }
 type ButtonRef = HTMLButtonElement
 
 const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) => {
   const {
-    children = "",
     className: customStyles = "",
-    endIcon,
+    leadingVisual,
     size = "medium",
-    startIcon,
+    text = "",
+    trailingVisual,
     type = "button",
     ...rest
   } = props
@@ -64,9 +69,9 @@ const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) => {
 
   return (
     <button className={combinedStyles} ref={ref} type={type} {...rest}>
-      {startIcon}
-      <span>{children}</span>
-      {endIcon}
+      {leadingVisual}
+      <span>{text}</span>
+      {trailingVisual}
     </button>
   )
 })
