@@ -33,7 +33,7 @@ export default function InputsPage() {
         required
         type="password"
       />
-      <Button fullWidth size="large" type="submit">
+      <Button fullWidth size="extraLarge" type="submit">
         Continue
       </Button>
     </form>

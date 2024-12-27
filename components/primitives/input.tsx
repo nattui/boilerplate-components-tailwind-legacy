@@ -22,7 +22,7 @@ export const inputStyles = {
     "outline-none",
     "placeholder:text-mauve-11",
     "px-12",
-    "rounded-6",
+    "rounded-8",
     "text-14",
     "text-mauve-12",
     "transition-[border-color,background-color]",

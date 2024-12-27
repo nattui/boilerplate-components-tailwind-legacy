@@ -32,7 +32,7 @@ export const buttonStyles = {
     "items-center",
     "justify-center",
     "outline-none",
-    "rounded-6",
+    "rounded-8",
     "select-none",
     "shrink-0",
     "text-14",
