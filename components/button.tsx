@@ -23,9 +23,9 @@ export const buttonStyles = {
     "transition-colors",
   ].join(" "),
   size: {
-    large: ["px-12", "text-16", "h-36"].join(" "),
-    medium: ["px-8", "text-15", "h-32"].join(" "),
-    small: ["px-6", "text-14", "h-28"].join(" "),
+    large: ["px-12", "gap-8", "text-16", "h-36"].join(" "),
+    medium: ["px-8", "gap-6", "text-15", "h-32"].join(" "),
+    small: ["px-6", "gap-4", "text-14", "h-28"].join(" "),
   },
 }
 

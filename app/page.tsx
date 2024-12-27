@@ -1,27 +1,54 @@
 import Button from "@/components/button"
-import { AnchorSimple } from "@phosphor-icons/react/dist/ssr"
+import { ArrowLeft, ArrowRight } from "@phosphor-icons/react/dist/ssr"
 
 export default function Home() {
   return (
-    <div className="flex h-[100dvh] items-center justify-center">
+    <div className="flex h-[100dvh] flex-col items-center justify-center gap-16">
       <div className="flex items-center justify-center gap-4">
         <Button size="small">
-          <div className="flex items-center gap-4">
-            <AnchorSimple size={14} />
-            <span>Small</span>
-          </div>
+          <ArrowLeft size={14} />
+          <span>Small</span>
         </Button>
         <Button size="medium">
-          <div className="flex items-center gap-6">
-            <AnchorSimple size={16} />
-            <span>Medium</span>
-          </div>
+          <ArrowLeft size={16} />
+          <span>Medium</span>
         </Button>
         <Button size="large">
-          <div className="flex items-center gap-8">
-            <AnchorSimple size={18} />
-            <span>Large</span>
-          </div>
+          <ArrowLeft size={18} />
+          <span>Large</span>
+        </Button>
+      </div>
+
+      <div className="flex items-center justify-center gap-4">
+        <Button size="small">
+          <span>Small</span>
+          <ArrowRight size={14} />
+        </Button>
+        <Button size="medium">
+          <span>Medium</span>
+          <ArrowRight size={16} />
+        </Button>
+        <Button size="large">
+          <span>Large</span>
+          <ArrowRight size={18} />
+        </Button>
+      </div>
+
+      <div className="flex items-center justify-center gap-4">
+        <Button size="small">
+          <ArrowLeft size={14} />
+          <span>Small</span>
+          <ArrowRight size={14} />
+        </Button>
+        <Button size="medium">
+          <ArrowLeft size={14} />
+          <span>Medium</span>
+          <ArrowRight size={16} />
+        </Button>
+        <Button size="large">
+          <ArrowLeft size={14} />
+          <span>Large</span>
+          <ArrowRight size={18} />
         </Button>
       </div>
     </div>
