@@ -51,6 +51,18 @@ export default function Home() {
           Large
         </Button>
       </div>
+
+      <div className="flex items-center justify-center gap-4">
+        <Button disabled size="small">
+          Small
+        </Button>
+        <Button disabled size="medium">
+          Medium
+        </Button>
+        <Button disabled size="large">
+          Large
+        </Button>
+      </div>
     </div>
   )
 }
