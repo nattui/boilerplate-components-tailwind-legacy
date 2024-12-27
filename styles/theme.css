@@ -1,0 +1,81 @@
+html {
+  font-size: 10px;
+}
+
+p {
+  /* High-legibility Set */
+  font-feature-settings: "ss02";
+}
+
+/* Colors ---------------------------------------------- */
+body {
+  background-color: var(--mauve-2);
+  color: var(--mauve-11);
+  font-size: 1.6rem;
+
+  /* https://tailwindcss.com/docs/font-smoothing#applying-font-smoothing */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark body {
+  background-color: var(--mauve-1);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--gray-12);
+}
+
+/* Fonts ------------------------------------------------- */
+body {
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  font-family: var(--font-display);
+  font-feature-settings: "ss04";
+}
+
+button {
+  font-weight: 500;
+}
+
+b,
+strong {
+  font-weight: 500;
+}
+
+a {
+  font-family: var(--font-sans);
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+/* Custom ---------------------------------------------- */
+
+/* Disable transitions */
+.no-transitions * {
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+
+/* Disable scrolling */
+.no-overscroll {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
