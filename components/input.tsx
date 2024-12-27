@@ -1,6 +1,6 @@
 import type { JSX } from "react"
 
-type InputProps = JSX.IntrinsicElements["input"]
+export type InputProps = JSX.IntrinsicElements["input"]
 
 export const inputStyles = {
   base: [

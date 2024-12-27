@@ -1,13 +1,6 @@
 import type { JSX, ReactNode } from "react"
 
-export type ButtonSize =
-  | "extraLarge"
-  | "extraSmall"
-  | "large"
-  | "medium"
-  | "small"
-export type ButtonVariant = "primary" | "secondary"
-type ButtonProps = JSX.IntrinsicElements["button"] & {
+export type ButtonProps = JSX.IntrinsicElements["button"] & {
   children?: string
   fullWidth?: boolean
   leadingVisual?: ReactNode
@@ -15,6 +8,13 @@ type ButtonProps = JSX.IntrinsicElements["button"] & {
   trailingVisual?: ReactNode
   variant?: ButtonVariant
 }
+export type ButtonSize =
+  | "extraLarge"
+  | "extraSmall"
+  | "large"
+  | "medium"
+  | "small"
+export type ButtonVariant = "primary" | "secondary"
 
 export const buttonStyles = {
   base: [
