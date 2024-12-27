@@ -5,18 +5,18 @@ export default function ButtonsPage() {
   return (
     <>
       {/* Example */}
-      <div className="flex items-center justify-center gap-8">
+      <div className="flex flex-wrap items-center justify-center gap-8">
         <Button>Add goal</Button>
       </div>
 
       {/* Variant */}
-      <div className="flex items-center justify-center gap-8">
+      <div className="flex flex-wrap items-center justify-center gap-8">
         <Button variant="primary">Primary</Button>
         <Button variant="secondary">Secondary</Button>
       </div>
 
       {/* Base */}
-      <div className="flex items-center justify-center gap-8">
+      <div className="flex flex-wrap items-center justify-center gap-8">
         <Button size="extraSmall">Extra small</Button>
         <Button size="small">Small</Button>
         <Button size="medium">Medium</Button>
@@ -24,7 +24,7 @@ export default function ButtonsPage() {
         <Button size="extraLarge">Extra large</Button>
       </div>
 
-      <div className="flex items-center justify-center gap-8">
+      <div className="flex flex-wrap items-center justify-center gap-8">
         <Button size="extraSmall" variant="secondary">
           Extra small
         </Button>
@@ -43,7 +43,7 @@ export default function ButtonsPage() {
       </div>
 
       {/* Leading visual */}
-      <div className="flex items-center justify-center gap-8">
+      <div className="flex flex-wrap items-center justify-center gap-8">
         <Button leadingVisual={<ArrowLeft />} size="extraSmall">
           Extra small
         </Button>
@@ -62,7 +62,7 @@ export default function ButtonsPage() {
       </div>
 
       {/* Trailing visual */}
-      <div className="flex items-center justify-center gap-8">
+      <div className="flex flex-wrap items-center justify-center gap-8">
         <Button size="extraSmall" trailingVisual={<ArrowRight />}>
           Extra small
         </Button>
@@ -81,7 +81,7 @@ export default function ButtonsPage() {
       </div>
 
       {/* Leading and trailing visual */}
-      <div className="flex items-center justify-center gap-8">
+      <div className="flex flex-wrap items-center justify-center gap-8">
         <Button
           leadingVisual={<ArrowLeft />}
           size="extraSmall"
@@ -119,7 +119,7 @@ export default function ButtonsPage() {
         </Button>
       </div>
 
-      <div className="flex items-center justify-center gap-8">
+      <div className="flex flex-wrap items-center justify-center gap-8">
         <Button
           leadingVisual={<ArrowLeft />}
           size="extraSmall"
@@ -163,7 +163,7 @@ export default function ButtonsPage() {
       </div>
 
       {/* Disabled */}
-      <div className="flex items-center justify-center gap-8">
+      <div className="flex flex-wrap items-center justify-center gap-8">
         <Button disabled size="extraSmall">
           Extra small
         </Button>
@@ -181,7 +181,7 @@ export default function ButtonsPage() {
         </Button>
       </div>
 
-      <div className="flex items-center justify-center gap-8">
+      <div className="flex flex-wrap items-center justify-center gap-8">
         <Button disabled size="extraSmall" variant="secondary">
           Extra small
         </Button>
@@ -200,13 +200,13 @@ export default function ButtonsPage() {
       </div>
 
       {/* Full width */}
-      <div className="flex w-320 items-center justify-center gap-8">
+      <div className="flex w-full max-w-320 items-center justify-center gap-8">
         <Button fullWidth size="large">
           Full width
         </Button>
       </div>
 
-      <div className="flex w-320 items-center justify-center gap-8">
+      <div className="flex w-full max-w-320 items-center justify-center gap-8">
         <Button fullWidth size="large" variant="secondary">
           Full width
         </Button>
