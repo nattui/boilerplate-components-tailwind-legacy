@@ -1,9 +1,9 @@
 "use client"
 
+import type { FormEvent } from "react"
 import Button from "@/components/button"
 import Input from "@/components/input"
 import Label from "@/components/label"
-import { FormEvent } from "react"
 
 export default function InputsPage() {
   function onSubmit(event: FormEvent<HTMLFormElement>) {
