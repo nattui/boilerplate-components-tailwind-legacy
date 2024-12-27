@@ -1,5 +1,16 @@
 import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from "react"
 
+export interface ButtonProps
+  extends Omit<ButtonHTMLAttributes<ButtonRef>, "children"> {
+  fullWidth?: boolean
+  leadingVisual?: ReactNode
+  size?: ButtonSize
+  text?: string
+  trailingVisual?: ReactNode
+}
+export type ButtonRef = HTMLButtonElement
+export type ButtonSize = "large" | "medium" | "small"
+
 export const buttonStyles = {
   base: [
     "active:bg-mauve-4",
@@ -37,18 +48,9 @@ export const buttonStyles = {
     medium: ["px-8", "gap-6", "text-15", "h-32"].join(" "),
     small: ["px-6", "gap-4", "text-14", "h-28"].join(" "),
   },
-}
+} as const
 
-type ButtonProps = Omit<ButtonHTMLAttributes<ButtonRef>, "children"> & {
-  fullWidth?: boolean
-  leadingVisual?: ReactNode
-  size?: "large" | "medium" | "small"
-  text?: string
-  trailingVisual?: ReactNode
-}
-type ButtonRef = HTMLButtonElement
-
-const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) => {
+export const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) => {
   const {
     className: customStyles = "",
     fullWidth = false,
