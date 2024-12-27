@@ -1,11 +1,10 @@
 import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from "react"
 
-export interface ButtonProps
-  extends Omit<ButtonHTMLAttributes<ButtonRef>, "children"> {
+export interface ButtonProps extends ButtonHTMLAttributes<ButtonRef> {
+  children?: string
   fullWidth?: boolean
   leadingVisual?: ReactNode
   size?: ButtonSize
-  text?: string
   trailingVisual?: ReactNode
   variant?: ButtonVariant
 }
@@ -81,11 +80,11 @@ export const buttonStyles = {
 
 export const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) => {
   const {
+    children = "",
     className: customStyles = "",
     fullWidth = false,
     leadingVisual,
     size = "medium",
-    text = "",
     trailingVisual,
     type = "button",
     variant = "primary",
@@ -103,7 +102,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) => {
   return (
     <button className={combinedStyles} ref={ref} type={type} {...rest}>
       {leadingVisual}
-      <span>{text}</span>
+      <span>{children}</span>
       {trailingVisual}
     </button>
   )
