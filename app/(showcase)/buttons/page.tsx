@@ -204,6 +204,9 @@ export default function ButtonsPage() {
         <Button fullWidth size="large">
           Full width
         </Button>
+      </div>
+
+      <div className="flex w-320 items-center justify-center gap-8">
         <Button fullWidth size="large" variant="secondary">
           Full width
         </Button>
