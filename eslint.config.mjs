@@ -29,6 +29,7 @@ const eslintConfig = [
           sortSideEffects: true,
         },
       ],
+      "unicorn/consistent-function-scoping": "off",
       "unicorn/import-style": "off",
       "unicorn/prevent-abbreviations": "off",
     },
