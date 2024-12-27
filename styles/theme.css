@@ -2,20 +2,10 @@ html {
   font-size: 10px;
 }
 
-p {
-  /* High-legibility Set */
-  font-feature-settings: "ss02";
-}
-
 /* Colors ---------------------------------------------- */
 body {
   background-color: var(--mauve-2);
   color: var(--mauve-11);
-  font-size: 1.6rem;
-
-  /* https://tailwindcss.com/docs/font-smoothing#applying-font-smoothing */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .dark body {
@@ -78,4 +68,21 @@ code {
 .no-overscroll {
   overflow: hidden;
   overscroll-behavior: none;
+}
+
+/* Highlight */
+::-moz-selection {
+  background: var(--crimson-a10);
+  color: var(--mauve-2);
+}
+::selection {
+  background: var(--crimson-a10);
+  color: var(--mauve-2);
+}
+
+.dark ::-moz-selection {
+  color: var(--mauve-1);
+}
+.dark ::selection {
+  color: var(--mauve-1);
 }

@@ -92,15 +92,6 @@ a {
 }
 
 /*
-    Reset button
-*/
-button {
-  cursor: pointer;
-  border: none;
-  user-select: none;
-}
-
-/*
     Limit the resize to only the vertical direction
 */
 textarea {
