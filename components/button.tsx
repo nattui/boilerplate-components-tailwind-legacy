@@ -3,6 +3,7 @@ import { type ButtonHTMLAttributes, forwardRef } from "react"
 export const buttonStyles = {
   base: [
     "active:bg-mauve-4",
+    "active:border-mauve-a6",
     "active:text-mauve-12",
     "border-mauve-a4",
     "border-solid",
@@ -13,6 +14,7 @@ export const buttonStyles = {
     "flex",
     "font-500",
     "hover:bg-mauve-3",
+    "hover:border-mauve-a5",
     "hover:text-mauve-12",
     "items-center",
     "justify-center",
