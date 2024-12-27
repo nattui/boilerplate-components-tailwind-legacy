@@ -7,29 +7,30 @@ export interface InputProps
   size?: InputSize
 }
 export type InputRef = HTMLInputElement
-export type InputSize = "extraSmall" | "large" | "medium" | "small"
+export type InputSize = "medium"
 
 export const inputStyles = {
   base: [
-    "bg-mauve-1",
+    "bg-mauve-2",
     "border-mauve-a4",
     "border-solid",
     "border",
-    "duration-150",
-    "font-400",
-    "outline-none",
-    "placeholder:text-mauve-11",
-    "rounded-6",
-    "text-mauve-12",
-    "transition-[border-color,background-color]",
-    "focus:border-mauve-a8",
-    "hover:border-mauve-a6",
     "disabled:bg-mauve-2",
     "disabled:cursor-not-allowed",
     "disabled:opacity-50",
+    "duration-150",
+    "focus-visible:outline-offset-2",
     "focus-visible:outline-2",
     "focus-visible:outline-crimson-9",
-    "focus-visible:outline-offset-2",
+    "focus:border-mauve-a8",
+    "font-400",
+    "hover:border-mauve-a6",
+    "outline-none",
+    "placeholder:text-mauve-11",
+    "rounded-6",
+    "text-14",
+    "text-mauve-12",
+    "transition-[border-color,background-color]",
   ].join(" "),
   error: [
     "!border-red-a8",
@@ -38,10 +39,7 @@ export const inputStyles = {
   ].join(" "),
   fullWidth: "w-full",
   size: {
-    extraSmall: ["px-6", "text-14", "h-28"].join(" "),
-    large: ["px-16", "text-17", "h-40"].join(" "),
-    medium: ["px-12", "text-16", "h-36"].join(" "),
-    small: ["px-8", "text-15", "h-32"].join(" "),
+    medium: ["px-12", "h-40"].join(" "),
   },
 } as const
 
