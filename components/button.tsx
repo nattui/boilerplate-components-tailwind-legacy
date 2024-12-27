@@ -31,6 +31,7 @@ export const buttonStyles = {
     "text-mauve-12",
     "transition-[background-color,border-color,opacity]",
   ].join(" "),
+  fullWidth: "w-full",
   size: {
     large: ["px-12", "gap-8", "text-16", "h-36"].join(" "),
     medium: ["px-8", "gap-6", "text-15", "h-32"].join(" "),
@@ -39,6 +40,7 @@ export const buttonStyles = {
 }
 
 type ButtonProps = Omit<ButtonHTMLAttributes<ButtonRef>, "children"> & {
+  fullWidth?: boolean
   leadingVisual?: ReactNode
   size?: "large" | "medium" | "small"
   text?: string
@@ -49,6 +51,7 @@ type ButtonRef = HTMLButtonElement
 const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) => {
   const {
     className: customStyles = "",
+    fullWidth = false,
     leadingVisual,
     size = "medium",
     text = "",
@@ -60,6 +63,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) => {
   const combinedStyles = `
     ${buttonStyles.base}
     ${buttonStyles.size[size]}
+    ${fullWidth ? buttonStyles.fullWidth : ""}
     ${customStyles}
   `.trim()
 

@@ -77,6 +77,11 @@ export default function Home() {
         <Button disabled size="medium" text="Medium" />
         <Button disabled size="large" text="Large" />
       </div>
+
+      {/* Full width */}
+      <div className="flex w-240 items-center justify-center gap-8">
+        <Button fullWidth text="Full width" />
+      </div>
     </div>
   )
 }
