@@ -36,6 +36,7 @@ export const inputStyles = {
     "hover:!border-red-a8",
   ].join(" "),
   fullWidth: "w-full",
+  password: "font-mono",
 } as const
 
 export default function Input(props: InputProps) {
@@ -51,8 +52,11 @@ export default function Input(props: InputProps) {
     ${inputStyles.base}
     ${error ? inputStyles.error : ""}
     ${fullWidth ? inputStyles.fullWidth : ""}
+    ${type === "password" ? inputStyles.password : ""}
     ${customStyles}
-  `.trim()
+  `
+    .replaceAll(/\s+/g, " ")
+    .trim()
 
   return <input className={combinedStyles} type={type} {...rest} />
 }

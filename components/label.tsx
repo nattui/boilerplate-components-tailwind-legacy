@@ -12,7 +12,9 @@ export default function Label(props: LabelProps) {
   const combinedStyles = `
     ${labelStyles.base}
     ${customStyles}
-  `.trim()
+  `
+    .replaceAll(/\s+/g, " ")
+    .trim()
 
   return <label className={combinedStyles} {...rest} />
 }

@@ -13,16 +13,28 @@ export default function InputsPage() {
   return (
     <div className="flex h-[100dvh] flex-col items-center gap-16 overflow-y-auto py-128">
       <form className="flex w-320 flex-col" onSubmit={onSubmit}>
-        <Label className="mb-8" htmlFor="name">
-          Your Name
+        <Label className="mb-8" htmlFor="email">
+          Email
         </Label>
         <Input
           autoFocus
           className="mb-16"
           fullWidth
-          id="name"
-          name="name"
-          type="text"
+          id="email"
+          name="email"
+          required
+          type="email"
+        />
+        <Label className="mb-8" htmlFor="password">
+          Password
+        </Label>
+        <Input
+          className="mb-16"
+          fullWidth
+          id="password"
+          name="password"
+          required
+          type="password"
         />
         <Button fullWidth size="large" type="submit">
           Continue

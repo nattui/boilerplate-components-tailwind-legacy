@@ -96,7 +96,9 @@ export default function Button(props: ButtonProps) {
     ${buttonStyles.variant[variant]}
     ${fullWidth ? buttonStyles.fullWidth : ""}
     ${customStyles}
-  `.trim()
+  `
+    .replaceAll(/\s+/g, " ")
+    .trim()
 
   return (
     <button className={combinedStyles} type={type} {...rest}>
