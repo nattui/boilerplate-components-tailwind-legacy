@@ -48,17 +48,17 @@ export const buttonStyles = {
   },
   variant: {
     primary: [
-      "active:bg-mauve-6",
-      "active:border-mauve-6",
+      "active:bg-mauve-7",
+      "active:border-mauve-7",
       "bg-mauve-1",
       "border-mauve-1",
       "dark",
-      "data-[active=true]:bg-mauve-6",
-      "data-[active=true]:border-mauve-6",
+      "data-[active=true]:bg-mauve-7",
+      "data-[active=true]:border-mauve-7",
       "disabled:!bg-mauve-1",
       "disabled:!border-mauve-1",
-      "hover:bg-mauve-5",
-      "hover:border-mauve-5",
+      "hover:bg-mauve-6",
+      "hover:border-mauve-6",
       "text-mauve-12",
     ].join(" "),
     secondary: [
