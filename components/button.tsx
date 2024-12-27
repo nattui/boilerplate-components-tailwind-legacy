@@ -9,7 +9,7 @@ export interface ButtonProps
   trailingVisual?: ReactNode
 }
 export type ButtonRef = HTMLButtonElement
-export type ButtonSize = "large" | "medium" | "small"
+export type ButtonSize = "extraLarge" | "large" | "medium" | "small"
 
 export const buttonStyles = {
   base: [
@@ -44,6 +44,7 @@ export const buttonStyles = {
   ].join(" "),
   fullWidth: "w-full",
   size: {
+    extraLarge: ["px-16", "gap-10", "text-17", "h-40"].join(" "),
     large: ["px-12", "gap-8", "text-16", "h-36"].join(" "),
     medium: ["px-8", "gap-6", "text-15", "h-32"].join(" "),
     small: ["px-6", "gap-4", "text-14", "h-28"].join(" "),

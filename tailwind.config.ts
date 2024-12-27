@@ -27,6 +27,7 @@ const config: Config = {
         "10": "1rem",
         "13": "1.3rem",
         "15": "1.5rem",
+        "17": "1.7rem",
       },
       lineHeight: {
         reading: "1.875",

@@ -9,6 +9,7 @@ export default function Home() {
         <Button size="small" text="Small" />
         <Button size="medium" text="Medium" />
         <Button size="large" text="Large" />
+        <Button size="extraLarge" text="Extra large" />
       </div>
 
       {/* Leading visual */}
@@ -27,6 +28,11 @@ export default function Home() {
           leadingVisual={<ArrowLeft size={18} />}
           size="large"
           text="Large"
+        />
+        <Button
+          leadingVisual={<ArrowLeft size={20} />}
+          size="extraLarge"
+          text="Extra large"
         />
       </div>
 
@@ -47,6 +53,11 @@ export default function Home() {
           text="Large"
           trailingVisual={<ArrowRight size={18} />}
         />
+        <Button
+          size="extraLarge"
+          text="Extra large"
+          trailingVisual={<ArrowRight size={20} />}
+        />
       </div>
 
       {/* Leading and trailing visual */}
@@ -58,16 +69,22 @@ export default function Home() {
           trailingVisual={<ArrowRight size={14} />}
         />
         <Button
-          leadingVisual={<ArrowLeft size={14} />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="medium"
           text="Medium"
           trailingVisual={<ArrowRight size={16} />}
         />
         <Button
-          leadingVisual={<ArrowLeft size={14} />}
+          leadingVisual={<ArrowLeft size={18} />}
           size="large"
           text="Large"
           trailingVisual={<ArrowRight size={18} />}
+        />
+        <Button
+          leadingVisual={<ArrowLeft size={20} />}
+          size="extraLarge"
+          text="Extra large"
+          trailingVisual={<ArrowRight size={20} />}
         />
       </div>
 
@@ -76,6 +93,7 @@ export default function Home() {
         <Button disabled size="small" text="Small" />
         <Button disabled size="medium" text="Medium" />
         <Button disabled size="large" text="Large" />
+        <Button disabled size="extraLarge" text="Extra large" />
       </div>
 
       {/* Full width */}
