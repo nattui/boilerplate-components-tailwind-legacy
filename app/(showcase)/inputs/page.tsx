@@ -12,7 +12,7 @@ export default function InputsPage() {
 
   return (
     <form className="flex w-320 flex-col" onSubmit={onSubmit}>
-      <Label className="mb-8" htmlFor="email">
+      <Label className="mb-4" htmlFor="email">
         Email
       </Label>
       <Input
@@ -23,7 +23,7 @@ export default function InputsPage() {
         required
         type="email"
       />
-      <Label className="mb-8" htmlFor="password">
+      <Label className="mb-4" htmlFor="password">
         Password
       </Label>
       <Input
