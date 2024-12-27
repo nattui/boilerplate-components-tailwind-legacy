@@ -7,22 +7,22 @@ export interface ButtonProps
   size?: ButtonSize
   text?: string
   trailingVisual?: ReactNode
+  variant?: ButtonVariant
 }
 export type ButtonRef = HTMLButtonElement
-export type ButtonSize = "extraSmall" | "large" | "medium" | "small"
+export type ButtonSize =
+  | "extraLarge"
+  | "extraSmall"
+  | "large"
+  | "medium"
+  | "small"
+export type ButtonVariant = "primary" | "secondary"
 
 export const buttonStyles = {
   base: [
-    "active:bg-mauve-4",
-    "active:border-mauve-a6",
-    "bg-mauve-2",
-    "border-mauve-a4",
     "border-solid",
     "border",
     "cursor-pointer",
-    "data-[active=true]:bg-mauve-4",
-    "disabled:!bg-mauve-2",
-    "disabled:!border-mauve-a4",
     "disabled:cursor-not-allowed",
     "disabled:opacity-50",
     "duration-150",
@@ -31,23 +31,51 @@ export const buttonStyles = {
     "focus-visible:outline-crimson-9",
     "focus-visible:outline-offset-2",
     "font-500",
-    "hover:bg-mauve-3",
-    "hover:border-mauve-a5",
     "items-center",
     "justify-center",
     "outline-none",
     "rounded-6",
     "select-none",
     "shrink-0",
-    "text-mauve-12",
+    "text-14",
     "transition-[background-color,border-color,opacity]",
   ].join(" "),
   fullWidth: "w-full",
   size: {
-    extraSmall: ["px-6", "gap-4", "text-14", "h-28"].join(" "),
-    large: ["px-16", "gap-10", "text-17", "h-40"].join(" "),
-    medium: ["px-12", "gap-8", "text-16", "h-36"].join(" "),
-    small: ["px-8", "gap-6", "text-15", "h-32"].join(" "),
+    extraLarge: ["px-20", "gap-12", "h-44"].join(" "),
+    extraSmall: ["px-6", "gap-4", "h-28"].join(" "),
+    large: ["px-16", "gap-10", "h-40"].join(" "),
+    medium: ["px-12", "gap-8", "h-36"].join(" "),
+    small: ["px-8", "gap-6", "h-32"].join(" "),
+  },
+  variant: {
+    primary: [
+      "active:bg-mauve-6",
+      "active:border-mauve-6",
+      "bg-mauve-1",
+      "border-mauve-1",
+      "dark",
+      "data-[active=true]:bg-mauve-6",
+      "data-[active=true]:border-mauve-6",
+      "disabled:!bg-mauve-1",
+      "disabled:!border-mauve-1",
+      "hover:bg-mauve-5",
+      "hover:border-mauve-5",
+      "text-mauve-12",
+    ].join(" "),
+    secondary: [
+      "active:bg-mauve-4",
+      "active:border-mauve-a6",
+      "bg-mauve-2",
+      "border-mauve-a4",
+      "data-[active=true]:bg-mauve-4",
+      "data-[active=true]:border-mauve-a6",
+      "disabled:!bg-mauve-2",
+      "disabled:!border-mauve-a4",
+      "hover:bg-mauve-3",
+      "hover:border-mauve-a5",
+      "text-mauve-12",
+    ].join(" "),
   },
 } as const
 
@@ -60,12 +88,14 @@ export const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) => {
     text = "",
     trailingVisual,
     type = "button",
+    variant = "primary",
     ...rest
   } = props
 
   const combinedStyles = `
     ${buttonStyles.base}
     ${buttonStyles.size[size]}
+    ${buttonStyles.variant[variant]}
     ${fullWidth ? buttonStyles.fullWidth : ""}
     ${customStyles}
   `.trim()

@@ -10,35 +10,35 @@ export default function Home() {
         <Button text="Add goal" />
       </div>
 
+      {/* Variant */}
+      <div className="flex items-center justify-center gap-8">
+        <Button text="Primary" variant="primary" />
+        <Button text="Secondary" variant="secondary" />
+      </div>
+
       {/* Base */}
       <div className="flex items-center justify-center gap-8">
         <Button size="extraSmall" text="Extra small" />
         <Button size="small" text="Small" />
         <Button size="medium" text="Medium" />
         <Button size="large" text="Large" />
+        <Button size="extraLarge" text="Extra large" />
       </div>
 
       {/* Leading visual */}
       <div className="flex items-center justify-center gap-8">
         <Button
-          leadingVisual={<ArrowLeft size={14} />}
+          leadingVisual={<ArrowLeft />}
           size="extraSmall"
           text="Extra small"
         />
+        <Button leadingVisual={<ArrowLeft />} size="small" text="Small" />
+        <Button leadingVisual={<ArrowLeft />} size="medium" text="Medium" />
+        <Button leadingVisual={<ArrowLeft />} size="large" text="Large" />
         <Button
-          leadingVisual={<ArrowLeft size={16} />}
-          size="small"
-          text="Small"
-        />
-        <Button
-          leadingVisual={<ArrowLeft size={18} />}
-          size="medium"
-          text="Medium"
-        />
-        <Button
-          leadingVisual={<ArrowLeft size={20} />}
-          size="large"
-          text="Large"
+          leadingVisual={<ArrowLeft />}
+          size="extraLarge"
+          text="Extra large"
         />
       </div>
 
@@ -47,50 +47,49 @@ export default function Home() {
         <Button
           size="extraSmall"
           text="Extra small"
-          trailingVisual={<ArrowRight size={14} />}
+          trailingVisual={<ArrowRight />}
         />
+        <Button size="small" text="Small" trailingVisual={<ArrowRight />} />
+        <Button size="medium" text="Medium" trailingVisual={<ArrowRight />} />
+        <Button size="large" text="Large" trailingVisual={<ArrowRight />} />
         <Button
-          size="small"
-          text="Small"
-          trailingVisual={<ArrowRight size={16} />}
-        />
-        <Button
-          size="medium"
-          text="Medium"
-          trailingVisual={<ArrowRight size={18} />}
-        />
-        <Button
-          size="large"
-          text="Large"
-          trailingVisual={<ArrowRight size={20} />}
+          size="extraLarge"
+          text="Extra large"
+          trailingVisual={<ArrowRight />}
         />
       </div>
 
       {/* Leading and trailing visual */}
       <div className="flex items-center justify-center gap-8">
         <Button
-          leadingVisual={<ArrowLeft size={14} />}
+          leadingVisual={<ArrowLeft />}
           size="extraSmall"
           text="Extra small"
-          trailingVisual={<ArrowRight size={14} />}
+          trailingVisual={<ArrowRight />}
         />
         <Button
-          leadingVisual={<ArrowLeft size={16} />}
+          leadingVisual={<ArrowLeft />}
           size="small"
           text="Small"
-          trailingVisual={<ArrowRight size={16} />}
+          trailingVisual={<ArrowRight />}
         />
         <Button
-          leadingVisual={<ArrowLeft size={18} />}
+          leadingVisual={<ArrowLeft />}
           size="medium"
           text="Medium"
-          trailingVisual={<ArrowRight size={18} />}
+          trailingVisual={<ArrowRight />}
         />
         <Button
-          leadingVisual={<ArrowLeft size={20} />}
+          leadingVisual={<ArrowLeft />}
           size="large"
           text="Large"
-          trailingVisual={<ArrowRight size={20} />}
+          trailingVisual={<ArrowRight />}
+        />
+        <Button
+          leadingVisual={<ArrowLeft />}
+          size="extraLarge"
+          text="Extra large"
+          trailingVisual={<ArrowRight />}
         />
       </div>
 
@@ -100,15 +99,16 @@ export default function Home() {
         <Button disabled size="small" text="Small" />
         <Button disabled size="medium" text="Medium" />
         <Button disabled size="large" text="Large" />
+        <Button disabled size="extraLarge" text="Extra large" />
       </div>
 
       {/* Full width */}
-      <div className="flex w-240 items-center justify-center gap-8">
-        <Button fullWidth text="Full width" />
+      <div className="flex w-320 items-center justify-center gap-8">
+        <Button fullWidth size="large" text="Full width" />
       </div>
 
       {/* Input */}
-      <div className="flex w-240 items-center justify-center gap-8">
+      <div className="flex w-320 items-center justify-center gap-8">
         <Input defaultValue="Hello world" fullWidth />
       </div>
     </div>
