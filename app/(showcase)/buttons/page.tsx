@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight } from "@phosphor-icons/react/dist/ssr"
 
 export default function ButtonsPage() {
   return (
-    <div className="flex h-[100dvh] flex-col items-center gap-16 overflow-y-auto py-128">
+    <>
       {/* Example */}
       <div className="flex items-center justify-center gap-8">
         <Button>Add goal</Button>
@@ -126,6 +126,6 @@ export default function ButtonsPage() {
           Full width
         </Button>
       </div>
-    </div>
+    </>
   )
 }

@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 import type { PropsWithChildren } from "react"
 import { fontsVariables } from "@/app/fonts"
+import Topbar from "@/components/web/topbar"
 import "@/styles/global.css"
-import Topbar from "./topbar"
 
 export const metadata: Metadata = {
   description: "Boilerplate Components",
@@ -14,7 +14,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en">
       <body className={`${fontsVariables} antialiased`}>
         <Topbar />
-        {children}
+        <div className="flex flex-col items-center gap-16 overflow-y-auto py-128">
+          {children}
+        </div>
       </body>
     </html>
   )

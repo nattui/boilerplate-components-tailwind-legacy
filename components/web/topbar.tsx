@@ -1,6 +1,4 @@
-"use client"
-
-import { NavLink } from "@/components/nav-link"
+import { NavLink } from "@/components/web/nav-link"
 
 export default function Topbar() {
   return (
