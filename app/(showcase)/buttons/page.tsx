@@ -119,6 +119,49 @@ export default function ButtonsPage() {
         </Button>
       </div>
 
+      <div className="flex items-center justify-center gap-8">
+        <Button
+          leadingVisual={<ArrowLeft />}
+          size="extraSmall"
+          trailingVisual={<ArrowRight />}
+          variant="secondary"
+        >
+          Extra small
+        </Button>
+        <Button
+          leadingVisual={<ArrowLeft />}
+          size="small"
+          trailingVisual={<ArrowRight />}
+          variant="secondary"
+        >
+          Small
+        </Button>
+        <Button
+          leadingVisual={<ArrowLeft />}
+          size="medium"
+          trailingVisual={<ArrowRight />}
+          variant="secondary"
+        >
+          Medium
+        </Button>
+        <Button
+          leadingVisual={<ArrowLeft />}
+          size="large"
+          trailingVisual={<ArrowRight />}
+          variant="secondary"
+        >
+          Large
+        </Button>
+        <Button
+          leadingVisual={<ArrowLeft />}
+          size="extraLarge"
+          trailingVisual={<ArrowRight />}
+          variant="secondary"
+        >
+          Extra large
+        </Button>
+      </div>
+
       {/* Disabled */}
       <div className="flex items-center justify-center gap-8">
         <Button disabled size="extraSmall">

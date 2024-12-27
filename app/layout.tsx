@@ -14,7 +14,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en">
       <body className={`${fontsVariables} antialiased`}>
         <Topbar />
-        <div className="flex flex-col items-center gap-16 overflow-y-auto py-128">
+        <div className="flex flex-col items-center gap-16 overflow-y-auto py-64">
           {children}
         </div>
       </body>
