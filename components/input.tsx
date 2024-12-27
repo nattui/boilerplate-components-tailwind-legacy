@@ -1,13 +1,9 @@
-import { forwardRef, type InputHTMLAttributes } from "react"
+import type { JSX } from "react"
 
-export interface InputProps
-  extends Omit<InputHTMLAttributes<InputRef>, "size"> {
+type InputProps = JSX.IntrinsicElements["input"] & {
   error?: boolean
   fullWidth?: boolean
-  size?: InputSize
 }
-export type InputRef = HTMLInputElement
-export type InputSize = "medium"
 
 export const inputStyles = {
   base: [
@@ -19,14 +15,16 @@ export const inputStyles = {
     "disabled:cursor-not-allowed",
     "disabled:opacity-50",
     "duration-150",
-    "focus-visible:outline-offset-2",
     "focus-visible:outline-2",
     "focus-visible:outline-crimson-9",
+    "focus-visible:outline-offset-2",
     "focus:border-mauve-a8",
     "font-400",
+    "h-40",
     "hover:border-mauve-a6",
     "outline-none",
     "placeholder:text-mauve-11",
+    "px-12",
     "rounded-6",
     "text-14",
     "text-mauve-12",
@@ -38,32 +36,23 @@ export const inputStyles = {
     "hover:!border-red-a8",
   ].join(" "),
   fullWidth: "w-full",
-  size: {
-    medium: ["px-12", "h-40"].join(" "),
-  },
 } as const
 
-export const Input = forwardRef<InputRef, InputProps>((props, ref) => {
+export default function Input(props: InputProps) {
   const {
     className: customStyles = "",
     error = false,
     fullWidth = false,
-    size = "medium",
     type = "text",
     ...rest
   } = props
 
   const combinedStyles = `
     ${inputStyles.base}
-    ${inputStyles.size[size]}
-    ${fullWidth ? inputStyles.fullWidth : ""}
     ${error ? inputStyles.error : ""}
+    ${fullWidth ? inputStyles.fullWidth : ""}
     ${customStyles}
   `.trim()
 
-  return <input className={combinedStyles} ref={ref} type={type} {...rest} />
-})
-
-Input.displayName = "Input"
-
-export default Input
+  return <input className={combinedStyles} type={type} {...rest} />
+}
