@@ -19,7 +19,6 @@ export default function InputsPage() {
         <Input
           autoFocus
           className="mb-16"
-          fullWidth
           id="email"
           name="email"
           required
@@ -30,7 +29,6 @@ export default function InputsPage() {
         </Label>
         <Input
           className="mb-16"
-          fullWidth
           id="password"
           name="password"
           required
