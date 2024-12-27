@@ -23,6 +23,7 @@ export const inputStyles = {
     "placeholder:text-mauve-11",
     "px-12",
     "rounded-8",
+    "shadow-sm",
     "text-14",
     "text-mauve-12",
     "transition-[border-color,background-color]",
