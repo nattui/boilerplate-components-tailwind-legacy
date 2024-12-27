@@ -3,7 +3,7 @@ import type { JSX } from "react"
 export type LabelProps = JSX.IntrinsicElements["label"]
 
 export const labelStyles = {
-  base: ["w-fit", "text-13"].join(" "),
+  base: ["text-13", "text-mauve-a11", "w-fit"].join(" "),
 } as const
 
 export default function Label(props: LabelProps) {
