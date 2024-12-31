@@ -17,6 +17,7 @@ export const ROUTE = {
 export const MESSAGE = {
   AUTH: {
     SIGNIN: {
+      INVALID_CREDENTIALS: "Invalid credentials.",
       SUCCESS: "You have successfully signed in.",
     },
     SIGNOUT: {
@@ -24,3 +25,5 @@ export const MESSAGE = {
     },
   },
 } as const
+
+export const EXPIRATION_TIME_IN_SECONDS = 31_536_000 // 1 year

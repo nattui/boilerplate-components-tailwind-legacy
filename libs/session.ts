@@ -1,7 +1,7 @@
 "server-only"
 "use server"
 
-import { EXPIRATION_TIME_IN_SECONDS } from "@/app/api/auth/signin/route"
+import { EXPIRATION_TIME_IN_SECONDS } from "@/utils/constants"
 import { type JWTPayload, jwtVerify, SignJWT } from "jose"
 import { cookies as nextCookies } from "next/headers"
 import { cache } from "react"

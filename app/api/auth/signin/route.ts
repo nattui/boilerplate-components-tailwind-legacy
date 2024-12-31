@@ -1,11 +1,12 @@
+import { db } from "@/libs/db"
+import { usersTable } from "@/libs/db/schema"
 import { encrypt } from "@/libs/session"
 import { signInSchema } from "@/libs/validation/sign.schema"
-import { MESSAGE } from "@/utils/constants"
+import { EXPIRATION_TIME_IN_SECONDS, MESSAGE } from "@/utils/constants"
 import { isDevelopment } from "@/utils/is-development"
 import { wait } from "@/utils/wait"
+import { eq } from "drizzle-orm"
 import { cookies as nextCookies } from "next/headers"
-
-export const EXPIRATION_TIME_IN_SECONDS = 31_536_000 // 1 year
 
 export async function POST(request: Request) {
   await wait(1000)
@@ -22,8 +23,19 @@ export async function POST(request: Request) {
   }
   const { email, password } = result.data
 
-  // Sudo code
-  // Mocking successful database authentication check
+  const user = await db
+    .select()
+    .from(usersTable)
+    .where(eq(usersTable.email, email))
+
+  console.log(":::: user:", user)
+
+  if (!user) {
+    return Response.json(
+      { message: MESSAGE.AUTH.SIGNIN.INVALID_CREDENTIALS },
+      { status: 400 },
+    )
+  }
 
   const token = await encrypt({ email, password })
 
