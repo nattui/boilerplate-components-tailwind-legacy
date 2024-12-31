@@ -31,7 +31,7 @@ export const buttonStyles = {
     "focus-visible:outline-crimson-9",
     "focus-visible:outline-offset-2",
     "font-500",
-    "gap-4",
+    "gap-8",
     "items-center",
     "justify-center",
     "outline-none",
