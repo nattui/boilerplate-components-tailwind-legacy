@@ -1,21 +1,24 @@
-import { signIn } from "@/app/(showcase)/inputs/sign-in"
+"use client"
+
 import Button from "@/components/primitives/button"
 import Input from "@/components/primitives/input"
 import Label from "@/components/primitives/label"
 
 export default function InputsPage() {
   return (
-    <form action={signIn} className="flex w-320 flex-col">
+    <form
+      className="flex w-320 flex-col"
+      onSubmit={(event) => event.preventDefault()}
+    >
       <Label className="mb-4" htmlFor="email">
         Email
       </Label>
       <Input
         autoFocus
         className="mb-16"
-        defaultValue="test@test.com"
         id="email"
         name="email"
-        // required
+        required
         type="email"
       />
       <Label className="mb-4" htmlFor="password">
@@ -23,10 +26,9 @@ export default function InputsPage() {
       </Label>
       <Input
         className="mb-16"
-        defaultValue="password"
         id="password"
         name="password"
-        // required
+        required
         type="password"
       />
       <Button fullWidth size="extraLarge" type="submit">

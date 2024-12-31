@@ -12,6 +12,7 @@
   "dependencies": {
     "@phosphor-icons/react": "^2.1.7",
     "@radix-ui/colors": "^3.0.0",
+    "jose": "^5.9.6",
     "next": "15.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
