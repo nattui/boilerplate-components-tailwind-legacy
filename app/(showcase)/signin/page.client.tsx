@@ -32,10 +32,7 @@ export default function SignInClientPage() {
     setIsLoading(true)
     try {
       const response = await fetch(API.AUTH.SIGNIN, {
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+        body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },
         method: "POST",
       })
@@ -62,6 +59,7 @@ export default function SignInClientPage() {
           Email
         </Label>
         <Input
+          autoComplete="email"
           autoFocus
           className="mb-16"
           defaultValue="test@test.com"
@@ -74,6 +72,7 @@ export default function SignInClientPage() {
           Password
         </Label>
         <Input
+          autoComplete="current-password"
           className="mb-16"
           defaultValue="password"
           id="password"
