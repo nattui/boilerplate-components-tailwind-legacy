@@ -1,5 +1,6 @@
 import { NavLink } from "@/components/web/nav-link"
 import { getIsAuthenticated } from "@/libs/session"
+import { ROUTE } from "@/utils/constants"
 import ButtonSignOut from "../button-sign-out"
 
 export default async function Topbar() {
@@ -7,10 +8,10 @@ export default async function Topbar() {
 
   return (
     <div className="flex flex-wrap items-center px-64 py-32">
-      <NavLink href="/">Home</NavLink>
-      <NavLink href="/buttons">Buttons</NavLink>
-      <NavLink href="/inputs">Inputs</NavLink>
-      {!isAuthenticated && <NavLink href="/signin">Sign in</NavLink>}
+      <NavLink href={ROUTE.HOME}>Home</NavLink>
+      <NavLink href={ROUTE.BUTTONS}>Buttons</NavLink>
+      <NavLink href={ROUTE.INPUTS}>Inputs</NavLink>
+      {!isAuthenticated && <NavLink href={ROUTE.SIGNIN}>Sign in</NavLink>}
       {isAuthenticated && <ButtonSignOut className="ml-8" />}
     </div>
   )

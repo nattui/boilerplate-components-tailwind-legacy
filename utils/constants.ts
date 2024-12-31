@@ -6,6 +6,13 @@ export const API = {
   },
 } as const
 
+export const ROUTE = {
+  BUTTONS: "/buttons",
+  HOME: "/",
+  INPUTS: "/inputs",
+  SIGNIN: "/signin",
+} as const
+
 export const MESSAGE = {
   AUTH: {
     SIGNIN: {

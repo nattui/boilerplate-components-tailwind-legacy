@@ -3,7 +3,7 @@
 import Button from "@/components/primitives/button"
 import Input from "@/components/primitives/input"
 import Label from "@/components/primitives/label"
-import { API } from "@/utils/constants"
+import { API, ROUTE } from "@/utils/constants"
 import { SignIn } from "@phosphor-icons/react"
 import { useRouter } from "next/navigation"
 import { type FormEvent, useState } from "react"
@@ -35,7 +35,7 @@ export default function SignInClientPage() {
       const data = await response.json()
       console.log(":::: data:", data)
 
-      router.push("/")
+      router.push(ROUTE.HOME)
       router.refresh()
     } catch (error) {
       console.log(error)

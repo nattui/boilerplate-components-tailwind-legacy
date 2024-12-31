@@ -1,7 +1,7 @@
 "use client"
 
 import Button from "@/components/primitives/button"
-import { API } from "@/utils/constants"
+import { API, ROUTE } from "@/utils/constants"
 import { SignOut } from "@phosphor-icons/react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
@@ -19,7 +19,7 @@ export default function ButtonSignOut({ className }: ButtonSignOutProps) {
     setIsLoading(true)
     try {
       await fetch(API.AUTH.SIGNOUT, { method: "POST" })
-      router.push("/")
+      router.push(ROUTE.SIGNIN)
       router.refresh()
     } catch (error) {
       console.error(error)
