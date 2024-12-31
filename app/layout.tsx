@@ -4,6 +4,8 @@ import { fontsVariables } from "@/app/fonts"
 import Topbar from "@/components/web/topbar"
 import "@/styles/global.css"
 
+export const dynamic = "force-dynamic"
+
 export const metadata: Metadata = {
   description: "Boilerplate Components",
   title: "Boilerplate Components",
