@@ -1,0 +1,18 @@
+import { defineConfig } from "drizzle-kit"
+
+// ====================================================== /
+// :: Notes ::
+// pnpm run db:generate
+// pnpm run db:migrate
+// ====================================================== /
+
+if (!process.env.DATABASE_URL) {
+  throw new Error("`DATABASE_URL` environment variable is required.")
+}
+
+export default defineConfig({
+  dbCredentials: { url: process.env.DATABASE_URL },
+  dialect: "postgresql",
+  out: "./libs/db/migrations",
+  schema: "./libs/db/schema.ts",
+})
