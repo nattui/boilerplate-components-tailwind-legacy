@@ -5,3 +5,5 @@ export const users = pgTable("users", {
   id: serial("id").primaryKey(),
   phone: varchar("phone", { length: 100 }),
 })
+
+export type User = typeof users.$inferSelect

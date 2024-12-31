@@ -11,6 +11,7 @@ export const ROUTE = {
   HOME: "/",
   INPUTS: "/inputs",
   SIGNIN: "/signin",
+  USERS: "/users",
 } as const
 
 export const MESSAGE = {
