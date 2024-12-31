@@ -62,7 +62,7 @@ export default function SignInClientPage() {
           autoComplete="email"
           autoFocus
           className="mb-16"
-          defaultValue="test@test.com"
+          defaultValue="test@example.com"
           id="email"
           name="email"
           required
@@ -74,7 +74,7 @@ export default function SignInClientPage() {
         <Input
           autoComplete="current-password"
           className="mb-16"
-          defaultValue="password"
+          defaultValue="123123123"
           id="password"
           minLength={8}
           name="password"
