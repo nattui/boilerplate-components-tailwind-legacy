@@ -8,7 +8,7 @@ import { encrypt } from "@/libs/session"
 import { signInSchema } from "@/libs/validation/sign.schema"
 import { EXPIRATION_TIME_IN_SECONDS, MESSAGE } from "@/utils/constants"
 import { isDevelopment } from "@/utils/is-development"
-// import { compare } from "bcrypt"
+import { hash } from "bcrypt"
 import { and, eq } from "drizzle-orm"
 import { cookies as nextCookies } from "next/headers"
 
@@ -54,7 +54,10 @@ export async function POST(request: Request) {
     )
   }
 
+  const hashedPassword = await hash(password, 10)
+
   // TODO: Transaction
+  // Create user
   const [user] = await db
     .insert(usersTable)
     .values({
@@ -73,7 +76,7 @@ export async function POST(request: Request) {
     .returning({ id: authProvidersTable.id })
 
   await db.insert(authCredentialsTable).values({
-    hashPassword: password,
+    hashPassword: hashedPassword,
     providerId: provider.id,
   })
 
