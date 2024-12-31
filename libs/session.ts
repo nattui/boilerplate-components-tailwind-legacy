@@ -6,9 +6,7 @@ import { cookies as nextCookies } from "next/headers"
 import { cache } from "react"
 
 // Generated with `openssl rand -hex 32`
-const secret = new TextEncoder().encode(
-  "cc7e0d44fd473002f1c42167459001140ec6389b7353f8088f4d9a95f2f596f2",
-)
+const secret = new TextEncoder().encode(process.env.AUTH_SECRET)
 
 export async function decrypt(input: string): Promise<JWTPayload> {
   const result = await jwtVerify(input, secret, {
