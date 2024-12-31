@@ -10,11 +10,11 @@ import {
 
 export const usersTable = pgTable("users", {
   createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
-  email: varchar("email", { length: 32 }).notNull(),
+  email: varchar("email", { length: 100 }).unique().notNull(),
   id: serial("id").primaryKey(),
   name: varchar("name", { length: 32 }).notNull(),
   updatedAt: timestamp("updated_at", { mode: "date" }).defaultNow().notNull(),
-  username: varchar("username", { length: 32 }).notNull(),
+  username: varchar("username", { length: 32 }).unique().notNull(),
 })
 
 export const providerEnum = pgEnum("provider", ["credentials", "social"])
@@ -49,7 +49,11 @@ export const authSocialTable = pgTable("auth_social", {
   updatedAt: timestamp("updated_at", { mode: "date" }).defaultNow().notNull(),
 })
 
-export type AuthCredentialsTable = typeof authCredentialsTable.$inferSelect
-export type AuthProvidersTable = typeof authProvidersTable.$inferSelect
-export type AuthSocialTable = typeof authSocialTable.$inferSelect
-export type UsersTable = typeof usersTable.$inferSelect
+export type AuthCredentials = typeof authCredentialsTable.$inferSelect
+export type AuthProviders = typeof authProvidersTable.$inferSelect
+export type AuthSocial = typeof authSocialTable.$inferSelect
+export type NewAuthCredentials = typeof authCredentialsTable.$inferInsert
+export type NewAuthProviders = typeof authProvidersTable.$inferInsert
+export type NewAuthSocial = typeof authSocialTable.$inferInsert
+export type NewUser = typeof usersTable.$inferInsert
+export type Users = typeof usersTable.$inferSelect

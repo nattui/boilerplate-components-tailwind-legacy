@@ -27,6 +27,9 @@ export const MESSAGE = {
     SIGNOUT: {
       SUCCESS: "You have successfully signed out.",
     },
+    SIGNUP: {
+      EMAIL_ALREADY_EXISTS: "An account with this email already exists.",
+    },
   },
 } as const
 
