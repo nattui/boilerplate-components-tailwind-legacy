@@ -1,8 +1,8 @@
 import { db } from "@/libs/db"
-import { users as usersSchema } from "@/libs/db/schema"
+import { usersTable } from "@/libs/db/schema"
 
 export default async function UsersPage() {
-  const users = await db.select().from(usersSchema)
+  const users = await db.select().from(usersTable)
 
   return (
     <div className="flex flex-col gap-32 p-32">
@@ -12,9 +12,17 @@ export default async function UsersPage() {
           key={user.id}
         >
           <div>
-            {user.id} {user.fullName}
+            {user.id} {user.name}
           </div>
-          <div>{user.phone}</div>
+          <div>
+            {user.createdAt.toLocaleDateString("en-US", {
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              month: "long",
+              year: "numeric",
+            })}
+          </div>
         </div>
       ))}
     </div>
