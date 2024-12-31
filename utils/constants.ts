@@ -3,7 +3,8 @@ export const API = {
     SIGNIN_CREDENTIALS: "/api/auth/signin/credentials",
     SIGNIN_SOCIAL: "/api/auth/signin/social",
     SIGNOUT: "/api/auth/signout",
-    SIGNUP: "/api/auth/signup",
+    SIGNUP_CREDENTIALS: "/api/auth/signup/credentials",
+    SIGNUP_SOCIAL: "/api/auth/signup/social",
   },
 } as const
 
@@ -12,6 +13,7 @@ export const ROUTE = {
   HOME: "/",
   INPUTS: "/inputs",
   SIGNIN: "/signin",
+  SIGNUP: "/signup",
   USERS: "/users",
 } as const
 

@@ -9,7 +9,7 @@ import { SignIn } from "@phosphor-icons/react"
 import { useRouter } from "next/navigation"
 import { type FormEvent, useState } from "react"
 
-export default function SignInClientPage() {
+export default function SignUpClientPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string>()
 
@@ -33,7 +33,7 @@ export default function SignInClientPage() {
     }
 
     try {
-      const response = await fetch(API.AUTH.SIGNIN_CREDENTIALS, {
+      const response = await fetch(API.AUTH.SIGNUP_CREDENTIALS, {
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },
         method: "POST",
@@ -56,6 +56,7 @@ export default function SignInClientPage() {
 
   return (
     <div className="flex flex-col">
+      <h1 className="mb-16 text-24 font-600">Sign up</h1>
       {errorMessage && <p className="mb-16 text-red-9">{errorMessage}</p>}
       <form className="flex w-320 flex-col" onSubmit={handleSubmit}>
         <Label className="mb-4" htmlFor="email">
