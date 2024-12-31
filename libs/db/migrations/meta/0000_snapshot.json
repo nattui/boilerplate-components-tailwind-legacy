@@ -1,11 +1,116 @@
 {
-  "id": "8360fc0b-2dcf-4ea9-9f8a-61ba84f1746d",
+  "id": "8d7ab221-493c-4b4d-b4f7-ee44ed1e37f7",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "public.password_auth": {
-      "name": "password_auth",
+    "public.auth_credentials": {
+      "name": "auth_credentials",
+      "schema": "",
+      "columns": {
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "hash_password": {
+          "name": "hash_password",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "provider_id": {
+          "name": "provider_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "auth_credentials_provider_id_auth_providers_id_fk": {
+          "name": "auth_credentials_provider_id_auth_providers_id_fk",
+          "tableFrom": "auth_credentials",
+          "tableTo": "auth_providers",
+          "columnsFrom": [
+            "provider_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.auth_providers": {
+      "name": "auth_providers",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "provider": {
+          "name": "provider",
+          "type": "provider",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "auth_providers_user_id_users_id_fk": {
+          "name": "auth_providers_user_id_users_id_fk",
+          "tableFrom": "auth_providers",
+          "tableTo": "users",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.auth_social": {
+      "name": "auth_social",
       "schema": "",
       "columns": {
         "created_at": {
@@ -21,27 +126,35 @@
           "primaryKey": true,
           "notNull": true
         },
-        "password": {
-          "name": "password",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "user_id": {
-          "name": "user_id",
+        "provider_id": {
+          "name": "provider_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": true
+        },
+        "social": {
+          "name": "social",
+          "type": "social",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
         }
       },
       "indexes": {},
       "foreignKeys": {
-        "password_auth_user_id_users_id_fk": {
-          "name": "password_auth_user_id_users_id_fk",
-          "tableFrom": "password_auth",
-          "tableTo": "users",
+        "auth_social_provider_id_auth_providers_id_fk": {
+          "name": "auth_social_provider_id_auth_providers_id_fk",
+          "tableFrom": "auth_social",
+          "tableTo": "auth_providers",
           "columnsFrom": [
-            "user_id"
+            "provider_id"
           ],
           "columnsTo": [
             "id"
@@ -67,6 +180,12 @@
           "notNull": true,
           "default": "now()"
         },
+        "email": {
+          "name": "email",
+          "type": "varchar(32)",
+          "primaryKey": false,
+          "notNull": true
+        },
         "id": {
           "name": "id",
           "type": "serial",
@@ -75,6 +194,19 @@
         },
         "name": {
           "name": "name",
+          "type": "varchar(32)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "username": {
+          "name": "username",
           "type": "varchar(32)",
           "primaryKey": false,
           "notNull": true
@@ -89,7 +221,25 @@
       "isRLSEnabled": false
     }
   },
-  "enums": {},
+  "enums": {
+    "public.provider": {
+      "name": "provider",
+      "schema": "public",
+      "values": [
+        "credentials",
+        "social"
+      ]
+    },
+    "public.social": {
+      "name": "social",
+      "schema": "public",
+      "values": [
+        "google",
+        "facebook",
+        "github"
+      ]
+    }
+  },
   "schemas": {},
   "sequences": {},
   "roles": {},
