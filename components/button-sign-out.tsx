@@ -5,7 +5,11 @@ import { API } from "@/utils/constants"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
-export default function SignOutClientPage() {
+interface ButtonSignOutProps {
+  className?: string
+}
+
+export default function ButtonSignOut({ className }: ButtonSignOutProps) {
   const [isLoading, setIsLoading] = useState(false)
 
   const router = useRouter()
@@ -22,11 +26,8 @@ export default function SignOutClientPage() {
     }
   }
   return (
-    <div className="mx-auto mt-64 w-320">
-      <h1 className="mb-16 text-32">Sign out</h1>
-      <Button disabled={isLoading} onClick={signOut}>
-        {isLoading ? "Loading..." : "Sign out"}
-      </Button>
-    </div>
+    <Button className={className} disabled={isLoading} onClick={signOut}>
+      {isLoading ? "Loading..." : "Sign out"}
+    </Button>
   )
 }

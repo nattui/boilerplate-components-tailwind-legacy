@@ -1,5 +1,6 @@
 import { NavLink } from "@/components/web/nav-link"
 import { getIsAuthenticated } from "@/libs/session"
+import ButtonSignOut from "../button-sign-out"
 
 export default async function Topbar() {
   const isAuthenticated = await getIsAuthenticated()
@@ -10,7 +11,7 @@ export default async function Topbar() {
       <NavLink href="/buttons">Buttons</NavLink>
       <NavLink href="/inputs">Inputs</NavLink>
       {!isAuthenticated && <NavLink href="/signin">Sign in</NavLink>}
-      {isAuthenticated && <NavLink href="/signout">Sign out</NavLink>}
+      {isAuthenticated && <ButtonSignOut className="ml-8" />}
     </div>
   )
 }
