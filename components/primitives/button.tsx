@@ -31,6 +31,7 @@ export const buttonStyles = {
     "focus-visible:outline-crimson-9",
     "focus-visible:outline-offset-2",
     "font-500",
+    "gap-8",
     "items-center",
     "justify-center",
     "outline-none",
@@ -42,11 +43,11 @@ export const buttonStyles = {
   ].join(" "),
   fullWidth: "w-full",
   size: {
-    extraLarge: ["px-20", "gap-12", "h-44"].join(" "),
-    extraSmall: ["px-6", "gap-4", "h-28"].join(" "),
-    large: ["px-16", "gap-10", "h-40"].join(" "),
-    medium: ["px-12", "gap-8", "h-36"].join(" "),
-    small: ["px-8", "gap-6", "h-32"].join(" "),
+    extraLarge: ["px-20", "h-44"].join(" "),
+    extraSmall: ["px-6", "h-28"].join(" "),
+    large: ["px-16", "h-40"].join(" "),
+    medium: ["px-12", "h-36"].join(" "),
+    small: ["px-8", "h-32"].join(" "),
   },
   variant: {
     primary: [
