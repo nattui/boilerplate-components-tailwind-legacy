@@ -108,9 +108,9 @@ export default function Button(props: ButtonProps) {
   return (
     <button
       className={combinedStyles}
+      disabled={disabled || isLoading}
       type={type}
       {...rest}
-      disabled={disabled || isLoading}
     >
       {!isLoading && leadingVisual}
       {isLoading && <ButtonSpinner />}
