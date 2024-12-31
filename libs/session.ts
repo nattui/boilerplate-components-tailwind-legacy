@@ -1,11 +1,12 @@
 "server-only"
 "use server"
 
+import { EXPIRATION_TIME_IN_SECONDS } from "@/app/api/auth/signin/route"
 import { type JWTPayload, jwtVerify, SignJWT } from "jose"
 import { cookies as nextCookies } from "next/headers"
 import { cache } from "react"
 
-// Generated with `openssl rand -hex 32`
+// Generated secret with `openssl rand -hex 32`
 const secret = new TextEncoder().encode(process.env.AUTH_SECRET)
 
 export async function decrypt(input: string): Promise<JWTPayload> {
@@ -19,7 +20,7 @@ export async function encrypt(payload: JWTPayload): Promise<string> {
   const jwt = await new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime("1d") // TODO: Change exp time
+    .setExpirationTime(EXPIRATION_TIME_IN_SECONDS)
     .sign(secret)
   return jwt
 }

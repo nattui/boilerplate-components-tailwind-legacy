@@ -5,6 +5,8 @@ import { isDevelopment } from "@/utils/is-development"
 import { wait } from "@/utils/wait"
 import { cookies as nextCookies } from "next/headers"
 
+export const EXPIRATION_TIME_IN_SECONDS = 31_536_000 // 1 year
+
 export async function POST(request: Request) {
   await wait(1000)
 
@@ -25,12 +27,10 @@ export async function POST(request: Request) {
 
   const token = await encrypt({ email, password })
 
-  const YEAR_IN_SECONDS = 31_536_000
-
   const cookies = await nextCookies()
   cookies.set({
     httpOnly: true,
-    maxAge: YEAR_IN_SECONDS,
+    maxAge: EXPIRATION_TIME_IN_SECONDS,
     name: "session",
     path: "/",
     priority: "medium",
