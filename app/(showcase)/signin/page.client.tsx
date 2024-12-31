@@ -18,6 +18,8 @@ export default function SignInClientPage() {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
+    setIsLoading(true)
+
     const formData = new FormData(event.target as HTMLFormElement)
     const email = formData.get("email") as string
     const password = formData.get("password") as string
@@ -26,10 +28,10 @@ export default function SignInClientPage() {
     if (!result.success) {
       const error = result.error.flatten().fieldErrors
       setErrorMessage(error.email?.[0] || error.password?.[0])
+      setIsLoading(false)
       return
     }
 
-    setIsLoading(true)
     try {
       const response = await fetch(API.AUTH.SIGNIN, {
         body: JSON.stringify({ email, password }),
@@ -40,6 +42,7 @@ export default function SignInClientPage() {
 
       if (!response.ok) {
         setErrorMessage(data.message)
+        setIsLoading(false)
         return
       }
 

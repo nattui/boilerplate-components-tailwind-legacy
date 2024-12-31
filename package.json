@@ -16,6 +16,7 @@
   "dependencies": {
     "@phosphor-icons/react": "^2.1.7",
     "@radix-ui/colors": "^3.0.0",
+    "bcrypt": "^5.1.1",
     "drizzle-orm": "^0.38.3",
     "jose": "^5.9.6",
     "next": "15.1.2",
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
     "@nattui/tailwind-theme-config": "0.0.1-alpha.14",
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20.17.10",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",

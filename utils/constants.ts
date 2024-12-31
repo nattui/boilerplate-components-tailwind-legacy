@@ -17,7 +17,8 @@ export const ROUTE = {
 export const MESSAGE = {
   AUTH: {
     SIGNIN: {
-      INVALID_CREDENTIALS: "Invalid credentials.",
+      INVALID_CREDENTIALS:
+        "Please check your email and password and try again.",
       SUCCESS: "You have successfully signed in.",
     },
     SIGNOUT: {

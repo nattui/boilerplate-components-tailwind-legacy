@@ -1,10 +1,15 @@
 import { db } from "@/libs/db"
-import { usersTable } from "@/libs/db/schema"
+import {
+  authCredentialsTable,
+  authProvidersTable,
+  usersTable,
+} from "@/libs/db/schema"
 import { encrypt } from "@/libs/session"
 import { signInSchema } from "@/libs/validation/sign.schema"
 import { EXPIRATION_TIME_IN_SECONDS, MESSAGE } from "@/utils/constants"
 import { isDevelopment } from "@/utils/is-development"
-import { eq } from "drizzle-orm"
+import { compare } from "bcrypt"
+import { and, eq } from "drizzle-orm"
 import { cookies as nextCookies } from "next/headers"
 
 export async function POST(request: Request) {
@@ -20,15 +25,38 @@ export async function POST(request: Request) {
     )
   }
 
-  // Get user from database
   const { email, password } = result.data
 
+  // Get user from database
   const [user] = await db
-    .select()
+    .select({
+      email: usersTable.email,
+      hashPassword: authCredentialsTable.hashPassword,
+      id: usersTable.id,
+    })
     .from(usersTable)
-    .where(eq(usersTable.email, email))
+    .innerJoin(authProvidersTable, eq(authProvidersTable.userId, usersTable.id))
+    .innerJoin(
+      authCredentialsTable,
+      eq(authCredentialsTable.providerId, authProvidersTable.id),
+    )
+    .where(
+      and(
+        eq(usersTable.email, email),
+        eq(authProvidersTable.provider, "credentials"),
+      ),
+    )
 
   if (!user) {
+    return Response.json(
+      { message: MESSAGE.AUTH.SIGNIN.INVALID_CREDENTIALS },
+      { status: 400 },
+    )
+  }
+
+  // Check if password is correct
+  const isPasswordCorrect = await compare(password, user.hashPassword)
+  if (!isPasswordCorrect) {
     return Response.json(
       { message: MESSAGE.AUTH.SIGNIN.INVALID_CREDENTIALS },
       { status: 400 },
