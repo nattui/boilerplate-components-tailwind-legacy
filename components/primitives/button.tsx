@@ -1,8 +1,10 @@
 import type { JSX, ReactNode } from "react"
+import ButtonSpinner from "@/components/primitives/button-spinner"
 
 export type ButtonProps = JSX.IntrinsicElements["button"] & {
   children?: string
   fullWidth?: boolean
+  isLoading?: boolean
   leadingVisual?: ReactNode
   size?: ButtonSize
   trailingVisual?: ReactNode
@@ -81,7 +83,9 @@ export default function Button(props: ButtonProps) {
   const {
     children = "",
     className: customStyles = "",
+    disabled = false,
     fullWidth = false,
+    isLoading = false,
     leadingVisual,
     size = "medium",
     trailingVisual,
@@ -101,8 +105,14 @@ export default function Button(props: ButtonProps) {
     .trim()
 
   return (
-    <button className={combinedStyles} type={type} {...rest}>
-      {leadingVisual}
+    <button
+      className={combinedStyles}
+      type={type}
+      {...rest}
+      disabled={disabled || isLoading}
+    >
+      {!isLoading && leadingVisual}
+      {isLoading && <ButtonSpinner />}
       <span>{children}</span>
       {trailingVisual}
     </button>

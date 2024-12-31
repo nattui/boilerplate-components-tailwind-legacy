@@ -2,6 +2,7 @@
 
 import Button from "@/components/primitives/button"
 import { API } from "@/utils/constants"
+import { SignOut } from "@phosphor-icons/react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
@@ -26,8 +27,13 @@ export default function ButtonSignOut({ className }: ButtonSignOutProps) {
     }
   }
   return (
-    <Button className={className} disabled={isLoading} onClick={signOut}>
-      {isLoading ? "Loading..." : "Sign out"}
+    <Button
+      className={className}
+      isLoading={isLoading}
+      leadingVisual={<SignOut size={16} />}
+      onClick={signOut}
+    >
+      Sign out
     </Button>
   )
 }
