@@ -1,4 +1,5 @@
 import { encrypt } from "@/libs/session"
+import { signInSchema } from "@/libs/validation/sign.schema"
 import { MESSAGE } from "@/utils/constants"
 import { isDevelopment } from "@/utils/is-development"
 import { wait } from "@/utils/wait"
@@ -7,8 +8,17 @@ import { cookies as nextCookies } from "next/headers"
 export async function POST(request: Request) {
   await wait(1000)
 
-  // TODO: Zod validation
-  const { email, password } = await request.json()
+  const body = await request.json()
+
+  const result = signInSchema.safeParse(body)
+  if (!result.success) {
+    const error = result.error.flatten().fieldErrors
+    return Response.json(
+      { message: error.email?.[0] || error.password?.[0] },
+      { status: 400 },
+    )
+  }
+  const { email, password } = result.data
 
   // Sudo code
   // Mocking successful database authentication check
