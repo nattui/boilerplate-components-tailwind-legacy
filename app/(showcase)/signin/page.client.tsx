@@ -33,7 +33,7 @@ export default function SignInClientPage() {
     }
 
     try {
-      const response = await fetch(API.AUTH.SIGNIN, {
+      const response = await fetch(API.AUTH.SIGNIN_CREDENTIALS, {
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },
         method: "POST",

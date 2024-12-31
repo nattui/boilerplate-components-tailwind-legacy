@@ -1,6 +1,7 @@
 export const API = {
   AUTH: {
-    SIGNIN: "/api/auth/signin",
+    SIGNIN_CREDENTIALS: "/api/auth/signin/credentials",
+    SIGNIN_SOCIAL: "/api/auth/signin/social",
     SIGNOUT: "/api/auth/signout",
     SIGNUP: "/api/auth/signup",
   },
