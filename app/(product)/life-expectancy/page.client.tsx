@@ -137,7 +137,7 @@ function Dashboard({ dashboard, profile }: DashboardProps) {
         <span className="font-500 text-mauve-12">
           {totalLifeExpectancyYears}
         </span>{" "}
-        years.
+        years (The World Bank).
       </p>
 
       <p>
