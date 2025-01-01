@@ -1,22 +1,27 @@
 "use client"
 
-import {
-  getLifeExpectancyProfile,
-  type LifeExpectancyProfile,
-} from "@/actions/get-life-expectancy-profile"
 import Button from "@/components/primitives/button"
 import Input from "@/components/primitives/input"
 import Label from "@/components/primitives/label"
 import Select from "@/components/primitives/select"
+import { API } from "@/utils/constants"
 import { FloppyDisk } from "@phosphor-icons/react"
 import { FormEvent, useEffect, useState } from "react"
 
+interface LifeExpectancyProfile {
+  birthday: string
+  country: string
+}
+
 export default function LifeExpectancyClientPage() {
   const [profile, setProfile] = useState<LifeExpectancyProfile | undefined>()
+  const [birthdayLoading, setBirthdayLoading] = useState(false)
+  const [countryLoading, setCountryLoading] = useState(false)
 
   useEffect(() => {
     async function fetchProfile() {
-      const profile = await getLifeExpectancyProfile()
+      const response = await fetch(API.PROFILE.LIFE_EXPECTANCY)
+      const profile = await response.json()
       setProfile(profile)
     }
     fetchProfile()
@@ -28,7 +33,19 @@ export default function LifeExpectancyClientPage() {
     const formData = new FormData(event.target as HTMLFormElement)
     const birthday = formData.get("birthday") as string
 
-    console.log(":::: birthday:", birthday)
+    setBirthdayLoading(true)
+
+    const response = await fetch(API.PROFILE.BIRTHDAY, {
+      body: JSON.stringify({ birthday }),
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+    })
+    await response.json()
+
+    setProfile((prev) => ({
+      birthday,
+      country: prev?.country ?? "",
+    }))
   }
 
   async function onCountrySubmit(event: FormEvent<HTMLFormElement>) {
@@ -37,13 +54,24 @@ export default function LifeExpectancyClientPage() {
     const formData = new FormData(event.target as HTMLFormElement)
     const country = formData.get("country") as string
 
-    console.log(":::: country:", country)
+    setCountryLoading(true)
+
+    const response = await fetch(API.PROFILE.COUNTRY, {
+      body: JSON.stringify({ country }),
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+    })
+    await response.json()
+
+    setProfile((prev) => ({
+      birthday: prev?.birthday ?? "",
+      country,
+    }))
   }
 
   return (
     <div className="flex flex-col">
       <h1 className="mb-16 text-24 font-600">Life expectancy</h1>
-      {/* {errorMessage && <p className="mb-16 text-red-9">{errorMessage}</p>} */}
 
       {!profile?.birthday && (
         <form className="mb-32 flex w-320 flex-col" onSubmit={onBirthdaySubmit}>
@@ -60,6 +88,7 @@ export default function LifeExpectancyClientPage() {
           />
           <Button
             className="ml-auto"
+            isLoading={birthdayLoading}
             leadingVisual={<FloppyDisk size={16} />}
             size="small"
             type="submit"
@@ -84,6 +113,7 @@ export default function LifeExpectancyClientPage() {
           </Select>
           <Button
             className="ml-auto"
+            isLoading={countryLoading}
             leadingVisual={<FloppyDisk size={16} />}
             size="small"
             type="submit"

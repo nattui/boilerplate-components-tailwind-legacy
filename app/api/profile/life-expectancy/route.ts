@@ -1,18 +1,9 @@
-"use server"
-
 import { db } from "@/libs/db"
 import { userProfileTable, usersTable } from "@/libs/db/schema"
 import { getUser } from "@/libs/session"
 import { eq } from "drizzle-orm"
 
-export interface LifeExpectancyProfile {
-  birthday: null | string
-  country: null | string
-}
-
-type LifeExpectancyProfileFn = Promise<LifeExpectancyProfile | undefined>
-
-export async function getLifeExpectancyProfile(): LifeExpectancyProfileFn {
+export async function GET() {
   const user = await getUser()
   if (!user) return
 
@@ -25,5 +16,5 @@ export async function getLifeExpectancyProfile(): LifeExpectancyProfileFn {
     .innerJoin(userProfileTable, eq(userProfileTable.userId, usersTable.id))
     .where(eq(usersTable.id, user.id))
 
-  return profile
+  return Response.json({ profile })
 }
