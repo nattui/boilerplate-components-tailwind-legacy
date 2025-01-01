@@ -6,6 +6,7 @@ import Input from "@/components/primitives/input"
 import Label from "@/components/primitives/label"
 import { SignIn } from "@phosphor-icons/react"
 import { useActionState } from "react"
+
 const initialState = { message: "" }
 
 export default function SignUpClientPage() {
@@ -17,7 +18,9 @@ export default function SignUpClientPage() {
   return (
     <div className="flex flex-col">
       <h1 className="mb-16 text-24 font-600">Sign up</h1>
+
       {state.message && <p className="mb-16 text-red-9">{state.message}</p>}
+
       <form action={formAction} className="flex w-320 flex-col">
         <Label className="mb-4" htmlFor="email">
           Email
