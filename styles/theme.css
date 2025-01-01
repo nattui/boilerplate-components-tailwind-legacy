@@ -80,10 +80,29 @@ code {
   background: var(--crimson-a10);
   color: var(--mauve-2);
 }
+/* Input date */
+input::-webkit-datetime-edit-day-field:focus,
+input::-webkit-datetime-edit-month-field:focus,
+input::-webkit-datetime-edit-year-field:focus {
+  background: var(--crimson-a10);
+  color: var(--mauve-2);
+}
 
 .dark ::-moz-selection {
   color: var(--mauve-1);
 }
 .dark ::selection {
   color: var(--mauve-1);
+}
+.dark input::-webkit-datetime-edit-day-field:focus,
+.dark input::-webkit-datetime-edit-month-field:focus,
+.dark input::-webkit-datetime-edit-year-field:focus {
+  background: var(--crimson-a10);
+  color: var(--mauve-2);
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
