@@ -11,10 +11,20 @@ export async function POST(request: Request) {
   const user = await getUser()
   if (!user) return
 
-  await db
-    .update(userProfileTable)
-    .set({ country })
+  const [profile] = await db
+    .select()
+    .from(userProfileTable)
     .where(eq(userProfileTable.userId, user.id))
+
+  await (profile
+    ? db
+        .update(userProfileTable)
+        .set({ country })
+        .where(eq(userProfileTable.id, profile.id))
+    : db.insert(userProfileTable).values({
+        country,
+        userId: user.id,
+      }))
 
   return Response.json({ message: "Country updated" })
 }

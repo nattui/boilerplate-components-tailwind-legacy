@@ -24,6 +24,7 @@ export const userProfileTable = pgTable("user_profile", {
   country: varchar("country", { length: 32 }),
   id: serial("id").primaryKey(),
   userId: integer("user_id")
+    .unique()
     .notNull()
     .references(() => usersTable.id, { onDelete: "cascade" }),
 })

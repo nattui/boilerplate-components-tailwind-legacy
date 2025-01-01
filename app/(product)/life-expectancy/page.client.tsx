@@ -21,8 +21,8 @@ export default function LifeExpectancyClientPage() {
   useEffect(() => {
     async function fetchProfile() {
       const response = await fetch(API.PROFILE.LIFE_EXPECTANCY)
-      const profile = await response.json()
-      setProfile(profile)
+      const data = await response.json()
+      setProfile(data.profile)
     }
     fetchProfile()
   }, [])
@@ -122,6 +122,33 @@ export default function LifeExpectancyClientPage() {
           </Button>
         </form>
       )}
+
+      {profile?.birthday && profile?.country && <Dashboard profile={profile} />}
+    </div>
+  )
+}
+
+function Dashboard({ profile }: { profile: LifeExpectancyProfile }) {
+  function calculateAge(birthday: string): number {
+    const birthDate = new Date(birthday)
+    const today = new Date()
+    let age = today.getFullYear() - birthDate.getFullYear()
+    const monthDiff = today.getMonth() - birthDate.getMonth()
+
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birthDate.getDate())
+    ) {
+      age--
+    }
+
+    return age
+  }
+
+  return (
+    <div className="flex flex-col">
+      <p>My age is {calculateAge(profile.birthday)}</p>
+      <p>Country: {profile.country}</p>
     </div>
   )
 }
