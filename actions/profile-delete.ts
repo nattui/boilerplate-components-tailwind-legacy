@@ -6,7 +6,7 @@ import { getUser } from "@/libs/session"
 import { eq } from "drizzle-orm"
 import { revalidatePath } from "next/dist/server/web/spec-extension/revalidate"
 
-export async function deleteUserProfile() {
+export async function profileDelete() {
   const user = await getUser()
   if (!user) return
 

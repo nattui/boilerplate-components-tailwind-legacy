@@ -10,7 +10,10 @@ export default async function LifeExpectancyPage() {
   if (!isAuthenticated) redirect(ROUTE.SIGNIN)
 
   const profile = await profileLifeExpectancy()
-  const dashboard = await dashboardLifeExpectancy(profile?.country ?? undefined)
+  let dashboard
+  if (profile?.country) {
+    dashboard = await dashboardLifeExpectancy(profile.country)
+  }
 
   return <LifeExpectancyClientPage dashboard={dashboard} profile={profile} />
 }

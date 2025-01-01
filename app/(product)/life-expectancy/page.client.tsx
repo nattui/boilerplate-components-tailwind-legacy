@@ -1,8 +1,8 @@
 "use client"
 
-import { deleteUserProfile } from "@/actions/delete-user-profile"
 import { profileBirthday } from "@/actions/profile-birthday"
 import { profileCountry } from "@/actions/profile-country"
+import { profileDelete } from "@/actions/profile-delete"
 import Button from "@/components/primitives/button"
 import Input from "@/components/primitives/input"
 import Label from "@/components/primitives/label"
@@ -98,10 +98,7 @@ export default function LifeExpectancyClientPage({
 }
 
 function Dashboard({ dashboard, profile }: DashboardProps) {
-  const [, formAction, pending] = useActionState(
-    deleteUserProfile,
-    initialState,
-  )
+  const [, formAction, pending] = useActionState(profileDelete, initialState)
 
   function calculateAge(birthday: string): number {
     const birthDate = new Date(birthday)
