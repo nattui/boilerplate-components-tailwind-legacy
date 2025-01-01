@@ -7,7 +7,7 @@ export default async function Topbar() {
   const isAuthenticated = await getIsAuthenticated()
 
   return (
-    <div className="flex flex-wrap items-center px-64 py-32">
+    <div className="mx-auto flex min-h-[80px] w-full flex-wrap items-center justify-center gap-y-16 p-16">
       <NavLink href={ROUTE.HOME}>Home</NavLink>
       <NavLink href={ROUTE.BUTTONS}>Buttons</NavLink>
       <NavLink href={ROUTE.INPUTS}>Inputs</NavLink>
