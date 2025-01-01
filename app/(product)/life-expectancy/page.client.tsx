@@ -176,37 +176,35 @@ function Dashboard({ profile }: { profile: LifeExpectancyProfile }) {
   )
 
   return (
-    <div className="flex flex-col">
-      <p>My age is {age.toFixed(2)}</p>
-      <p className="mb-16">Country: {profile.country}</p>
-
+    <div className="flex w-320 flex-col gap-16">
       <p>
-        The{" "}
-        <span className="font-500 text-mauve-12">average life expectancy</span>{" "}
-        in <span className="font-500 text-mauve-12">{profile.country}</span> is{" "}
+        You are <span className="font-500 text-mauve-12">{age.toFixed(2)}</span>{" "}
+        years old and live in the United States, where the average life
+        expectancy is{" "}
         <span className="font-500 text-mauve-12">
-          {totalLifeExpectancyYears} years
-        </span>
-      </p>
-
-      <p>
-        You have{" "}
-        <span className="font-500 text-mauve-12">
-          {remainingLifeExpectancyYears} years
+          {totalLifeExpectancyYears}
         </span>{" "}
-        left to live
+        years.
       </p>
 
       <p>
-        You have lived{" "}
+        Based on this, you have approximately{" "}
+        <span className="font-500 text-mauve-12">
+          {remainingLifeExpectancyYears}
+        </span>{" "}
+        years remaining to live.
+      </p>
+
+      <p>
+        So far, you have experienced{" "}
         <span className="font-500 text-mauve-12">
           {(100 - remainingPercentage).toFixed(2)}%
         </span>{" "}
-        of your life and you have{" "}
+        of my life, with{" "}
         <span className="font-500 text-mauve-12">
           {remainingPercentage.toFixed(2)}%
         </span>{" "}
-        of your life left
+        still ahead of me.
       </p>
     </div>
   )
