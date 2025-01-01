@@ -10,7 +10,7 @@ import { cache } from "react"
 // Generated secret with `openssl rand -hex 32`
 const secret = new TextEncoder().encode(process.env.AUTH_SECRET)
 
-type UserPayload = Pick<User, "email" | "id" | "name" | "username">
+export type UserPayload = Pick<User, "email" | "id" | "name" | "username">
 
 export async function decrypt(input: string): Promise<UserPayload> {
   const result = await jwtVerify(input, secret, {
