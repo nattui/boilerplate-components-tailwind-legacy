@@ -16,12 +16,12 @@ export default function SignUpClientPage() {
   )
 
   return (
-    <div className="flex flex-col">
+    <div className="flex w-full max-w-320 flex-col">
       <h1 className="mb-16 text-24 font-600">Sign up</h1>
 
       {state.message && <p className="mb-16 text-red-9">{state.message}</p>}
 
-      <form action={formAction} className="flex w-320 flex-col">
+      <form action={formAction} className="flex flex-col">
         <Label className="mb-4" htmlFor="email">
           Email
         </Label>

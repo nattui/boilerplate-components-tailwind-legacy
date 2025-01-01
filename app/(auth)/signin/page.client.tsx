@@ -5,23 +5,26 @@ import Button from "@/components/primitives/button"
 import Input from "@/components/primitives/input"
 import Label from "@/components/primitives/label"
 import { SignIn } from "@phosphor-icons/react"
-import { useActionState } from "react"
+import { useActionState, useState } from "react"
 
 const initialState = { message: "" }
 
 export default function SignInClientPage() {
+  const [email, setEmail] = useState("test@example.com")
+  const [password, setPassword] = useState("123123123")
+
   const [state, formAction, pending] = useActionState(
     signInCredentials,
     initialState,
   )
 
   return (
-    <div className="flex flex-col">
+    <div className="flex w-full max-w-320 flex-col">
       <h1 className="mb-16 text-24 font-600">Sign in</h1>
 
       {state.message && <p className="mb-16 text-red-9">{state.message}</p>}
 
-      <form action={formAction} className="flex w-320 flex-col">
+      <form action={formAction} className="flex flex-col">
         <Label className="mb-4" htmlFor="email">
           Email
         </Label>
@@ -29,11 +32,12 @@ export default function SignInClientPage() {
           autoComplete="email"
           autoFocus
           className="mb-16"
-          defaultValue="test@example.com"
           id="email"
           name="email"
+          onChange={(event) => setEmail(event.target.value)}
           required
           type="email"
+          value={email}
         />
         <Label className="mb-4" htmlFor="password">
           Password
@@ -41,12 +45,13 @@ export default function SignInClientPage() {
         <Input
           autoComplete="current-password"
           className="mb-16"
-          defaultValue="123123123"
           id="password"
           minLength={8}
           name="password"
+          onChange={(event) => setPassword(event.target.value)}
           required
           type="password"
+          value={password}
         />
         <Button
           fullWidth
