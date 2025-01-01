@@ -1,6 +1,7 @@
 "server-only"
 "use server"
 
+import type { User } from "@/libs/db/schema"
 import { EXPIRATION_TIME_IN_SECONDS } from "@/utils/constants"
 import { type JWTPayload, jwtVerify, SignJWT } from "jose"
 import { cookies as nextCookies } from "next/headers"
@@ -9,11 +10,13 @@ import { cache } from "react"
 // Generated secret with `openssl rand -hex 32`
 const secret = new TextEncoder().encode(process.env.AUTH_SECRET)
 
-export async function decrypt(input: string): Promise<JWTPayload> {
+type UserPayload = Pick<User, "email" | "id" | "name" | "username">
+
+export async function decrypt(input: string): Promise<UserPayload> {
   const result = await jwtVerify(input, secret, {
     algorithms: ["HS256"],
   })
-  return result.payload
+  return result.payload as UserPayload
 }
 
 export async function encrypt(payload: JWTPayload): Promise<string> {
@@ -59,3 +62,24 @@ export async function getIsAuthenticated(): Promise<boolean> {
     return false
   }
 }
+
+export async function getUncachedUser(): Promise<undefined | UserPayload> {
+  const cookies = await nextCookies()
+  const session = cookies.get("session")?.value
+  if (!session) return
+
+  try {
+    const user = await decrypt(session)
+    return {
+      email: user.email,
+      id: user.id,
+      name: user.name,
+      username: user.username,
+    }
+  } catch (error) {
+    console.error(error)
+    return
+  }
+}
+
+export const getUser = cache(getUncachedUser)

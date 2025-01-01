@@ -50,10 +50,6 @@ export const authSocialTable = pgTable("auth_social", {
 })
 
 export type AuthCredentials = typeof authCredentialsTable.$inferSelect
-export type AuthProviders = typeof authProvidersTable.$inferSelect
+export type AuthProvider = typeof authProvidersTable.$inferSelect
 export type AuthSocial = typeof authSocialTable.$inferSelect
-export type NewAuthCredentials = typeof authCredentialsTable.$inferInsert
-export type NewAuthProviders = typeof authProvidersTable.$inferInsert
-export type NewAuthSocial = typeof authSocialTable.$inferInsert
-export type NewUser = typeof usersTable.$inferInsert
-export type Users = typeof usersTable.$inferSelect
+export type User = typeof usersTable.$inferSelect

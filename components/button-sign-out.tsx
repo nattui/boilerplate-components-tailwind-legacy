@@ -19,7 +19,7 @@ export default function ButtonSignOut({ className }: ButtonSignOutProps) {
     setIsLoading(true)
     try {
       await fetch(API.AUTH.SIGNOUT, { method: "POST" })
-      router.push(ROUTE.SIGNIN)
+      router.push(ROUTE.HOME)
       router.refresh()
     } catch (error) {
       console.error(error)

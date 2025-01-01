@@ -62,10 +62,20 @@ export async function POST(request: Request) {
     .insert(usersTable)
     .values({
       email,
-      name: email.split("@")[0],
+      name:
+        email.split("@")[0].charAt(0).toUpperCase() +
+        email.split("@")[0].slice(1) +
+        " " +
+        email.split("@")[0].charAt(0).toUpperCase() +
+        email.split("@")[0].slice(1),
       username: email.split("@")[0],
     })
-    .returning({ id: usersTable.id })
+    .returning({
+      email: usersTable.email,
+      id: usersTable.id,
+      name: usersTable.name,
+      username: usersTable.username,
+    })
 
   const [provider] = await db
     .insert(authProvidersTable)
@@ -81,7 +91,12 @@ export async function POST(request: Request) {
   })
 
   // Create session token
-  const token = await encrypt({ email, password })
+  const token = await encrypt({
+    email: user.email,
+    id: user.id,
+    name: user.name,
+    username: user.username,
+  })
 
   // Set session token in cookies
   const cookies = await nextCookies()

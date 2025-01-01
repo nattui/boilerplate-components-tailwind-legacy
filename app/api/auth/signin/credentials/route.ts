@@ -33,6 +33,8 @@ export async function POST(request: Request) {
       email: usersTable.email,
       hashPassword: authCredentialsTable.hashPassword,
       id: usersTable.id,
+      name: usersTable.name,
+      username: usersTable.username,
     })
     .from(usersTable)
     .innerJoin(authProvidersTable, eq(authProvidersTable.userId, usersTable.id))
@@ -64,7 +66,12 @@ export async function POST(request: Request) {
   }
 
   // Create session token
-  const token = await encrypt({ email, password })
+  const token = await encrypt({
+    email: user.email,
+    id: user.id,
+    name: user.name,
+    username: user.username,
+  })
 
   // Set session token in cookies
   const cookies = await nextCookies()
