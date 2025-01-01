@@ -1,5 +1,6 @@
 "use client"
 
+import { deleteUserProfile } from "@/actions/delete-user-profile"
 import { profileBirthday } from "@/actions/profile-birthday"
 import { profileCountry } from "@/actions/profile-country"
 import Button from "@/components/primitives/button"
@@ -97,7 +98,10 @@ export default function LifeExpectancyClientPage({
 }
 
 function Dashboard({ dashboard, profile }: DashboardProps) {
-  function onReset() {}
+  const [, formAction, pending] = useActionState(
+    deleteUserProfile,
+    initialState,
+  )
 
   function calculateAge(birthday: string): number {
     const birthDate = new Date(birthday)
@@ -159,13 +163,16 @@ function Dashboard({ dashboard, profile }: DashboardProps) {
         still ahead of me.
       </p>
 
-      <Button
-        className="ml-auto"
-        leadingVisual={<Trash size={16} />}
-        onClick={onReset}
-      >
-        Reset
-      </Button>
+      <form action={formAction}>
+        <Button
+          className="ml-auto"
+          isLoading={pending}
+          leadingVisual={<Trash size={16} />}
+          type="submit"
+        >
+          Reset
+        </Button>
+      </form>
     </div>
   )
 }

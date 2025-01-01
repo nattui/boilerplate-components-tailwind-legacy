@@ -12,7 +12,5 @@ export default async function LifeExpectancyPage() {
   const profile = await profileLifeExpectancy()
   const dashboard = await dashboardLifeExpectancy(profile?.country ?? undefined)
 
-  console.log(":::: profile:", profile)
-
   return <LifeExpectancyClientPage dashboard={dashboard} profile={profile} />
 }
