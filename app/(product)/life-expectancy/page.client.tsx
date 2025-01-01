@@ -4,6 +4,7 @@ import Button from "@/components/primitives/button"
 import Input from "@/components/primitives/input"
 import Label from "@/components/primitives/label"
 import Select from "@/components/primitives/select"
+import { LifeExpectancy } from "@/libs/db/schema"
 import { API } from "@/utils/constants"
 import { FloppyDisk } from "@phosphor-icons/react"
 import { FormEvent, useEffect, useState } from "react"
@@ -129,26 +130,56 @@ export default function LifeExpectancyClientPage() {
 }
 
 function Dashboard({ profile }: { profile: LifeExpectancyProfile }) {
+  const [lifeExpectancy, setLifeExpectancy] = useState<
+    LifeExpectancy | undefined
+  >()
+
+  useEffect(() => {
+    async function fetchLifeExpectancy() {
+      const response = await fetch(API.DASHBOARD.LIFE_EXPECTANCY, {
+        body: JSON.stringify({ country: profile.country }),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      })
+      const data = await response.json()
+      setLifeExpectancy(data.lifeExpectancy)
+    }
+    fetchLifeExpectancy()
+  }, [])
+
   function calculateAge(birthday: string): number {
     const birthDate = new Date(birthday)
     const today = new Date()
-    let age = today.getFullYear() - birthDate.getFullYear()
-    const monthDiff = today.getMonth() - birthDate.getMonth()
 
-    if (
-      monthDiff < 0 ||
-      (monthDiff === 0 && today.getDate() < birthDate.getDate())
-    ) {
-      age--
-    }
+    // Calculate the time difference in milliseconds
+    const timeDiff = today.getTime() - birthDate.getTime()
 
-    return age
+    // Convert milliseconds to years (accounting for leap years)
+    const age = timeDiff / (1000 * 60 * 60 * 24 * 365.25)
+
+    return Math.round(age * 100) / 100
   }
+
+  const age = calculateAge(profile.birthday)
+
+  const totalLifeExpectancyYears =
+    Math.round(Number.parseFloat(lifeExpectancy?.age ?? "0") * 100) / 100
+
+  const remainingLifeExpectancyYears =
+    Math.round((Number.parseFloat(lifeExpectancy?.age ?? "0") - age) * 100) /
+    100
 
   return (
     <div className="flex flex-col">
-      <p>My age is {calculateAge(profile.birthday)}</p>
+      <p>My age is {age.toFixed(2)}</p>
       <p>Country: {profile.country}</p>
+
+      <p>
+        The average life expectancy in {profile.country} is{" "}
+        {totalLifeExpectancyYears} years
+      </p>
+
+      <p>You have {remainingLifeExpectancyYears} years left to live</p>
     </div>
   )
 }

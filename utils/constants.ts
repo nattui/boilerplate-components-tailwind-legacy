@@ -6,6 +6,9 @@ export const API = {
     SIGNUP_CREDENTIALS: "/api/auth/signup/credentials",
     SIGNUP_SOCIAL: "/api/auth/signup/social",
   },
+  DASHBOARD: {
+    LIFE_EXPECTANCY: "/api/dashboard/life-expectancy",
+  },
   PROFILE: {
     BIRTHDAY: "/api/profile/birthday",
     COUNTRY: "/api/profile/country",
