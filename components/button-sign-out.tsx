@@ -1,39 +1,31 @@
 "use client"
 
-import Button from "@/components/primitives/button"
-import { API, ROUTE } from "@/utils/constants"
+import { signOut } from "@/actions/sign-out"
 import { SignOut } from "@phosphor-icons/react"
-import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useActionState } from "react"
+import Button from "./primitives/button"
 
-interface ButtonSignOutProps {
+export interface ButtonSignOutProps {
   className?: string
 }
 
+const initialState = {
+  message: "",
+}
+
 export default function ButtonSignOut({ className }: ButtonSignOutProps) {
-  const [isLoading, setIsLoading] = useState(false)
+  const [, formAction, pending] = useActionState(signOut, initialState)
 
-  const router = useRouter()
-
-  async function signOut() {
-    setIsLoading(true)
-    try {
-      await fetch(API.AUTH.SIGNOUT, { method: "POST" })
-      router.push(ROUTE.HOME)
-      router.refresh()
-    } catch (error) {
-      console.error(error)
-      setIsLoading(false)
-    }
-  }
   return (
-    <Button
-      className={className}
-      isLoading={isLoading}
-      leadingVisual={<SignOut size={16} />}
-      onClick={signOut}
-    >
-      Sign out
-    </Button>
+    <form action={formAction}>
+      <Button
+        className={className}
+        isLoading={pending}
+        leadingVisual={<SignOut size={16} />}
+        type="submit"
+      >
+        Sign out
+      </Button>
+    </form>
   )
 }

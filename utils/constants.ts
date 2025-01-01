@@ -34,6 +34,7 @@ export const MESSAGE = {
       SUCCESS: "You have successfully signed in.",
     },
     SIGNOUT: {
+      FAILED: "Failed to sign out.",
       SUCCESS: "You have successfully signed out.",
     },
     SIGNUP: {

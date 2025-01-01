@@ -1,7 +1,7 @@
+import ButtonSignOut from "@/components/button-sign-out"
 import { NavLink } from "@/components/web/nav-link"
 import { getIsAuthenticated } from "@/libs/session"
 import { ROUTE } from "@/utils/constants"
-import ButtonSignOut from "../button-sign-out"
 
 export default async function Topbar() {
   const isAuthenticated = await getIsAuthenticated()
