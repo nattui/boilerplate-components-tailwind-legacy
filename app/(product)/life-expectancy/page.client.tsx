@@ -11,11 +11,11 @@ import {
   type Dispatch,
   type FormEvent,
   type SetStateAction,
-  useEffect,
   useState,
 } from "react"
 
 interface DashboardProps {
+  dashboard?: LifeExpectancy
   newProfile: LifeExpectancyProfile
   setNewProfile: Dispatch<SetStateAction<LifeExpectancyProfile | undefined>>
 }
@@ -26,8 +26,10 @@ interface LifeExpectancyProfile {
 }
 
 export default function LifeExpectancyClientPage({
+  dashboard,
   profile,
 }: {
+  dashboard?: LifeExpectancy
   profile?: LifeExpectancyProfile | undefined
 }) {
   const [newProfile, setNewProfile] = useState<
@@ -134,30 +136,17 @@ export default function LifeExpectancyClientPage({
       )}
 
       {newProfile?.birthday && newProfile?.country && (
-        <Dashboard newProfile={newProfile} setNewProfile={setNewProfile} />
+        <Dashboard
+          dashboard={dashboard}
+          newProfile={newProfile}
+          setNewProfile={setNewProfile}
+        />
       )}
     </div>
   )
 }
 
-function Dashboard({ newProfile, setNewProfile }: DashboardProps) {
-  const [lifeExpectancy, setLifeExpectancy] = useState<
-    LifeExpectancy | undefined
-  >()
-
-  useEffect(() => {
-    async function fetchLifeExpectancy() {
-      const response = await fetch(API.DASHBOARD.LIFE_EXPECTANCY, {
-        body: JSON.stringify({ country: newProfile.country }),
-        headers: { "Content-Type": "application/json" },
-        method: "POST",
-      })
-      const data = await response.json()
-      setLifeExpectancy(data.lifeExpectancy)
-    }
-    fetchLifeExpectancy()
-  }, [newProfile.country])
-
+function Dashboard({ dashboard, newProfile, setNewProfile }: DashboardProps) {
   function onReset() {
     setNewProfile(undefined)
   }
@@ -178,11 +167,10 @@ function Dashboard({ newProfile, setNewProfile }: DashboardProps) {
   const age = calculateAge(newProfile.birthday!)
 
   const totalLifeExpectancyYears =
-    Math.round(Number.parseFloat(lifeExpectancy?.age ?? "0") * 100) / 100
+    Math.round(Number.parseFloat(dashboard?.age ?? "0") * 100) / 100
 
   const remainingLifeExpectancyYears =
-    Math.round((Number.parseFloat(lifeExpectancy?.age ?? "0") - age) * 100) /
-    100
+    Math.round((Number.parseFloat(dashboard?.age ?? "0") - age) * 100) / 100
 
   const remainingPercentage = Number(
     ((remainingLifeExpectancyYears / totalLifeExpectancyYears) * 100).toFixed(

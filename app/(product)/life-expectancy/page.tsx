@@ -1,3 +1,4 @@
+import { dashboardLifeExpectancy } from "@/actions/dashboard-life-expectancy"
 import { profileLifeExpectancy } from "@/actions/profile-life-expectancy"
 import LifeExpectancyClientPage from "@/app/(product)/life-expectancy/page.client"
 import { getIsAuthenticated } from "@/libs/session"
@@ -9,6 +10,7 @@ export default async function LifeExpectancyPage() {
   if (!isAuthenticated) redirect(ROUTE.SIGNIN)
 
   const profile = await profileLifeExpectancy()
+  const dashboard = await dashboardLifeExpectancy(profile?.country ?? undefined)
 
-  return <LifeExpectancyClientPage profile={profile} />
+  return <LifeExpectancyClientPage dashboard={dashboard} profile={profile} />
 }
