@@ -8,8 +8,6 @@ export async function POST(request: Request) {
 
   const { birthday } = body
 
-  console.log(":::: birthday:", birthday)
-
   const user = await getUser()
   if (!user) return
 

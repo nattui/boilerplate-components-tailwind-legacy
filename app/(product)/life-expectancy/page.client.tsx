@@ -6,8 +6,19 @@ import Label from "@/components/primitives/label"
 import Select from "@/components/primitives/select"
 import { LifeExpectancy } from "@/libs/db/schema"
 import { API } from "@/utils/constants"
-import { FloppyDisk } from "@phosphor-icons/react"
-import { FormEvent, useEffect, useState } from "react"
+import { FloppyDisk, Trash } from "@phosphor-icons/react"
+import {
+  type Dispatch,
+  type FormEvent,
+  type SetStateAction,
+  useEffect,
+  useState,
+} from "react"
+
+interface DashboardProps {
+  profile: LifeExpectancyProfile
+  setProfile: Dispatch<SetStateAction<LifeExpectancyProfile | undefined>>
+}
 
 interface LifeExpectancyProfile {
   birthday: string
@@ -47,6 +58,8 @@ export default function LifeExpectancyClientPage() {
       birthday,
       country: prev?.country ?? "",
     }))
+
+    setBirthdayLoading(false)
   }
 
   async function onCountrySubmit(event: FormEvent<HTMLFormElement>) {
@@ -68,6 +81,8 @@ export default function LifeExpectancyClientPage() {
       birthday: prev?.birthday ?? "",
       country,
     }))
+
+    setCountryLoading(false)
   }
 
   return (
@@ -106,10 +121,6 @@ export default function LifeExpectancyClientPage() {
           </Label>
           <Select className="mb-8" id="country" name="country" required>
             <option value="">Select your country</option>
-            <option value="Australia">Australia</option>
-            <option value="Canada">Canada</option>
-            <option value="New Zealand">New Zealand</option>
-            <option value="United Kingdom">United Kingdom</option>
             <option value="United States">United States</option>
           </Select>
           <Button
@@ -124,12 +135,14 @@ export default function LifeExpectancyClientPage() {
         </form>
       )}
 
-      {profile?.birthday && profile?.country && <Dashboard profile={profile} />}
+      {profile?.birthday && profile?.country && (
+        <Dashboard profile={profile} setProfile={setProfile} />
+      )}
     </div>
   )
 }
 
-function Dashboard({ profile }: { profile: LifeExpectancyProfile }) {
+function Dashboard({ profile, setProfile }: DashboardProps) {
   const [lifeExpectancy, setLifeExpectancy] = useState<
     LifeExpectancy | undefined
   >()
@@ -145,7 +158,11 @@ function Dashboard({ profile }: { profile: LifeExpectancyProfile }) {
       setLifeExpectancy(data.lifeExpectancy)
     }
     fetchLifeExpectancy()
-  }, [])
+  }, [profile.country])
+
+  function onReset() {
+    setProfile(undefined)
+  }
 
   function calculateAge(birthday: string): number {
     const birthDate = new Date(birthday)
@@ -207,6 +224,14 @@ function Dashboard({ profile }: { profile: LifeExpectancyProfile }) {
         </span>{" "}
         still ahead of me.
       </p>
+
+      <Button
+        className="ml-auto"
+        leadingVisual={<Trash size={16} />}
+        onClick={onReset}
+      >
+        Reset
+      </Button>
     </div>
   )
 }
