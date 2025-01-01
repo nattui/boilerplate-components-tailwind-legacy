@@ -128,7 +128,7 @@ function Dashboard({ dashboard, profile }: DashboardProps) {
   )
 
   return (
-    <div className="flex w-384 flex-col gap-16">
+    <div className="flex max-w-384 flex-col gap-16">
       <p>
         You are <span className="font-500 text-mauve-12">{age.toFixed(2)}</span>{" "}
         years old and live in the{" "}
