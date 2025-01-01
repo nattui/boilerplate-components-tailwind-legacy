@@ -33,9 +33,7 @@ export default function LifeExpectancyPage() {
         </Label>
         <Input
           autoComplete="birthday"
-          autoFocus
           className="mb-16"
-          defaultValue="2000-01-01"
           id="birthday"
           name="birthday"
           required
@@ -44,13 +42,8 @@ export default function LifeExpectancyPage() {
         <Label className="mb-4" htmlFor="country">
           Which country are you in?
         </Label>
-        <Select
-          className="mb-16"
-          defaultValue="United States"
-          id="country"
-          name="country"
-          required
-        >
+        <Select className="mb-16" id="country" name="country" required>
+          <option value="">Select your country</option>
           <option value="Australia">Australia</option>
           <option value="Canada">Canada</option>
           <option value="New Zealand">New Zealand</option>
