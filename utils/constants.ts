@@ -41,6 +41,9 @@ export const MESSAGE = {
       EMAIL_ALREADY_EXISTS: "An account with this email already exists.",
     },
   },
+  GENERIC: {
+    ERROR: "Something went wrong.",
+  },
 } as const
 
 export const EXPIRATION_TIME_IN_SECONDS = 31_536_000 // 1 year

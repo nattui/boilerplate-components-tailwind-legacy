@@ -26,58 +26,65 @@ export async function signInCredentials(_: unknown, formData: FormData) {
     return { message: error.email?.[0] || error.password?.[0] }
   }
 
-  // Get user from database
-  const [user] = await db
-    .select({
-      email: usersTable.email,
-      hashPassword: authCredentialsTable.hashPassword,
-      id: usersTable.id,
-      name: usersTable.name,
-      username: usersTable.username,
+  try {
+    // Get user from database
+    const [user] = await db
+      .select({
+        email: usersTable.email,
+        hashPassword: authCredentialsTable.hashPassword,
+        id: usersTable.id,
+        name: usersTable.name,
+        username: usersTable.username,
+      })
+      .from(usersTable)
+      .innerJoin(
+        authProvidersTable,
+        eq(authProvidersTable.userId, usersTable.id),
+      )
+      .innerJoin(
+        authCredentialsTable,
+        eq(authCredentialsTable.providerId, authProvidersTable.id),
+      )
+      .where(
+        and(
+          eq(usersTable.email, email),
+          eq(authProvidersTable.provider, "credentials"),
+        ),
+      )
+
+    if (!user) {
+      return { message: MESSAGE.AUTH.SIGNIN.INVALID_CREDENTIALS }
+    }
+
+    // Check if password is correct
+    const isPasswordCorrect = await compare(password, user.hashPassword)
+    if (!isPasswordCorrect) {
+      return { message: MESSAGE.AUTH.SIGNIN.INVALID_CREDENTIALS }
+    }
+
+    // Create session token
+    const token = await encrypt({
+      email: user.email,
+      id: user.id,
+      name: user.name,
+      username: user.username,
     })
-    .from(usersTable)
-    .innerJoin(authProvidersTable, eq(authProvidersTable.userId, usersTable.id))
-    .innerJoin(
-      authCredentialsTable,
-      eq(authCredentialsTable.providerId, authProvidersTable.id),
-    )
-    .where(
-      and(
-        eq(usersTable.email, email),
-        eq(authProvidersTable.provider, "credentials"),
-      ),
-    )
 
-  if (!user) {
-    return { message: MESSAGE.AUTH.SIGNIN.INVALID_CREDENTIALS }
+    // Set session token in cookies
+    const cookies = await nextCookies()
+    cookies.set({
+      httpOnly: true,
+      maxAge: EXPIRATION_TIME_IN_SECONDS,
+      name: "session",
+      path: "/",
+      priority: "medium",
+      sameSite: "lax",
+      secure: !isDevelopment,
+      value: token,
+    })
+  } catch {
+    return { message: MESSAGE.GENERIC.ERROR }
   }
-
-  // Check if password is correct
-  const isPasswordCorrect = await compare(password, user.hashPassword)
-  if (!isPasswordCorrect) {
-    return { message: MESSAGE.AUTH.SIGNIN.INVALID_CREDENTIALS }
-  }
-
-  // Create session token
-  const token = await encrypt({
-    email: user.email,
-    id: user.id,
-    name: user.name,
-    username: user.username,
-  })
-
-  // Set session token in cookies
-  const cookies = await nextCookies()
-  cookies.set({
-    httpOnly: true,
-    maxAge: EXPIRATION_TIME_IN_SECONDS,
-    name: "session",
-    path: "/",
-    priority: "medium",
-    sameSite: "lax",
-    secure: !isDevelopment,
-    value: token,
-  })
 
   redirect(ROUTE.LIFE_EXPECTANCY)
 }

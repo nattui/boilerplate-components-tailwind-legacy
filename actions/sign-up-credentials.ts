@@ -27,85 +27,92 @@ export async function signUpCredentials(_: unknown, formData: FormData) {
   }
 
   // Get user from database
-  const [existingUser] = await db
-    .select({
-      email: usersTable.email,
-      hashPassword: authCredentialsTable.hashPassword,
-      id: usersTable.id,
-    })
-    .from(usersTable)
-    .innerJoin(authProvidersTable, eq(authProvidersTable.userId, usersTable.id))
-    .innerJoin(
-      authCredentialsTable,
-      eq(authCredentialsTable.providerId, authProvidersTable.id),
-    )
-    .where(
-      and(
-        eq(usersTable.email, email),
-        eq(authProvidersTable.provider, "credentials"),
-      ),
-    )
+  try {
+    const [existingUser] = await db
+      .select({
+        email: usersTable.email,
+        hashPassword: authCredentialsTable.hashPassword,
+        id: usersTable.id,
+      })
+      .from(usersTable)
+      .innerJoin(
+        authProvidersTable,
+        eq(authProvidersTable.userId, usersTable.id),
+      )
+      .innerJoin(
+        authCredentialsTable,
+        eq(authCredentialsTable.providerId, authProvidersTable.id),
+      )
+      .where(
+        and(
+          eq(usersTable.email, email),
+          eq(authProvidersTable.provider, "credentials"),
+        ),
+      )
 
-  if (existingUser) {
-    return { message: MESSAGE.AUTH.SIGNUP.EMAIL_ALREADY_EXISTS }
+    if (existingUser) {
+      return { message: MESSAGE.AUTH.SIGNUP.EMAIL_ALREADY_EXISTS }
+    }
+
+    const hashedPassword = await hash(password, 10)
+
+    // TODO: Transaction
+    // Create user
+    const [user] = await db
+      .insert(usersTable)
+      .values({
+        email,
+        name:
+          email.split("@")[0].charAt(0).toUpperCase() +
+          email.split("@")[0].slice(1) +
+          " " +
+          email.split("@")[0].charAt(0).toUpperCase() +
+          email.split("@")[0].slice(1),
+        username: email.split("@")[0],
+      })
+      .returning({
+        email: usersTable.email,
+        id: usersTable.id,
+        name: usersTable.name,
+        username: usersTable.username,
+      })
+
+    const [provider] = await db
+      .insert(authProvidersTable)
+      .values({
+        provider: "credentials",
+        userId: user.id,
+      })
+      .returning({ id: authProvidersTable.id })
+
+    await db.insert(authCredentialsTable).values({
+      hashPassword: hashedPassword,
+      providerId: provider.id,
+    })
+
+    // Create session token
+    const token = await encrypt({
+      email: user.email,
+      id: user.id,
+      name: user.name,
+      username: user.username,
+    })
+
+    // Set session token in cookies
+    const cookies = await nextCookies()
+    cookies.set({
+      httpOnly: true,
+      maxAge: EXPIRATION_TIME_IN_SECONDS,
+      name: "session",
+      path: "/",
+      priority: "medium",
+      sameSite: "lax",
+      secure: !isDevelopment,
+      value: token,
+    })
+  } catch {
+    return { message: MESSAGE.GENERIC.ERROR }
   }
-
-  const hashedPassword = await hash(password, 10)
-
-  // TODO: Transaction
-  // Create user
-  const [user] = await db
-    .insert(usersTable)
-    .values({
-      email,
-      name:
-        email.split("@")[0].charAt(0).toUpperCase() +
-        email.split("@")[0].slice(1) +
-        " " +
-        email.split("@")[0].charAt(0).toUpperCase() +
-        email.split("@")[0].slice(1),
-      username: email.split("@")[0],
-    })
-    .returning({
-      email: usersTable.email,
-      id: usersTable.id,
-      name: usersTable.name,
-      username: usersTable.username,
-    })
-
-  const [provider] = await db
-    .insert(authProvidersTable)
-    .values({
-      provider: "credentials",
-      userId: user.id,
-    })
-    .returning({ id: authProvidersTable.id })
-
-  await db.insert(authCredentialsTable).values({
-    hashPassword: hashedPassword,
-    providerId: provider.id,
-  })
-
-  // Create session token
-  const token = await encrypt({
-    email: user.email,
-    id: user.id,
-    name: user.name,
-    username: user.username,
-  })
-
-  // Set session token in cookies
-  const cookies = await nextCookies()
-  cookies.set({
-    httpOnly: true,
-    maxAge: EXPIRATION_TIME_IN_SECONDS,
-    name: "session",
-    path: "/",
-    priority: "medium",
-    sameSite: "lax",
-    secure: !isDevelopment,
-    value: token,
-  })
 
   redirect(ROUTE.LIFE_EXPECTANCY)
 }
