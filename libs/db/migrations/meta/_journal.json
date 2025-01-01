@@ -15,6 +15,20 @@
       "when": 1735687341527,
       "tag": "0001_pretty_rawhide_kid",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1735692047195,
+      "tag": "0002_military_diamondback",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1735692203326,
+      "tag": "0003_chief_invaders",
+      "breakpoints": true
     }
   ]
 }

@@ -12,6 +12,7 @@ export const ROUTE = {
   BUTTONS: "/buttons",
   HOME: "/",
   INPUTS: "/inputs",
+  LIFE_EXPECTANCY: "/life-expectancy",
   SIGNIN: "/signin",
   SIGNUP: "/signup",
   USERS: "/users",

@@ -1,5 +1,7 @@
 import {
+  date,
   integer,
+  numeric,
   pgEnum,
   pgTable,
   serial,
@@ -16,6 +18,19 @@ export const usersTable = pgTable("users", {
   updatedAt: timestamp("updated_at", { mode: "date" }).defaultNow().notNull(),
   username: varchar("username", { length: 32 }).unique().notNull(),
 })
+
+export const userProfileTable = pgTable("user_profile", {
+  birthday: date("birthday"),
+  country: varchar("country", { length: 32 }),
+  id: serial("id").primaryKey(),
+  userId: integer("user_id")
+    .notNull()
+    .references(() => usersTable.id, { onDelete: "cascade" }),
+})
+
+// ========================================================
+// Authentication
+// ========================================================
 
 export const providerEnum = pgEnum("provider", ["credentials", "social"])
 
@@ -49,7 +64,23 @@ export const authSocialTable = pgTable("auth_social", {
   updatedAt: timestamp("updated_at", { mode: "date" }).defaultNow().notNull(),
 })
 
+// ========================================================
+// Life expectancy
+// ========================================================
+
+export const lifeExpectancyTable = pgTable("life_expectancy", {
+  age: numeric("age").notNull(),
+  country: varchar("country", { length: 32 }).notNull(),
+  id: serial("id").primaryKey(),
+})
+
+// ========================================================
+// Types
+// ========================================================
+
 export type AuthCredentials = typeof authCredentialsTable.$inferSelect
 export type AuthProvider = typeof authProvidersTable.$inferSelect
 export type AuthSocial = typeof authSocialTable.$inferSelect
+export type LifeExpectancy = typeof lifeExpectancyTable.$inferSelect
 export type User = typeof usersTable.$inferSelect
+export type UserProfile = typeof userProfileTable.$inferSelect

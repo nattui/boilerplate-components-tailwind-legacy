@@ -12,6 +12,7 @@ export default async function Topbar() {
       <NavLink href={ROUTE.BUTTONS}>Buttons</NavLink>
       <NavLink href={ROUTE.INPUTS}>Inputs</NavLink>
       <NavLink href={ROUTE.USERS}>Users</NavLink>
+      <NavLink href={ROUTE.LIFE_EXPECTANCY}>Life expectancy</NavLink>
       {!isAuthenticated && <NavLink href={ROUTE.SIGNIN}>Sign in</NavLink>}
       {!isAuthenticated && <NavLink href={ROUTE.SIGNUP}>Sign up</NavLink>}
       {isAuthenticated && <ButtonSignOut className="ml-8" />}
