@@ -70,8 +70,7 @@ export const authSocialTable = pgTable("auth_social", {
 
 export const lifeExpectancyTable = pgTable("life_expectancy", {
   age: numeric("age").notNull(),
-  country: varchar("country", { length: 32 }).notNull(),
-  id: serial("id").primaryKey(),
+  country: varchar("country", { length: 32 }).notNull().primaryKey(),
 })
 
 // ========================================================

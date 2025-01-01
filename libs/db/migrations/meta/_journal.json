@@ -5,29 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1735677166536,
-      "tag": "0000_demonic_silk_fever",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1735687341527,
-      "tag": "0001_pretty_rawhide_kid",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1735692047195,
-      "tag": "0002_military_diamondback",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1735692203326,
-      "tag": "0003_chief_invaders",
+      "when": 1735692470801,
+      "tag": "0000_powerful_the_initiative",
       "breakpoints": true
     }
   ]
