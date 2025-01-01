@@ -41,7 +41,6 @@ export const buttonStyles = {
     "text-14",
     "transition-[background-color,border-color,opacity]",
   ].join(" "),
-  fullWidth: "w-full",
   size: {
     extraLarge: ["px-20", "h-44"].join(" "),
     extraSmall: ["px-6", "h-28"].join(" "),
@@ -78,6 +77,10 @@ export const buttonStyles = {
       "text-mauve-12",
     ].join(" "),
   },
+  width: {
+    fit: "w-fit",
+    full: "w-full",
+  },
 } as const
 
 export default function Button(props: ButtonProps) {
@@ -99,7 +102,7 @@ export default function Button(props: ButtonProps) {
     ${buttonStyles.base}
     ${buttonStyles.size[size]}
     ${buttonStyles.variant[variant]}
-    ${fullWidth ? buttonStyles.fullWidth : ""}
+    ${fullWidth ? buttonStyles.width.full : buttonStyles.width.fit}
     ${customStyles}
   `
     .replaceAll(/\s+/g, " ")
