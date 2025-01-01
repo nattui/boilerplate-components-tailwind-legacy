@@ -169,17 +169,45 @@ function Dashboard({ profile }: { profile: LifeExpectancyProfile }) {
     Math.round((Number.parseFloat(lifeExpectancy?.age ?? "0") - age) * 100) /
     100
 
+  const remainingPercentage = Number(
+    ((remainingLifeExpectancyYears / totalLifeExpectancyYears) * 100).toFixed(
+      2,
+    ),
+  )
+
   return (
     <div className="flex flex-col">
       <p>My age is {age.toFixed(2)}</p>
-      <p>Country: {profile.country}</p>
+      <p className="mb-16">Country: {profile.country}</p>
 
       <p>
-        The average life expectancy in {profile.country} is{" "}
-        {totalLifeExpectancyYears} years
+        The{" "}
+        <span className="font-500 text-mauve-12">average life expectancy</span>{" "}
+        in <span className="font-500 text-mauve-12">{profile.country}</span> is{" "}
+        <span className="font-500 text-mauve-12">
+          {totalLifeExpectancyYears} years
+        </span>
       </p>
 
-      <p>You have {remainingLifeExpectancyYears} years left to live</p>
+      <p>
+        You have{" "}
+        <span className="font-500 text-mauve-12">
+          {remainingLifeExpectancyYears} years
+        </span>{" "}
+        left to live
+      </p>
+
+      <p>
+        You have lived{" "}
+        <span className="font-500 text-mauve-12">
+          {(100 - remainingPercentage).toFixed(2)}%
+        </span>{" "}
+        of your life and you have{" "}
+        <span className="font-500 text-mauve-12">
+          {remainingPercentage.toFixed(2)}%
+        </span>{" "}
+        of your life left
+      </p>
     </div>
   )
 }
