@@ -176,11 +176,12 @@ function Dashboard({ profile }: { profile: LifeExpectancyProfile }) {
   )
 
   return (
-    <div className="flex w-320 flex-col gap-16">
+    <div className="flex w-384 flex-col gap-16">
       <p>
         You are <span className="font-500 text-mauve-12">{age.toFixed(2)}</span>{" "}
-        years old and live in the United States, where the average life
-        expectancy is{" "}
+        years old and live in the{" "}
+        <span className="font-500 text-mauve-12">{profile.country}</span>, where
+        the average life expectancy is{" "}
         <span className="font-500 text-mauve-12">
           {totalLifeExpectancyYears}
         </span>{" "}
