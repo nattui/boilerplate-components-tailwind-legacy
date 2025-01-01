@@ -5,14 +5,14 @@ import { userProfileTable, usersTable } from "@/libs/db/schema"
 import { getUser } from "@/libs/session"
 import { eq } from "drizzle-orm"
 
-export type LifeExpectancyProfile = {
+export interface LifeExpectancyProfile {
   birthday: null | string
   country: null | string
 }
 
-export async function getLifeExpectancyProfile(): Promise<
-  LifeExpectancyProfile | undefined
-> {
+type LifeExpectancyProfileFn = Promise<LifeExpectancyProfile | undefined>
+
+export async function getLifeExpectancyProfile(): LifeExpectancyProfileFn {
   const user = await getUser()
   if (!user) return
 

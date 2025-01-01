@@ -9,7 +9,7 @@ import Input from "@/components/primitives/input"
 import Label from "@/components/primitives/label"
 import Select from "@/components/primitives/select"
 import { FloppyDisk } from "@phosphor-icons/react"
-import { useEffect, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 
 export default function LifeExpectancyClientPage() {
   const [profile, setProfile] = useState<LifeExpectancyProfile | undefined>()
@@ -22,20 +22,23 @@ export default function LifeExpectancyClientPage() {
     fetchProfile()
   }, [])
 
-  console.log(":::: profile:", profile)
+  async function onBirthdaySubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
 
-  // async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-  //   event.preventDefault()
+    const formData = new FormData(event.target as HTMLFormElement)
+    const birthday = formData.get("birthday") as string
 
-  //   setIsLoading(true)
+    console.log(":::: birthday:", birthday)
+  }
 
-  //   const formData = new FormData(event.target as HTMLFormElement)
-  //   const birthday = formData.get("birthday") as string
-  //   const country = formData.get("country") as string
+  async function onCountrySubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
 
-  //   console.log(":::: birthday:", birthday)
-  //   console.log(":::: country:", country)
-  // }
+    const formData = new FormData(event.target as HTMLFormElement)
+    const country = formData.get("country") as string
+
+    console.log(":::: country:", country)
+  }
 
   return (
     <div className="flex flex-col">
@@ -43,7 +46,7 @@ export default function LifeExpectancyClientPage() {
       {/* {errorMessage && <p className="mb-16 text-red-9">{errorMessage}</p>} */}
 
       {!profile?.birthday && (
-        <form className="mb-32 flex w-320 flex-col">
+        <form className="mb-32 flex w-320 flex-col" onSubmit={onBirthdaySubmit}>
           <Label className="mb-4" htmlFor="birthday">
             When is your birthday?
           </Label>
@@ -67,7 +70,7 @@ export default function LifeExpectancyClientPage() {
       )}
 
       {!profile?.country && (
-        <form className="flex w-320 flex-col">
+        <form className="flex w-320 flex-col" onSubmit={onCountrySubmit}>
           <Label className="mb-4" htmlFor="country">
             Which country are you in?
           </Label>
