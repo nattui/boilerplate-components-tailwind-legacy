@@ -9,9 +9,7 @@ export interface ButtonSignOutProps {
   className?: string
 }
 
-const initialState = {
-  message: "",
-}
+const initialState = { message: "" }
 
 export default function ButtonSignOut({ className }: ButtonSignOutProps) {
   const [, formAction, pending] = useActionState(signOut, initialState)

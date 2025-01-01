@@ -9,8 +9,8 @@ export async function signOut() {
   try {
     const cookies = await nextCookies()
     cookies.delete("session")
-    redirect(ROUTE.BUTTONS)
   } catch {
     return { message: MESSAGE.AUTH.SIGNOUT.FAILED }
   }
+  redirect(ROUTE.SIGNIN)
 }
