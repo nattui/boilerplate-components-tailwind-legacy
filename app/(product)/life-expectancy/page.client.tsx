@@ -16,28 +16,26 @@ import {
 } from "react"
 
 interface DashboardProps {
-  profile: LifeExpectancyProfile
-  setProfile: Dispatch<SetStateAction<LifeExpectancyProfile | undefined>>
+  newProfile: LifeExpectancyProfile
+  setNewProfile: Dispatch<SetStateAction<LifeExpectancyProfile | undefined>>
 }
 
 interface LifeExpectancyProfile {
-  birthday: string
-  country: string
+  birthday: null | string
+  country: null | string
 }
 
-export default function LifeExpectancyClientPage() {
-  const [profile, setProfile] = useState<LifeExpectancyProfile | undefined>()
+export default function LifeExpectancyClientPage({
+  profile,
+}: {
+  profile?: LifeExpectancyProfile | undefined
+}) {
+  const [newProfile, setNewProfile] = useState<
+    LifeExpectancyProfile | undefined
+  >(profile)
+
   const [birthdayLoading, setBirthdayLoading] = useState(false)
   const [countryLoading, setCountryLoading] = useState(false)
-
-  useEffect(() => {
-    async function fetchProfile() {
-      const response = await fetch(API.PROFILE.LIFE_EXPECTANCY)
-      const data = await response.json()
-      setProfile(data.profile)
-    }
-    fetchProfile()
-  }, [])
 
   async function onBirthdaySubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -54,7 +52,7 @@ export default function LifeExpectancyClientPage() {
     })
     await response.json()
 
-    setProfile((prev) => ({
+    setNewProfile((prev) => ({
       birthday,
       country: prev?.country ?? "",
     }))
@@ -77,7 +75,7 @@ export default function LifeExpectancyClientPage() {
     })
     await response.json()
 
-    setProfile((prev) => ({
+    setNewProfile((prev) => ({
       birthday: prev?.birthday ?? "",
       country,
     }))
@@ -89,7 +87,7 @@ export default function LifeExpectancyClientPage() {
     <div className="flex flex-col">
       <h1 className="mb-16 text-24 font-600">Life expectancy</h1>
 
-      {!profile?.birthday && (
+      {!newProfile?.birthday && (
         <form className="mb-32 flex w-320 flex-col" onSubmit={onBirthdaySubmit}>
           <Label className="mb-4" htmlFor="birthday">
             When is your birthday?
@@ -114,7 +112,7 @@ export default function LifeExpectancyClientPage() {
         </form>
       )}
 
-      {!profile?.country && (
+      {!newProfile?.country && (
         <form className="flex w-320 flex-col" onSubmit={onCountrySubmit}>
           <Label className="mb-4" htmlFor="country">
             Which country are you in?
@@ -135,14 +133,14 @@ export default function LifeExpectancyClientPage() {
         </form>
       )}
 
-      {profile?.birthday && profile?.country && (
-        <Dashboard profile={profile} setProfile={setProfile} />
+      {newProfile?.birthday && newProfile?.country && (
+        <Dashboard newProfile={newProfile} setNewProfile={setNewProfile} />
       )}
     </div>
   )
 }
 
-function Dashboard({ profile, setProfile }: DashboardProps) {
+function Dashboard({ newProfile, setNewProfile }: DashboardProps) {
   const [lifeExpectancy, setLifeExpectancy] = useState<
     LifeExpectancy | undefined
   >()
@@ -150,7 +148,7 @@ function Dashboard({ profile, setProfile }: DashboardProps) {
   useEffect(() => {
     async function fetchLifeExpectancy() {
       const response = await fetch(API.DASHBOARD.LIFE_EXPECTANCY, {
-        body: JSON.stringify({ country: profile.country }),
+        body: JSON.stringify({ country: newProfile.country }),
         headers: { "Content-Type": "application/json" },
         method: "POST",
       })
@@ -158,10 +156,10 @@ function Dashboard({ profile, setProfile }: DashboardProps) {
       setLifeExpectancy(data.lifeExpectancy)
     }
     fetchLifeExpectancy()
-  }, [profile.country])
+  }, [newProfile.country])
 
   function onReset() {
-    setProfile(undefined)
+    setNewProfile(undefined)
   }
 
   function calculateAge(birthday: string): number {
@@ -177,7 +175,7 @@ function Dashboard({ profile, setProfile }: DashboardProps) {
     return Math.round(age * 100) / 100
   }
 
-  const age = calculateAge(profile.birthday)
+  const age = calculateAge(newProfile.birthday!)
 
   const totalLifeExpectancyYears =
     Math.round(Number.parseFloat(lifeExpectancy?.age ?? "0") * 100) / 100
@@ -197,8 +195,8 @@ function Dashboard({ profile, setProfile }: DashboardProps) {
       <p>
         You are <span className="font-500 text-mauve-12">{age.toFixed(2)}</span>{" "}
         years old and live in the{" "}
-        <span className="font-500 text-mauve-12">{profile.country}</span>, where
-        the average life expectancy is{" "}
+        <span className="font-500 text-mauve-12">{newProfile.country}</span>,
+        where the average life expectancy is{" "}
         <span className="font-500 text-mauve-12">
           {totalLifeExpectancyYears}
         </span>{" "}
