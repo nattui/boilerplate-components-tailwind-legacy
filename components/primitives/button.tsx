@@ -83,7 +83,7 @@ export const buttonStyles = {
   },
 } as const
 
-export default function Button(props: ButtonProps) {
+export default function Button(props: ButtonProps): JSX.Element {
   const {
     children = "",
     className: customStyles = "",

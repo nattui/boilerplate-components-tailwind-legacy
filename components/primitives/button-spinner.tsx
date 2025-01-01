@@ -1,6 +1,7 @@
+import type { JSX } from "react"
 import styles from "@/components/primitives/button-spinner.module.css"
 
-export default function ButtonSpinner() {
+export default function ButtonSpinner(): JSX.Element {
   return (
     <div className={styles.base}>
       {Array.from({ length: 12 }).map((_, index) => (

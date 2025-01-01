@@ -4,7 +4,7 @@ import { CaretDown } from "@phosphor-icons/react"
 
 export type SelectProps = JSX.IntrinsicElements["select"]
 
-export default function Select(props: SelectProps) {
+export default function Select(props: SelectProps): JSX.Element {
   const { children, className: customStyles = "", ...rest } = props
 
   const combinedStyles = `

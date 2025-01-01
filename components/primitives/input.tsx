@@ -32,7 +32,7 @@ export const inputStyles = {
   password: "font-mono",
 } as const
 
-export default function Input(props: InputProps) {
+export default function Input(props: InputProps): JSX.Element {
   const { className: customStyles = "", type = "text", ...rest } = props
 
   const combinedStyles = `
