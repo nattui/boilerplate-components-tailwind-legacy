@@ -1,29 +1,26 @@
 "use client"
 
+import { profileBirthday } from "@/actions/profile-birthday"
+import { profileCountry } from "@/actions/profile-country"
 import Button from "@/components/primitives/button"
 import Input from "@/components/primitives/input"
 import Label from "@/components/primitives/label"
 import Select from "@/components/primitives/select"
 import { LifeExpectancy } from "@/libs/db/schema"
-import { API } from "@/utils/constants"
 import { FloppyDisk, Trash } from "@phosphor-icons/react"
-import {
-  type Dispatch,
-  type FormEvent,
-  type SetStateAction,
-  useState,
-} from "react"
+import { useActionState } from "react"
 
 interface DashboardProps {
   dashboard?: LifeExpectancy
-  newProfile: LifeExpectancyProfile
-  setNewProfile: Dispatch<SetStateAction<LifeExpectancyProfile | undefined>>
+  profile: LifeExpectancyProfile
 }
 
 interface LifeExpectancyProfile {
   birthday: null | string
   country: null | string
 }
+
+const initialState = { message: "" }
 
 export default function LifeExpectancyClientPage({
   dashboard,
@@ -32,65 +29,22 @@ export default function LifeExpectancyClientPage({
   dashboard?: LifeExpectancy
   profile?: LifeExpectancyProfile | undefined
 }) {
-  const [newProfile, setNewProfile] = useState<
-    LifeExpectancyProfile | undefined
-  >(profile)
+  const [, birthdayFormAction, birthdayPending] = useActionState(
+    profileBirthday,
+    initialState,
+  )
 
-  const [birthdayLoading, setBirthdayLoading] = useState(false)
-  const [countryLoading, setCountryLoading] = useState(false)
-
-  async function onBirthdaySubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-
-    const formData = new FormData(event.target as HTMLFormElement)
-    const birthday = formData.get("birthday") as string
-
-    setBirthdayLoading(true)
-
-    const response = await fetch(API.PROFILE.BIRTHDAY, {
-      body: JSON.stringify({ birthday }),
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-    })
-    await response.json()
-
-    setNewProfile((prev) => ({
-      birthday,
-      country: prev?.country ?? "",
-    }))
-
-    setBirthdayLoading(false)
-  }
-
-  async function onCountrySubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-
-    const formData = new FormData(event.target as HTMLFormElement)
-    const country = formData.get("country") as string
-
-    setCountryLoading(true)
-
-    const response = await fetch(API.PROFILE.COUNTRY, {
-      body: JSON.stringify({ country }),
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-    })
-    await response.json()
-
-    setNewProfile((prev) => ({
-      birthday: prev?.birthday ?? "",
-      country,
-    }))
-
-    setCountryLoading(false)
-  }
+  const [, countryFormAction, countryPending] = useActionState(
+    profileCountry,
+    initialState,
+  )
 
   return (
     <div className="flex flex-col">
       <h1 className="mb-16 text-24 font-600">Life expectancy</h1>
 
-      {!newProfile?.birthday && (
-        <form className="mb-32 flex w-320 flex-col" onSubmit={onBirthdaySubmit}>
+      {!profile?.birthday && (
+        <form action={birthdayFormAction} className="mb-32 flex w-320 flex-col">
           <Label className="mb-4" htmlFor="birthday">
             When is your birthday?
           </Label>
@@ -104,7 +58,7 @@ export default function LifeExpectancyClientPage({
           />
           <Button
             className="ml-auto"
-            isLoading={birthdayLoading}
+            isLoading={birthdayPending}
             leadingVisual={<FloppyDisk size={16} />}
             size="small"
             type="submit"
@@ -114,8 +68,8 @@ export default function LifeExpectancyClientPage({
         </form>
       )}
 
-      {!newProfile?.country && (
-        <form className="flex w-320 flex-col" onSubmit={onCountrySubmit}>
+      {!profile?.country && (
+        <form action={countryFormAction} className="flex w-320 flex-col">
           <Label className="mb-4" htmlFor="country">
             Which country are you in?
           </Label>
@@ -125,7 +79,7 @@ export default function LifeExpectancyClientPage({
           </Select>
           <Button
             className="ml-auto"
-            isLoading={countryLoading}
+            isLoading={countryPending}
             leadingVisual={<FloppyDisk size={16} />}
             size="small"
             type="submit"
@@ -135,21 +89,15 @@ export default function LifeExpectancyClientPage({
         </form>
       )}
 
-      {newProfile?.birthday && newProfile?.country && (
-        <Dashboard
-          dashboard={dashboard}
-          newProfile={newProfile}
-          setNewProfile={setNewProfile}
-        />
+      {profile?.birthday && profile?.country && (
+        <Dashboard dashboard={dashboard} profile={profile} />
       )}
     </div>
   )
 }
 
-function Dashboard({ dashboard, newProfile, setNewProfile }: DashboardProps) {
-  function onReset() {
-    setNewProfile(undefined)
-  }
+function Dashboard({ dashboard, profile }: DashboardProps) {
+  function onReset() {}
 
   function calculateAge(birthday: string): number {
     const birthDate = new Date(birthday)
@@ -164,7 +112,7 @@ function Dashboard({ dashboard, newProfile, setNewProfile }: DashboardProps) {
     return Math.round(age * 100) / 100
   }
 
-  const age = calculateAge(newProfile.birthday!)
+  const age = calculateAge(profile.birthday!)
 
   const totalLifeExpectancyYears =
     Math.round(Number.parseFloat(dashboard?.age ?? "0") * 100) / 100
@@ -183,8 +131,8 @@ function Dashboard({ dashboard, newProfile, setNewProfile }: DashboardProps) {
       <p>
         You are <span className="font-500 text-mauve-12">{age.toFixed(2)}</span>{" "}
         years old and live in the{" "}
-        <span className="font-500 text-mauve-12">{newProfile.country}</span>,
-        where the average life expectancy is{" "}
+        <span className="font-500 text-mauve-12">{profile.country}</span>, where
+        the average life expectancy is{" "}
         <span className="font-500 text-mauve-12">
           {totalLifeExpectancyYears}
         </span>{" "}
