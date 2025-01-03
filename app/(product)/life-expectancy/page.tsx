@@ -11,7 +11,7 @@ export default async function LifeExpectancyPage() {
 
   const profile = await profileLifeExpectancy()
   let dashboard
-  if (profile?.country) {
+  if (profile?.country && profile?.birthday) {
     dashboard = await dashboardLifeExpectancy(profile.country)
   }
 
