@@ -1,5 +1,5 @@
 import type { JSX } from "react"
-import { inputStyles } from "@/components/primitives/input"
+import { inputStyles } from "@/components/ui/input"
 import { CaretDown } from "@phosphor-icons/react"
 
 export type SelectProps = JSX.IntrinsicElements["select"]

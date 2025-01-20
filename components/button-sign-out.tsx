@@ -1,9 +1,9 @@
 "use client"
 
 import { signOut } from "@/actions/sign-out"
+import Button from "@/components/ui/button"
 import { SignOut } from "@phosphor-icons/react"
 import { useActionState } from "react"
-import Button from "./primitives/button"
 
 export interface ButtonSignOutProps {
   className?: string

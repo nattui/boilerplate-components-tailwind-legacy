@@ -1,4 +1,4 @@
-import Button from "@/components/primitives/button"
+import Button from "@/components/ui/button"
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react/dist/ssr"
 
 export default function ButtonsPage() {

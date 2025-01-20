@@ -1,5 +1,5 @@
 import type { JSX } from "react"
-import styles from "@/components/primitives/button-spinner.module.css"
+import styles from "@/components/ui/button-spinner.module.css"
 
 export default function ButtonSpinner(): JSX.Element {
   return (

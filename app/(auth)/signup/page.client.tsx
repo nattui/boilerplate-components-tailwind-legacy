@@ -1,9 +1,9 @@
 "use client"
 
 import { signUpCredentials } from "@/actions/sign-up-credentials"
-import Button from "@/components/primitives/button"
-import Input from "@/components/primitives/input"
-import Label from "@/components/primitives/label"
+import Button from "@/components/ui/button"
+import Input from "@/components/ui/input"
+import Label from "@/components/ui/label"
 import { SignIn } from "@phosphor-icons/react"
 import { useActionState } from "react"
 

@@ -1,5 +1,5 @@
 import type { JSX, ReactNode } from "react"
-import ButtonSpinner from "@/components/primitives/button-spinner"
+import ButtonSpinner from "@/components/ui/button-spinner"
 
 export type ButtonProps = JSX.IntrinsicElements["button"] & {
   children?: string
