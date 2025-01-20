@@ -1,6 +1,6 @@
-import type { JSX } from "react"
+import type { ComponentProps, JSX } from "react"
 
-export type InputProps = JSX.IntrinsicElements["input"]
+export interface InputProps extends ComponentProps<"input"> {}
 
 export const inputStyles = {
   base: [

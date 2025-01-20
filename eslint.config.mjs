@@ -22,6 +22,10 @@ const eslintConfig = [
       ...perfectionist.configs["recommended-natural"].rules,
       ...unicorn.configs["flat/all"].rules,
       "@next/next/no-img-element": "off",
+      "@typescript-eslint/no-empty-object-type": [
+        "error",
+        { allowInterfaces: "with-single-extends" },
+      ],
       "perfectionist/sort-imports": [
         "error",
         {

@@ -1,7 +1,7 @@
-import type { JSX, ReactNode } from "react"
+import type { ComponentProps, JSX, ReactNode } from "react"
 import ButtonSpinner from "@/components/ui/button-spinner"
 
-export type ButtonProps = JSX.IntrinsicElements["button"] & {
+export interface ButtonProps extends ComponentProps<"button"> {
   children?: string
   fullWidth?: boolean
   isLoading?: boolean
@@ -10,6 +10,7 @@ export type ButtonProps = JSX.IntrinsicElements["button"] & {
   trailingVisual?: ReactNode
   variant?: ButtonVariant
 }
+
 export type ButtonSize =
   | "extraLarge"
   | "extraSmall"

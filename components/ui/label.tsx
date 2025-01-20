@@ -1,6 +1,6 @@
-import type { JSX } from "react"
+import type { ComponentProps, JSX } from "react"
 
-export type LabelProps = JSX.IntrinsicElements["label"]
+export interface LabelProps extends ComponentProps<"label"> {}
 
 export const labelStyles = {
   base: ["text-13", "text-mauve-a11", "w-fit"].join(" "),
