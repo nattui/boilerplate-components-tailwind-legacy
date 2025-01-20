@@ -1,8 +1,8 @@
-import type { JSX } from "react"
+import type { ComponentProps, JSX } from "react"
 import { inputStyles } from "@/components/ui/input"
 import { CaretDown } from "@phosphor-icons/react"
 
-export type SelectProps = JSX.IntrinsicElements["select"]
+export interface SelectProps extends ComponentProps<"select"> {}
 
 export default function Select(props: SelectProps): JSX.Element {
   const { children, className: customStyles = "", ...rest } = props
