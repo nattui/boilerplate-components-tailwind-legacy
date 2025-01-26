@@ -9,6 +9,12 @@ export default function Select(props: SelectProps): JSX.Element {
   const { children, className: customStyles = "", ...rest } = props
 
   const combinedStyles = `
+    ${theme.border.base}
+    ${theme.border.color.active}
+    ${theme.border.color.base}
+    ${theme.border.color.disabled}
+    ${theme.border.color.focus}
+    ${theme.border.color.hover}
     ${theme.duration}
     ${theme.outline}
     ${theme.rounded}
