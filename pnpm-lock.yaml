@@ -42,9 +42,6 @@ importers:
       '@eslint/eslintrc':
         specifier: ^3.2.0
         version: 3.2.0
-      '@nattui/tailwind-theme-config':
-        specifier: 0.0.1-alpha.14
-        version: 0.0.1-alpha.14
       '@tailwindcss/postcss':
         specifier: ^4.0.0
         version: 4.0.0
@@ -563,9 +560,6 @@ packages:
   '@mapbox/node-pre-gyp@1.0.11':
     resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
     hasBin: true
-
-  '@nattui/tailwind-theme-config@0.0.1-alpha.14':
-    resolution: {integrity: sha512-fHvSMMkwXl/FGqOIFs3BGehvn6zGxdMd7LH+HcT5d8dPe1xy2TjRiuRAM5n/CPsfOisI4VclFVCm2OZU4S+2eQ==}
 
   '@nattui/tailwind-tokenless@0.0.0-alpha.10':
     resolution: {integrity: sha512-t74RpKPY1jyf4Tai/FT1wBHuOao9bG3IihgiREn9+oEkvzfsITJliMG739o6z4QL/nHkg7Sb7Te0F+rN/lRz0Q==}
@@ -2995,8 +2989,6 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
-
-  '@nattui/tailwind-theme-config@0.0.1-alpha.14': {}
 
   '@nattui/tailwind-tokenless@0.0.0-alpha.10': {}
 
