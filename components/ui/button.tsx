@@ -18,7 +18,7 @@ export type ButtonSize =
   | "large"
   | "medium"
   | "small"
-export type ButtonVariant = "primary" | "secondary"
+export type ButtonVariant = "accent" | "primary" | "secondary"
 
 export const buttonStyles = {
   base: [
@@ -45,6 +45,19 @@ export const buttonStyles = {
     small: ["px-8", "h-32"].join(" "),
   },
   variant: {
+    accent: [
+      "active:bg-primary-9/80",
+      "active:border-primary-9/80",
+      "bg-primary-9",
+      "border-primary-9",
+      "data-[active=true]:bg-primary-9/80",
+      "data-[active=true]:border-primary-9/80",
+      "disabled:!bg-primary-9",
+      "disabled:!border-primary-9",
+      "hover:bg-primary-9/90",
+      "hover:border-primary-9/90",
+      "text-primary-1",
+    ].join(" "),
     primary: [
       "active:bg-gray-12/80",
       "active:border-gray-12/80",
