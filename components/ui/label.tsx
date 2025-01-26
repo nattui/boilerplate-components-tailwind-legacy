@@ -27,7 +27,7 @@ export default function Label(props: LabelProps): JSX.Element {
   return (
     <label className={combinedStyles} {...rest}>
       {children}
-      {required && <span className="text-primary-a11"> *</span>}
+      {required && <span className="text-[#ff0000]"> *</span>}
     </label>
   )
 }
