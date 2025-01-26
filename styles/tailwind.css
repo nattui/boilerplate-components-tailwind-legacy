@@ -6,3 +6,45 @@
 @import "@nattui/tailwind-tokenless/styles/colors/gray/mauve-alpha.css";
 @import "@nattui/tailwind-tokenless/styles/colors/primary/crimson.css";
 @import "@nattui/tailwind-tokenless/styles/colors/primary/crimson-alpha.css";
+
+@layer base {
+  html {
+    font-size: 10px;
+  }
+
+  body {
+    background-color: var(--color-gray-2);
+    color: var(--color-gray-11);
+    font-size: 14px;
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-gray-12);
+    font-weight: 500;
+    font-family: var(--font-display);
+    font-feature-settings: "ss04";
+  }
+
+  button {
+    font-weight: 500;
+  }
+
+  b,
+  strong {
+    font-weight: 500;
+  }
+
+  a {
+    font-family: var(--font-sans);
+  }
+
+  code {
+    font-family: var(--font-mono);
+  }
+}
