@@ -1,5 +1,6 @@
 import type { ComponentProps, JSX, ReactNode } from "react"
 import ButtonSpinner from "@/components/ui/button-spinner"
+import { theme } from "@/components/ui/theme"
 
 export interface ButtonProps extends ComponentProps<"button"> {
   children?: string
@@ -26,16 +27,11 @@ export const buttonStyles = {
     "cursor-pointer",
     "disabled:cursor-not-allowed",
     "disabled:opacity-50",
-    "duration-150",
     "flex",
-    "focus-visible:outline-2",
-    "focus-visible:outline-offset-2",
-    "focus-visible:outline-primary-9",
     "font-500",
     "gap-8",
     "items-center",
     "justify-center",
-    "rounded-8",
     "select-none",
     "shrink-0",
     "text-14",
@@ -98,6 +94,10 @@ export default function Button(props: ButtonProps): JSX.Element {
   } = props
 
   const combinedStyles = `
+    ${theme.duration}
+    ${theme.outline}
+    ${theme.rounded}
+    ${theme.shadow}
     ${buttonStyles.base}
     ${buttonStyles.size[size]}
     ${buttonStyles.variant[variant]}

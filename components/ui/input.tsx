@@ -1,4 +1,5 @@
 import type { ComponentProps, JSX } from "react"
+import { theme } from "@/components/ui/theme"
 
 export interface InputProps extends ComponentProps<"input"> {}
 
@@ -12,21 +13,15 @@ export const inputStyles = {
     "disabled:bg-gray-2",
     "disabled:cursor-not-allowed",
     "disabled:opacity-50",
-    "duration-150",
-    "focus-visible:outline-2",
-    "focus-visible:outline-offset-2",
-    "focus-visible:outline-primary-9",
     "focus:border-gray-a8",
     "font-400",
     "h-40",
     "hover:border-gray-a8",
     "placeholder:text-gray-11",
     "px-12",
-    "rounded-8",
-    "shadow-1",
     "text-14",
     "text-gray-12",
-    "transition-[border-color,background-color]",
+    "transition-[background-color,border-color]",
     "w-full",
   ].join(" "),
   password: "font-mono",
@@ -36,6 +31,10 @@ export default function Input(props: InputProps): JSX.Element {
   const { className: customStyles = "", type = "text", ...rest } = props
 
   const combinedStyles = `
+    ${theme.duration}
+    ${theme.outline}
+    ${theme.rounded}
+    ${theme.shadow}
     ${inputStyles.base}
     ${type === "password" ? inputStyles.password : ""}
     ${customStyles}
