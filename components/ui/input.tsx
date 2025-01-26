@@ -19,7 +19,7 @@ export const inputStyles = {
     "focus:border-gray-a8",
     "font-400",
     "h-40",
-    "hover:border-gray-a6",
+    "hover:border-gray-a8",
     "placeholder:text-gray-11",
     "px-12",
     "rounded-8",
