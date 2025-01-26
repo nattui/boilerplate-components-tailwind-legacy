@@ -18,6 +18,7 @@ export const API = {
 
 export const ROUTE = {
   BUTTONS: "/buttons",
+  COPY: "/copy",
   HOME: "/",
   INPUTS: "/inputs",
   LIFE_EXPECTANCY: "/life-expectancy",

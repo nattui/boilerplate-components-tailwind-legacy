@@ -42,7 +42,7 @@ export default function LifeExpectancyClientPage({
 
   return (
     <div className="flex flex-col">
-      <h1 className="text-24/150 font-600 mb-16">Life expectancy</h1>
+      <h1 className="text-24/150 font-500 mb-16">Life expectancy</h1>
 
       {!profile?.birthday && (
         <form action={birthdayFormAction} className="mb-32 flex w-320 flex-col">

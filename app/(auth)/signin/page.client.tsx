@@ -20,9 +20,9 @@ export default function SignInClientPage() {
 
   return (
     <div className="flex w-full max-w-320 flex-col">
-      <h1 className="mb-16 text-24 font-600">Sign in</h1>
+      <h1 className="text-24 font-500 mb-16">Sign in</h1>
 
-      {state.message && <p className="mb-16 text-red-9">{state.message}</p>}
+      {state.message && <p className="text-red-9 mb-16">{state.message}</p>}
 
       <form action={formAction} className="flex flex-col">
         <Label className="mb-4" htmlFor="email">

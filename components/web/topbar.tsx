@@ -12,6 +12,7 @@ export default async function Topbar() {
       <NavLink href={ROUTE.BUTTONS}>Buttons</NavLink>
       <NavLink href={ROUTE.INPUTS}>Inputs</NavLink>
       <NavLink href={ROUTE.USERS}>Users</NavLink>
+      <NavLink href={ROUTE.COPY}>Copy</NavLink>
       {isAuthenticated && (
         <NavLink href={ROUTE.LIFE_EXPECTANCY}>Life expectancy</NavLink>
       )}
