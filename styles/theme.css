@@ -42,9 +42,3 @@ input::-webkit-datetime-edit-year-field:focus {
   background: var(--color-primary-a10);
   color: var(--color-gray-2);
 }
-
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-}

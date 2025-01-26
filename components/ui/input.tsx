@@ -4,6 +4,7 @@ export interface InputProps extends ComponentProps<"input"> {}
 
 export const inputStyles = {
   base: [
+    "appearance-none",
     "bg-gray-2",
     "border-gray-a4",
     "border-solid",
@@ -13,8 +14,8 @@ export const inputStyles = {
     "disabled:opacity-50",
     "duration-150",
     "focus-visible:outline-2",
-    "focus-visible:outline-primary-9",
     "focus-visible:outline-offset-2",
+    "focus-visible:outline-primary-9",
     "focus:border-gray-a8",
     "font-400",
     "h-40",
