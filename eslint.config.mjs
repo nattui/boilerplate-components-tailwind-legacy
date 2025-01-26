@@ -1,6 +1,7 @@
 import { FlatCompat } from "@eslint/eslintrc"
 import perfectionist from "eslint-plugin-perfectionist"
 import unicorn from "eslint-plugin-unicorn"
+import unusedImports from "eslint-plugin-unused-imports"
 import { dirname } from "node:path"
 import { fileURLToPath } from "node:url"
 
@@ -17,6 +18,7 @@ const eslintConfig = [
     plugins: {
       perfectionist,
       unicorn,
+      "unused-imports": unusedImports,
     },
     rules: {
       ...perfectionist.configs["recommended-natural"].rules,
@@ -37,6 +39,7 @@ const eslintConfig = [
       "unicorn/import-style": "off",
       "unicorn/no-keyword-prefix": "off",
       "unicorn/prevent-abbreviations": "off",
+      "unused-imports/no-unused-imports": "error",
     },
   },
 ]
