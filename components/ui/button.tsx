@@ -22,8 +22,6 @@ export type ButtonVariant = "accent" | "primary" | "secondary"
 
 export const buttonStyles = {
   base: [
-    "border-solid",
-    "border",
     "cursor-pointer",
     "disabled:cursor-not-allowed",
     "disabled:opacity-50",
@@ -73,17 +71,18 @@ export const buttonStyles = {
       "text-gray-1",
     ].join(" "),
     secondary: [
-      "active:bg-gray-4",
-      "active:border-gray-a8",
+      "active:bg-gray-3",
       "bg-gray-2",
-      "border-gray-a4",
       "data-[active=true]:bg-gray-4",
-      "data-[active=true]:border-gray-a8",
       "disabled:!bg-gray-2",
-      "disabled:!border-gray-a4",
-      "hover:bg-gray-3",
-      "hover:border-gray-a6",
+      "hover:bg-gray-3/50",
+      "hover:border-gray-a8",
       "text-gray-12",
+      theme.border.color.active,
+      theme.border.color.base,
+      theme.border.color.disabled,
+      theme.border.color.focus,
+      theme.border.color.hover,
       theme.shadow,
     ].join(" "),
   },
@@ -109,6 +108,7 @@ export default function Button(props: ButtonProps): JSX.Element {
   } = props
 
   const combinedStyles = `
+    ${theme.border.base}
     ${theme.duration}
     ${theme.outline}
     ${theme.rounded}

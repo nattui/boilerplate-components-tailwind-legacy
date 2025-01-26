@@ -1,4 +1,17 @@
 export const theme = {
+  border: {
+    base: ["border-solid", "border"].join(" "),
+    color: {
+      active: [
+        "data-[active=true]:border-gray-a8",
+        "active:border-gray-a8",
+      ].join(" "),
+      base: "border-gray-a4",
+      disabled: "disabled:!border-gray-a4",
+      focus: "focus:border-gray-a8",
+      hover: "hover:border-gray-a8",
+    },
+  },
   duration: "duration-150",
   outline: [
     "focus-visible:outline-2",

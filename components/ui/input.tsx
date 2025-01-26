@@ -7,16 +7,11 @@ export const inputStyles = {
   base: [
     "appearance-none",
     "bg-gray-2",
-    "border-gray-a4",
-    "border-solid",
-    "border",
     "disabled:bg-gray-2",
     "disabled:cursor-not-allowed",
     "disabled:opacity-50",
-    "focus:border-gray-a8",
     "font-400",
     "h-40",
-    "hover:border-gray-a8",
     "placeholder:text-gray-11",
     "px-12",
     "text-14",
@@ -31,6 +26,12 @@ export default function Input(props: InputProps): JSX.Element {
   const { className: customStyles = "", type = "text", ...rest } = props
 
   const combinedStyles = `
+    ${theme.border.base}
+    ${theme.border.color.active}
+    ${theme.border.color.base}
+    ${theme.border.color.disabled}
+    ${theme.border.color.focus}
+    ${theme.border.color.hover}
     ${theme.duration}
     ${theme.outline}
     ${theme.rounded}
