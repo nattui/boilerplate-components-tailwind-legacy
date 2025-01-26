@@ -70,6 +70,7 @@ export const buttonStyles = {
       "hover:bg-gray-3",
       "hover:border-gray-a6",
       "text-gray-12",
+      theme.shadow,
     ].join(" "),
   },
   width: {
@@ -97,7 +98,6 @@ export default function Button(props: ButtonProps): JSX.Element {
     ${theme.duration}
     ${theme.outline}
     ${theme.rounded}
-    ${theme.shadow}
     ${buttonStyles.base}
     ${buttonStyles.size[size]}
     ${buttonStyles.variant[variant]}
