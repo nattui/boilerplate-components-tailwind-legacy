@@ -3,7 +3,7 @@ import type { ComponentProps, JSX } from "react"
 export interface LabelProps extends ComponentProps<"label"> {}
 
 export const labelStyles = {
-  base: ["text-13", "text-mauve-a11", "w-fit"].join(" "),
+  base: ["text-13", "text-gray-a11", "w-fit"].join(" "),
 } as const
 
 export default function Label(props: LabelProps): JSX.Element {

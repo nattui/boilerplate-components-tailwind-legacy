@@ -8,7 +8,7 @@ export default async function UsersPage() {
     <div className="flex flex-col gap-16 p-32">
       {users.map((user) => (
         <div
-          className="shadow-sm flex flex-col gap-4 rounded-8 border border-mauve-a6 p-16 font-mono text-14 shadow-1"
+          className="rounded-8 border-gray-a6 text-14 shadow-1 flex flex-col gap-4 border p-16 font-mono"
           key={user.id}
         >
           <div>

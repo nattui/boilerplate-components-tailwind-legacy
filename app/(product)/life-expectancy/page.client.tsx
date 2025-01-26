@@ -42,7 +42,7 @@ export default function LifeExpectancyClientPage({
 
   return (
     <div className="flex flex-col">
-      <h1 className="mb-16 text-24 font-600">Life expectancy</h1>
+      <h1 className="text-24/150 font-600 mb-16">Life expectancy</h1>
 
       {!profile?.birthday && (
         <form action={birthdayFormAction} className="mb-32 flex w-320 flex-col">
@@ -130,11 +130,11 @@ function Dashboard({ dashboard, profile }: DashboardProps) {
   return (
     <div className="flex max-w-384 flex-col gap-16">
       <p>
-        You are <span className="font-500 text-mauve-12">{age.toFixed(2)}</span>{" "}
+        You are <span className="font-500 text-gray-12">{age.toFixed(2)}</span>{" "}
         years old and live in the{" "}
-        <span className="font-500 text-mauve-12">{profile.country}</span>, where
+        <span className="font-500 text-gray-12">{profile.country}</span>, where
         the average life expectancy is{" "}
-        <span className="font-500 text-mauve-12">
+        <span className="font-500 text-gray-12">
           {totalLifeExpectancyYears}
         </span>{" "}
         years (The World Bank).
@@ -142,7 +142,7 @@ function Dashboard({ dashboard, profile }: DashboardProps) {
 
       <p>
         Based on this, you have approximately{" "}
-        <span className="font-500 text-mauve-12">
+        <span className="font-500 text-gray-12">
           {remainingLifeExpectancyYears}
         </span>{" "}
         years remaining to live.
@@ -150,11 +150,11 @@ function Dashboard({ dashboard, profile }: DashboardProps) {
 
       <p>
         So far, you have experienced{" "}
-        <span className="font-500 text-mauve-12">
+        <span className="font-500 text-gray-12">
           {(100 - remainingPercentage).toFixed(2)}%
         </span>{" "}
         of my life, with{" "}
-        <span className="font-500 text-mauve-12">
+        <span className="font-500 text-gray-12">
           {remainingPercentage.toFixed(2)}%
         </span>{" "}
         still ahead of me.

@@ -4,12 +4,12 @@ html {
 
 /* Colors ---------------------------------------------- */
 body {
-  background-color: var(--mauve-2);
-  color: var(--mauve-11);
+  background-color: var(--color-gray-2);
+  color: var(--color-gray-11);
 }
 
 .dark body {
-  background-color: var(--mauve-1);
+  background-color: var(--color-gray-1);
 }
 
 h1,
@@ -18,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--gray-12);
+  color: var(--color-gray-12);
 }
 
 /* Fonts ------------------------------------------------- */
@@ -73,32 +73,33 @@ code {
 
 /* Highlight */
 ::-moz-selection {
-  background: var(--crimson-a10);
-  color: var(--mauve-2);
+  background: var(--color-primary-a10);
+  color: var(--color-gray-2);
 }
 ::selection {
-  background: var(--crimson-a10);
-  color: var(--mauve-2);
+  background: var(--color-primary-a10);
+  color: var(--color-gray-2);
 }
+
 /* Input date */
 input::-webkit-datetime-edit-day-field:focus,
 input::-webkit-datetime-edit-month-field:focus,
 input::-webkit-datetime-edit-year-field:focus {
-  background: var(--crimson-a10);
-  color: var(--mauve-2);
+  background: var(--color-primary-a10);
+  color: var(--color-gray-2);
 }
 
 .dark ::-moz-selection {
-  color: var(--mauve-1);
+  color: var(--color-gray-1);
 }
 .dark ::selection {
-  color: var(--mauve-1);
+  color: var(--color-gray-1);
 }
 .dark input::-webkit-datetime-edit-day-field:focus,
 .dark input::-webkit-datetime-edit-month-field:focus,
 .dark input::-webkit-datetime-edit-year-field:focus {
-  background: var(--crimson-a10);
-  color: var(--mauve-2);
+  background: var(--color-primary-a10);
+  color: var(--color-gray-2);
 }
 
 select {

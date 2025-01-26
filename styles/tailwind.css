@@ -1,27 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer utilities {
-  .d {
-    @apply border-crimson-a9 border border-dashed;
-  }
-
-  .shadow-main {
-    @apply shadow-main-light dark:shadow-main-dark;
-  }
-
-  .shadow-main-light {
-    box-shadow:
-      0px 0px 0.5px rgba(0, 0, 0, 0.3),
-      0px 1px 3px rgba(0, 0, 0, 0.15);
-  }
-
-  .shadow-main-dark {
-    box-shadow:
-      0px 0px 0.5px rgba(0, 0, 0, 0.5),
-      0px 1px 3px rgba(0, 0, 0, 0.4),
-      inset 0px 0.5px 0px rgba(255, 255, 255, 0.1),
-      inset 0px 0px 0.5px rgba(255, 255, 255, 0.3);
-  }
-}
+/* Order matters */
+@import "tailwindcss";
+@import "@nattui/tailwind-tokenless/styles/10/index.css";
+@import "@nattui/tailwind-tokenless/styles/colors/reset.css";
+@import "@nattui/tailwind-tokenless/styles/colors/gray/mauve.css";
+@import "@nattui/tailwind-tokenless/styles/colors/gray/mauve-alpha.css";
+@import "@nattui/tailwind-tokenless/styles/colors/primary/crimson.css";
+@import "@nattui/tailwind-tokenless/styles/colors/primary/crimson-alpha.css";
