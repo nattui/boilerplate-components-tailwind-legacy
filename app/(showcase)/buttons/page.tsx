@@ -199,6 +199,43 @@ export default function ButtonsPage() {
         </Button>
       </div>
 
+      {/* Loading */}
+      <div className="flex flex-wrap items-center justify-center gap-8">
+        <Button isLoading size="extraSmall">
+          Extra small
+        </Button>
+        <Button isLoading size="small">
+          Small
+        </Button>
+        <Button isLoading size="medium">
+          Medium
+        </Button>
+        <Button isLoading size="large">
+          Large
+        </Button>
+        <Button isLoading size="extraLarge">
+          Extra large
+        </Button>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-center gap-8">
+        <Button isLoading size="extraSmall" variant="secondary">
+          Extra small
+        </Button>
+        <Button isLoading size="small" variant="secondary">
+          Small
+        </Button>
+        <Button isLoading size="medium" variant="secondary">
+          Medium
+        </Button>
+        <Button isLoading size="large" variant="secondary">
+          Large
+        </Button>
+        <Button isLoading size="extraLarge" variant="secondary">
+          Extra large
+        </Button>
+      </div>
+
       {/* Full width */}
       <div className="flex w-full max-w-320 items-center justify-center gap-8">
         <Button fullWidth size="large">
