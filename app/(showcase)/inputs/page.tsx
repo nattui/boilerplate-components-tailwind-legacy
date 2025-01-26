@@ -10,7 +10,7 @@ export default function InputsPage() {
       className="flex w-320 flex-col"
       onSubmit={(event) => event.preventDefault()}
     >
-      <Label className="mb-4" htmlFor="email">
+      <Label className="mb-4" htmlFor="email" required>
         Email
       </Label>
       <Input
@@ -21,7 +21,7 @@ export default function InputsPage() {
         required
         type="email"
       />
-      <Label className="mb-4" htmlFor="password">
+      <Label className="mb-4" htmlFor="password" required>
         Password
       </Label>
       <Input
