@@ -1,7 +1,6 @@
 import type { JSX } from "react"
 import type { ComponentProps } from "react"
 import { type ButtonProps, buttonStyles } from "@/components/ui/button"
-import { theme } from "@/components/ui/theme"
 import Link from "next/link"
 
 export interface ButtonLinkProps extends ComponentProps<typeof Link> {
@@ -22,10 +21,6 @@ export default function ButtonLink(props: ButtonLinkProps): JSX.Element {
   } = props
 
   const combinedStyles = `
-    ${theme.duration}
-    ${theme.outline}
-    ${theme.rounded}
-    ${theme.shadow}
     ${buttonStyles.base}
     ${buttonStyles.size[size]}
     ${buttonStyles.variant[variant]}

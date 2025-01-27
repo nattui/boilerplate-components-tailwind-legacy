@@ -2,25 +2,21 @@ import type { ComponentProps, JSX, ReactNode } from "react"
 import ButtonSpinner from "@/components/ui/button-spinner"
 import { theme } from "@/components/ui/theme"
 
-export interface ButtonProps extends ComponentProps<"button"> {
-  children?: string
-  fullWidth?: boolean
+export interface IconButtonProps extends ComponentProps<"button"> {
+  children?: ReactNode
   isLoading?: boolean
-  leadingVisual?: ReactNode
-  size?: ButtonSize
-  trailingVisual?: ReactNode
-  variant?: ButtonVariant
+  size?: IconButtonSize
+  variant?: IconButtonVariant
 }
-
-export type ButtonSize =
+export type IconButtonSize =
   | "extraLarge"
   | "extraSmall"
   | "large"
   | "medium"
   | "small"
-export type ButtonVariant = "accent" | "ghost" | "primary" | "secondary"
+export type IconButtonVariant = "accent" | "ghost" | "primary" | "secondary"
 
-export const buttonStyles = {
+export const iconButtonStyles = {
   base: [
     "cursor-pointer",
     "disabled:cursor-not-allowed",
@@ -34,17 +30,13 @@ export const buttonStyles = {
     "shrink-0",
     "text-14",
     "transition-[background-color,border-color,box-shadow,opacity]",
-    theme.border.base,
-    theme.duration,
-    theme.outline,
-    theme.rounded,
   ].join(" "),
   size: {
-    extraLarge: ["px-20", "h-44"].join(" "),
-    extraSmall: ["px-6", "h-28"].join(" "),
-    large: ["px-16", "h-40"].join(" "),
-    medium: ["px-12", "h-36"].join(" "),
-    small: ["px-8", "h-32"].join(" "),
+    extraLarge: ["w-44", "h-44"].join(" "),
+    extraSmall: ["w-28", "h-28"].join(" "),
+    large: ["w-40", "h-40"].join(" "),
+    medium: ["w-36", "h-36"].join(" "),
+    small: ["w-32", "h-32"].join(" "),
   },
   variant: {
     accent: [
@@ -98,32 +90,28 @@ export const buttonStyles = {
       theme.shadow,
     ].join(" "),
   },
-  width: {
-    fit: "w-fit",
-    full: "w-full",
-  },
 } as const
 
-export default function Button(props: ButtonProps): JSX.Element {
+export default function IconButton(props: IconButtonProps): JSX.Element {
   const {
     children = "",
     className: customStyles = "",
     disabled = false,
-    fullWidth = false,
     isLoading = false,
-    leadingVisual,
     size = "medium",
-    trailingVisual,
     type = "button",
     variant = "primary",
     ...rest
   } = props
 
   const combinedStyles = `
-    ${buttonStyles.base}
-    ${buttonStyles.size[size]}
-    ${buttonStyles.variant[variant]}
-    ${fullWidth ? buttonStyles.width.full : buttonStyles.width.fit}
+    ${theme.border.base}
+    ${theme.duration}
+    ${theme.outline}
+    ${theme.rounded}
+    ${iconButtonStyles.base}
+    ${iconButtonStyles.size[size]}
+    ${iconButtonStyles.variant[variant]}
     ${customStyles}
   `
     .replaceAll(/\s+/g, " ")
@@ -136,10 +124,8 @@ export default function Button(props: ButtonProps): JSX.Element {
       type={type}
       {...rest}
     >
-      {!isLoading && leadingVisual}
       {isLoading && <ButtonSpinner />}
-      <span>{children}</span>
-      {trailingVisual}
+      {!isLoading && children}
     </button>
   )
 }

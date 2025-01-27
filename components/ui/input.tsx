@@ -18,6 +18,16 @@ export const inputStyles = {
     "text-gray-12",
     "transition-[background-color,border-color]",
     "w-full",
+    theme.border.base,
+    theme.border.color.active,
+    theme.border.color.base,
+    theme.border.color.disabled,
+    theme.border.color.focus,
+    theme.border.color.hover,
+    theme.duration,
+    theme.outline,
+    theme.rounded,
+    theme.shadow,
   ].join(" "),
   password: "font-mono",
 } as const
@@ -26,16 +36,6 @@ export default function Input(props: InputProps): JSX.Element {
   const { className: customStyles = "", type = "text", ...rest } = props
 
   const combinedStyles = `
-    ${theme.border.base}
-    ${theme.border.color.active}
-    ${theme.border.color.base}
-    ${theme.border.color.disabled}
-    ${theme.border.color.focus}
-    ${theme.border.color.hover}
-    ${theme.duration}
-    ${theme.outline}
-    ${theme.rounded}
-    ${theme.shadow}
     ${inputStyles.base}
     ${type === "password" ? inputStyles.password : ""}
     ${customStyles}
