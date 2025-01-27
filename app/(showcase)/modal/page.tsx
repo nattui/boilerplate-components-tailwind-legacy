@@ -1,11 +1,13 @@
 import Button from "@/components/ui/button"
 import Input from "@/components/ui/input"
 import Label from "@/components/ui/label"
-import { Cloud, Plus } from "@phosphor-icons/react/dist/ssr"
+import { Cloud, Plus, X } from "@phosphor-icons/react/dist/ssr"
 
 export default function ModalPage() {
   return (
-    <div className="border-gray-a4 rounded-12 flex w-full max-w-448 flex-col border border-solid p-16">
+    <div className="border-gray-a4 rounded-12 relative flex w-full max-w-448 flex-col border border-solid p-16">
+      <X className="absolute top-16 right-16" />
+
       <h2 className="text-20 mb-4">Connect AWS via CloudFormation</h2>
       <p className="text-14 mb-24">
         Connect your AWS account with an IAM Role to let the app securely access
