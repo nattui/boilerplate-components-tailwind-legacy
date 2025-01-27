@@ -23,6 +23,7 @@ export const buttonStyles = {
     "gap-8",
     "items-center",
     "justify-center",
+    "leading-150",
     "select-none",
     "shrink-0",
     "text-14",

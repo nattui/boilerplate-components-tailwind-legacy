@@ -8,6 +8,10 @@ export default function TextareaPage() {
         Row 1
       </Label>
       <Textarea className="mb-16" id="row-1" name="row-1" rows={1} />
+      <Label className="mb-4" htmlFor="row-2">
+        Row 2
+      </Label>
+      <Textarea className="mb-16" id="row-2" name="row-2" rows={2} />
       <Label className="mb-4" htmlFor="row-default">
         Row default
       </Label>

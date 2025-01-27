@@ -11,6 +11,7 @@ export const inputStyles = {
     "disabled:bg-gray-2",
     "font-400",
     "h-40",
+    "leading-150",
     "placeholder:text-gray-9",
     "px-12",
     "text-14",
@@ -29,7 +30,6 @@ export const inputStyles = {
     theme.rounded,
     theme.shadow,
   ].join(" "),
-  password: "font-mono",
 } as const
 
 export default function Input(props: InputProps): JSX.Element {
@@ -37,11 +37,17 @@ export default function Input(props: InputProps): JSX.Element {
 
   const combinedStyles = `
     ${inputStyles.base}
-    ${type === "password" ? inputStyles.password : ""}
     ${customStyles}
   `
     .replaceAll(/\s+/g, " ")
     .trim()
 
-  return <input className={combinedStyles} type={type} {...rest} />
+  return (
+    <input
+      className={combinedStyles}
+      style={{ fontFamily: type === "password" ? "var(--font-mono)" : "" }}
+      type={type}
+      {...rest}
+    />
+  )
 }

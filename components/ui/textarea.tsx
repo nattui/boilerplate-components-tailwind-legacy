@@ -22,7 +22,7 @@ export default function Textarea(props: TextareaProps): JSX.Element {
     <textarea
       className={combinedStyles}
       rows={rows}
-      style={{ minHeight: `${20 * rows + 20}px` }}
+      style={{ minHeight: `${21 * rows + 19}px` }}
       {...rest}
     />
   )
