@@ -1,10 +1,11 @@
 /* ====================================================== /
     Natt Nguyen's CSS Reset
-    Last updated: 2024.12.26
+    Last updated: 2025.01.26
 
     The goal of a reset stylesheet is to reduce browser
     inconsistencies, improve the user experience, and
-    improve the CSS authoring experience.
+    improve the CSS authoring experience. Assumes
+    the use of Tailwind CSS Preflight.
 
     Reference:
     - https://www.joshwcomeau.com/css/custom-css-reset
@@ -19,41 +20,6 @@
 }
 
 /*
-    Use a more-intuitive box sizing model
-*/
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/*
-    Remove default margin
-*/
-blockquote,
-body,
-figure,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
-
-/*
-    Allow percentage-based heights in the application
-*/
-#__next,
-#root,
-body,
-html {
-  min-height: 100%;
-}
-
-/*
     Typographic tweaks
     - Improve text rendering
     - Add accessible line height
@@ -65,72 +31,10 @@ body {
 }
 
 /*
-    Enhance heading quality and legibility
-*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.2;
-  text-wrap: balance;
-}
-
-/*
-    Avoid a short single word on the last line
-*/
-p {
-  text-wrap: pretty;
-}
-
-/*
-    Remove links underline
-*/
-a {
-  text-decoration: none;
-}
-
-/*
     Limit the resize to only the vertical direction
 */
 textarea {
   resize: vertical;
-}
-
-/*
-    Improve media defaults
-*/
-canvas,
-img,
-picture,
-svg,
-video {
-  display: block;
-  max-width: 100%;
-}
-
-/*
-    Remove built-in form typography styles
-*/
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
-}
-
-/*
-    Avoid text overflows
-*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  overflow-wrap: break-word;
 }
 
 /*

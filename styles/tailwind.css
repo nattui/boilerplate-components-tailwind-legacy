@@ -97,9 +97,12 @@
   }
 
   body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
     background-color: var(--color-gray-2);
     color: var(--color-gray-11);
     font-size: 14px;
+    line-height: 1.5;
     font-family: var(--font-sans);
   }
 
@@ -130,5 +133,37 @@
 
   code {
     font-family: var(--font-mono);
+  }
+
+  /*
+    Enhance heading quality and legibility
+  */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  /*
+    Avoid a short single word on the last line
+  */
+  p {
+    text-wrap: pretty;
+  }
+
+  /*
+    Avoid text overflows
+  */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    overflow-wrap: break-word;
   }
 }
