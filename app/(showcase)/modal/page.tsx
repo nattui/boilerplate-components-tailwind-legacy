@@ -6,7 +6,7 @@ import { Cloud, Plus, X } from "@phosphor-icons/react/dist/ssr"
 
 export default function ModalPage() {
   return (
-    <div className="border-gray-a4 rounded-12 relative flex w-full max-w-448 flex-col border border-solid p-16">
+    <div className="border-gray-a4 rounded-12 relative flex w-full max-w-384 flex-col border border-solid p-16">
       <IconButton
         className="absolute top-12 right-12"
         size="small"
@@ -15,7 +15,7 @@ export default function ModalPage() {
         <X />
       </IconButton>
 
-      <h2 className="text-20 mb-4">Connect AWS via CloudFormation</h2>
+      <h2 className="text-20 mr-32 mb-4">Connect AWS via CloudFormation</h2>
       <p className="text-14 mb-24">
         Connect your AWS account with an IAM Role to let the app securely access
         your resources without sharing your access key. You control the access

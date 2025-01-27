@@ -63,7 +63,7 @@ export const buttonStyles = {
     ].join(" "),
     ghost: [
       "active:bg-gray-5",
-      "bg-gray-2",
+      "bg-transparent",
       "border-transparent",
       "data-[active=true]:bg-gray-5",
       "disabled:!bg-gray-2",
