@@ -20,6 +20,7 @@ export const ROUTE = {
   BUTTONS: "/buttons",
   COPY: "/copy",
   HOME: "/",
+  ICON_BUTTONS: "/icon-buttons",
   INPUTS: "/inputs",
   LIFE_EXPECTANCY: "/life-expectancy",
   MODAL: "/modal",
