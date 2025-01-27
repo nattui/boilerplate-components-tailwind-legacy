@@ -10,6 +10,7 @@ import Select from "@/components/ui/select"
 import { LifeExpectancy } from "@/libs/db/schema"
 import { FloppyDisk, Trash } from "@phosphor-icons/react"
 import { useActionState } from "react"
+import { useState } from "react"
 
 interface DashboardProps {
   dashboard?: LifeExpectancy
@@ -30,6 +31,9 @@ export default function LifeExpectancyClientPage({
   dashboard?: LifeExpectancy
   profile?: LifeExpectancyProfile | undefined
 }) {
+  const [birthday, setBirthday] = useState("")
+  const [country, setCountry] = useState("")
+
   const [, birthdayFormAction, birthdayPending] = useActionState(
     profileBirthday,
     initialState,
@@ -54,11 +58,13 @@ export default function LifeExpectancyClientPage({
             className="mb-8"
             id="birthday"
             name="birthday"
+            onChange={(e) => setBirthday(e.target.value)}
             required
             type="date"
           />
           <Button
             className="ml-auto"
+            disabled={!birthday}
             isLoading={birthdayPending}
             leadingVisual={<FloppyDisk size={16} />}
             size="small"
@@ -74,12 +80,19 @@ export default function LifeExpectancyClientPage({
           <Label className="mb-4" htmlFor="country">
             Which country are you in?
           </Label>
-          <Select className="mb-8" id="country" name="country" required>
+          <Select
+            className="mb-8"
+            id="country"
+            name="country"
+            onChange={(e) => setCountry(e.target.value)}
+            required
+          >
             <option value="">Select your country</option>
             <option value="United States">United States</option>
           </Select>
           <Button
             className="ml-auto"
+            disabled={!country}
             isLoading={countryPending}
             leadingVisual={<FloppyDisk size={16} />}
             size="small"
