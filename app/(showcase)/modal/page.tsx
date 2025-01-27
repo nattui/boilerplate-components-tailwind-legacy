@@ -6,7 +6,7 @@ import { Cloud, Plus, X } from "@phosphor-icons/react/dist/ssr"
 
 export default function ModalPage() {
   return (
-    <div className="border-gray-a4 rounded-12 relative flex w-full max-w-384 flex-col border border-solid p-16">
+    <div className="border-gray-a4 rounded-12 shadow-5 relative flex w-full max-w-384 flex-col border border-solid p-16">
       <IconButton
         className="absolute top-12 right-12"
         size="small"
