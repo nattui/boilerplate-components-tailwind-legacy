@@ -11,6 +11,7 @@ export const inputStyles = {
     "disabled:cursor-not-allowed",
     "disabled:opacity-50",
     "font-400",
+    "h-40",
     "placeholder:text-gray-9",
     "px-12",
     "text-14",
@@ -28,7 +29,6 @@ export const inputStyles = {
     theme.rounded,
     theme.shadow,
   ].join(" "),
-  height: "h-40",
   password: "font-mono",
 } as const
 
@@ -37,7 +37,6 @@ export default function Input(props: InputProps): JSX.Element {
 
   const combinedStyles = `
     ${inputStyles.base}
-    ${inputStyles.height}
     ${type === "password" ? inputStyles.password : ""}
     ${customStyles}
   `
