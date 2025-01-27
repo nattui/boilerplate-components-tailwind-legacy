@@ -17,7 +17,7 @@ export default function TextareaPage() {
       </Label>
       <Textarea className="mb-16" id="row-default" name="row-default" />
       <Label className="mb-4" htmlFor="row-10">
-        Row 10
+        Row 10 resize none
       </Label>
       <Textarea
         className="mb-16 resize-none"
