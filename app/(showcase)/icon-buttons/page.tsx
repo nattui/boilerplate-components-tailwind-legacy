@@ -7,152 +7,152 @@ export default function IconButtonsPage() {
       {/* Example */}
       <div className="flex flex-wrap items-center justify-center gap-8">
         <IconButton>
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
       </div>
 
       {/* Variant */}
       <div className="flex flex-wrap items-center justify-center gap-8">
         <IconButton variant="primary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton variant="accent">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton variant="ghost">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
       </div>
 
       {/* Base */}
       <div className="flex flex-wrap items-center justify-center gap-8">
         <IconButton size="extraSmall">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton size="small">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton size="medium">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton size="large">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton size="extraLarge">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
         <IconButton size="extraSmall" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton size="small" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton size="medium" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton size="large" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton size="extraLarge" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
         <IconButton size="extraSmall" variant="accent">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton size="small" variant="accent">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton size="medium" variant="accent">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton size="large" variant="accent">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton size="extraLarge" variant="accent">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
       </div>
 
       {/* Disabled */}
       <div className="flex flex-wrap items-center justify-center gap-8">
         <IconButton disabled size="extraSmall">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton disabled size="small">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton disabled size="medium">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton disabled size="large">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton disabled size="extraLarge">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
         <IconButton disabled size="extraSmall" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton disabled size="small" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton disabled size="medium" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton disabled size="large" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton disabled size="extraLarge" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
       </div>
 
       {/* Loading */}
       <div className="flex flex-wrap items-center justify-center gap-8">
         <IconButton isLoading size="extraSmall">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton isLoading size="small">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton isLoading size="medium">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton isLoading size="large">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton isLoading size="extraLarge">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
         <IconButton isLoading size="extraSmall" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton isLoading size="small" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton isLoading size="medium" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton isLoading size="large" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
         <IconButton isLoading size="extraLarge" variant="secondary">
-          <DownloadSimple />
+          <DownloadSimple size={16} />
         </IconButton>
       </div>
     </>

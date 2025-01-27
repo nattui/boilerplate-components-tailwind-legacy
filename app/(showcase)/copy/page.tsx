@@ -1,7 +1,6 @@
-"use client"
-
 import Button from "@/components/ui/button"
 import Input from "@/components/ui/input"
+import { Copy } from "@phosphor-icons/react/dist/ssr"
 
 export default function CopyPage() {
   return (
@@ -19,7 +18,12 @@ export default function CopyPage() {
           required
           type="text"
         />
-        <Button size="large" type="submit" variant="secondary">
+        <Button
+          leadingVisual={<Copy size={16} />}
+          size="large"
+          type="submit"
+          variant="secondary"
+        >
           Copy Link
         </Button>
       </div>

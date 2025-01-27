@@ -3,7 +3,11 @@
 import Button from "@/components/ui/button"
 import Input from "@/components/ui/input"
 import Label from "@/components/ui/label"
-import { EnvelopeSimple, LockSimple } from "@phosphor-icons/react/dist/ssr"
+import {
+  EnvelopeSimple,
+  LockSimple,
+  SignIn,
+} from "@phosphor-icons/react/dist/ssr"
 
 export default function InputsPage() {
   return (
@@ -47,7 +51,13 @@ export default function InputsPage() {
           size={16}
         />
       </div>
-      <Button fullWidth size="extraLarge" type="submit" variant="accent">
+      <Button
+        fullWidth
+        leadingVisual={<SignIn size={16} />}
+        size="extraLarge"
+        type="submit"
+        variant="accent"
+      >
         Sign in
       </Button>
     </form>

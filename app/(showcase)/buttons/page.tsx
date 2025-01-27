@@ -64,38 +64,38 @@ export default function ButtonsPage() {
 
       {/* Leading visual */}
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button leadingVisual={<ArrowLeft />} size="extraSmall">
+        <Button leadingVisual={<ArrowLeft size={16} />} size="extraSmall">
           Extra small
         </Button>
-        <Button leadingVisual={<ArrowLeft />} size="small">
+        <Button leadingVisual={<ArrowLeft size={16} />} size="small">
           Small
         </Button>
-        <Button leadingVisual={<ArrowLeft />} size="medium">
+        <Button leadingVisual={<ArrowLeft size={16} />} size="medium">
           Medium
         </Button>
-        <Button leadingVisual={<ArrowLeft />} size="large">
+        <Button leadingVisual={<ArrowLeft size={16} />} size="large">
           Large
         </Button>
-        <Button leadingVisual={<ArrowLeft />} size="extraLarge">
+        <Button leadingVisual={<ArrowLeft size={16} />} size="extraLarge">
           Extra large
         </Button>
       </div>
 
       {/* Trailing visual */}
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button size="extraSmall" trailingVisual={<ArrowRight />}>
+        <Button size="extraSmall" trailingVisual={<ArrowRight size={16} />}>
           Extra small
         </Button>
-        <Button size="small" trailingVisual={<ArrowRight />}>
+        <Button size="small" trailingVisual={<ArrowRight size={16} />}>
           Small
         </Button>
-        <Button size="medium" trailingVisual={<ArrowRight />}>
+        <Button size="medium" trailingVisual={<ArrowRight size={16} />}>
           Medium
         </Button>
-        <Button size="large" trailingVisual={<ArrowRight />}>
+        <Button size="large" trailingVisual={<ArrowRight size={16} />}>
           Large
         </Button>
-        <Button size="extraLarge" trailingVisual={<ArrowRight />}>
+        <Button size="extraLarge" trailingVisual={<ArrowRight size={16} />}>
           Extra large
         </Button>
       </div>
@@ -103,37 +103,37 @@ export default function ButtonsPage() {
       {/* Leading and trailing visual */}
       <div className="flex flex-wrap items-center justify-center gap-8">
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="extraSmall"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
         >
           Extra small
         </Button>
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="small"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
         >
           Small
         </Button>
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="medium"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
         >
           Medium
         </Button>
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="large"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
         >
           Large
         </Button>
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="extraLarge"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
         >
           Extra large
         </Button>
@@ -141,41 +141,41 @@ export default function ButtonsPage() {
 
       <div className="flex flex-wrap items-center justify-center gap-8">
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="extraSmall"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
           variant="secondary"
         >
           Extra small
         </Button>
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="small"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
           variant="secondary"
         >
           Small
         </Button>
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="medium"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
           variant="secondary"
         >
           Medium
         </Button>
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="large"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
           variant="secondary"
         >
           Large
         </Button>
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="extraLarge"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
           variant="secondary"
         >
           Extra large
@@ -184,41 +184,41 @@ export default function ButtonsPage() {
 
       <div className="flex flex-wrap items-center justify-center gap-8">
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="extraSmall"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
           variant="accent"
         >
           Extra small
         </Button>
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="small"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
           variant="accent"
         >
           Small
         </Button>
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="medium"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
           variant="accent"
         >
           Medium
         </Button>
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="large"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
           variant="accent"
         >
           Large
         </Button>
         <Button
-          leadingVisual={<ArrowLeft />}
+          leadingVisual={<ArrowLeft size={16} />}
           size="extraLarge"
-          trailingVisual={<ArrowRight />}
+          trailingVisual={<ArrowRight size={16} />}
           variant="accent"
         >
           Extra large
