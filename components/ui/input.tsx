@@ -12,7 +12,7 @@ export const inputStyles = {
     "disabled:opacity-50",
     "font-400",
     "h-40",
-    "placeholder:text-gray-11",
+    "placeholder:text-gray-9",
     "px-12",
     "text-14",
     "text-gray-12",
