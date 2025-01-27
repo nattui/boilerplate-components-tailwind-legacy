@@ -49,7 +49,6 @@ export const buttonStyles = {
   variant: {
     accent: [
       "active:bg-primary-9/80",
-      "active:border-primary-9/80",
       "active:shadow-[inset_0_0_0_0_transparent]",
       "bg-primary-9",
       "border-transparent",
