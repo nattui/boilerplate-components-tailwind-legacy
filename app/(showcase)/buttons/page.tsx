@@ -19,7 +19,6 @@ export default function ButtonsPage() {
 
       {/* Base */}
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button size="extraSmall">Extra small</Button>
         <Button size="small">Small</Button>
         <Button size="medium">Medium</Button>
         <Button size="large">Large</Button>
@@ -27,9 +26,6 @@ export default function ButtonsPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button size="extraSmall" variant="secondary">
-          Extra small
-        </Button>
         <Button size="small" variant="secondary">
           Small
         </Button>
@@ -45,9 +41,6 @@ export default function ButtonsPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button size="extraSmall" variant="accent">
-          Extra small
-        </Button>
         <Button size="small" variant="accent">
           Small
         </Button>
@@ -63,9 +56,6 @@ export default function ButtonsPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button size="extraSmall" variant="ghost">
-          Extra small
-        </Button>
         <Button size="small" variant="ghost">
           Small
         </Button>
@@ -82,9 +72,6 @@ export default function ButtonsPage() {
 
       {/* Leading visual */}
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button leadingVisual={<ArrowLeft size={16} />} size="extraSmall">
-          Extra small
-        </Button>
         <Button leadingVisual={<ArrowLeft size={16} />} size="small">
           Small
         </Button>
@@ -101,9 +88,6 @@ export default function ButtonsPage() {
 
       {/* Trailing visual */}
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button size="extraSmall" trailingVisual={<ArrowRight size={16} />}>
-          Extra small
-        </Button>
         <Button size="small" trailingVisual={<ArrowRight size={16} />}>
           Small
         </Button>
@@ -122,13 +106,6 @@ export default function ButtonsPage() {
       <div className="flex flex-wrap items-center justify-center gap-8">
         <Button
           leadingVisual={<ArrowLeft size={16} />}
-          size="extraSmall"
-          trailingVisual={<ArrowRight size={16} />}
-        >
-          Extra small
-        </Button>
-        <Button
-          leadingVisual={<ArrowLeft size={16} />}
           size="small"
           trailingVisual={<ArrowRight size={16} />}
         >
@@ -158,14 +135,6 @@ export default function ButtonsPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button
-          leadingVisual={<ArrowLeft size={16} />}
-          size="extraSmall"
-          trailingVisual={<ArrowRight size={16} />}
-          variant="secondary"
-        >
-          Extra small
-        </Button>
         <Button
           leadingVisual={<ArrowLeft size={16} />}
           size="small"
@@ -203,14 +172,6 @@ export default function ButtonsPage() {
       <div className="flex flex-wrap items-center justify-center gap-8">
         <Button
           leadingVisual={<ArrowLeft size={16} />}
-          size="extraSmall"
-          trailingVisual={<ArrowRight size={16} />}
-          variant="accent"
-        >
-          Extra small
-        </Button>
-        <Button
-          leadingVisual={<ArrowLeft size={16} />}
           size="small"
           trailingVisual={<ArrowRight size={16} />}
           variant="accent"
@@ -244,14 +205,6 @@ export default function ButtonsPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button
-          leadingVisual={<ArrowLeft size={16} />}
-          size="extraSmall"
-          trailingVisual={<ArrowRight size={16} />}
-          variant="ghost"
-        >
-          Extra small
-        </Button>
         <Button
           leadingVisual={<ArrowLeft size={16} />}
           size="small"
@@ -288,9 +241,6 @@ export default function ButtonsPage() {
 
       {/* Disabled */}
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button disabled size="extraSmall">
-          Extra small
-        </Button>
         <Button disabled size="small">
           Small
         </Button>
@@ -306,9 +256,6 @@ export default function ButtonsPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button disabled size="extraSmall" variant="secondary">
-          Extra small
-        </Button>
         <Button disabled size="small" variant="secondary">
           Small
         </Button>
@@ -325,9 +272,6 @@ export default function ButtonsPage() {
 
       {/* Loading */}
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button isLoading size="extraSmall">
-          Extra small
-        </Button>
         <Button isLoading size="small">
           Small
         </Button>
@@ -343,9 +287,6 @@ export default function ButtonsPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button isLoading size="extraSmall" variant="secondary">
-          Extra small
-        </Button>
         <Button isLoading size="small" variant="secondary">
           Small
         </Button>
@@ -361,9 +302,6 @@ export default function ButtonsPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button isLoading size="extraSmall" variant="accent">
-          Extra small
-        </Button>
         <Button isLoading size="small" variant="accent">
           Small
         </Button>
@@ -379,9 +317,6 @@ export default function ButtonsPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button isLoading size="extraSmall" variant="ghost">
-          Extra small
-        </Button>
         <Button isLoading size="small" variant="ghost">
           Small
         </Button>

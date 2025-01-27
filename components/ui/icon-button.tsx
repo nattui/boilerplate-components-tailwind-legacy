@@ -12,7 +12,6 @@ export interface IconButtonProps extends ComponentProps<"button"> {
 export const iconButtonStyles = {
   size: {
     extraLarge: ["w-44", "h-44"].join(" "),
-    extraSmall: ["w-28", "h-28"].join(" "),
     large: ["w-40", "h-40"].join(" "),
     medium: ["w-36", "h-36"].join(" "),
     small: ["w-32", "h-32"].join(" "),

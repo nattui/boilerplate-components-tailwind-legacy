@@ -12,12 +12,7 @@ export interface ButtonProps extends ComponentProps<"button"> {
   variant?: ButtonVariant
 }
 
-export type ButtonSize =
-  | "extraLarge"
-  | "extraSmall"
-  | "large"
-  | "medium"
-  | "small"
+export type ButtonSize = "extraLarge" | "large" | "medium" | "small"
 export type ButtonVariant = "accent" | "ghost" | "primary" | "secondary"
 
 export const buttonStyles = {
@@ -41,7 +36,6 @@ export const buttonStyles = {
   ].join(" "),
   size: {
     extraLarge: ["px-20", "h-44"].join(" "),
-    extraSmall: ["px-6", "h-28"].join(" "),
     large: ["px-16", "h-40"].join(" "),
     medium: ["px-12", "h-36"].join(" "),
     small: ["px-8", "h-32"].join(" "),

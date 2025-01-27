@@ -29,9 +29,6 @@ export default function IconButtonsPage() {
 
       {/* Base */}
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <IconButton size="extraSmall">
-          <DownloadSimple size={16} />
-        </IconButton>
         <IconButton size="small">
           <DownloadSimple size={16} />
         </IconButton>
@@ -47,9 +44,6 @@ export default function IconButtonsPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <IconButton size="extraSmall" variant="secondary">
-          <DownloadSimple size={16} />
-        </IconButton>
         <IconButton size="small" variant="secondary">
           <DownloadSimple size={16} />
         </IconButton>
@@ -65,9 +59,6 @@ export default function IconButtonsPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <IconButton size="extraSmall" variant="accent">
-          <DownloadSimple size={16} />
-        </IconButton>
         <IconButton size="small" variant="accent">
           <DownloadSimple size={16} />
         </IconButton>
@@ -83,9 +74,6 @@ export default function IconButtonsPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <IconButton size="extraSmall" variant="ghost">
-          <DownloadSimple size={16} />
-        </IconButton>
         <IconButton size="small" variant="ghost">
           <DownloadSimple size={16} />
         </IconButton>
@@ -102,9 +90,6 @@ export default function IconButtonsPage() {
 
       {/* Disabled */}
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <IconButton disabled size="extraSmall">
-          <DownloadSimple size={16} />
-        </IconButton>
         <IconButton disabled size="small">
           <DownloadSimple size={16} />
         </IconButton>
@@ -120,9 +105,6 @@ export default function IconButtonsPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <IconButton disabled size="extraSmall" variant="secondary">
-          <DownloadSimple size={16} />
-        </IconButton>
         <IconButton disabled size="small" variant="secondary">
           <DownloadSimple size={16} />
         </IconButton>
@@ -139,9 +121,6 @@ export default function IconButtonsPage() {
 
       {/* Loading */}
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <IconButton isLoading size="extraSmall">
-          <DownloadSimple size={16} />
-        </IconButton>
         <IconButton isLoading size="small">
           <DownloadSimple size={16} />
         </IconButton>
@@ -157,9 +136,6 @@ export default function IconButtonsPage() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <IconButton isLoading size="extraSmall" variant="secondary">
-          <DownloadSimple size={16} />
-        </IconButton>
         <IconButton isLoading size="small" variant="secondary">
           <DownloadSimple size={16} />
         </IconButton>
