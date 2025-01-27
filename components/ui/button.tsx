@@ -18,8 +18,6 @@ export type ButtonVariant = "accent" | "ghost" | "primary" | "secondary"
 export const buttonStyles = {
   base: [
     "cursor-pointer",
-    "disabled:cursor-not-allowed",
-    "disabled:opacity-50",
     "flex",
     "font-500",
     "gap-8",
@@ -30,6 +28,7 @@ export const buttonStyles = {
     "text-14",
     "transition-[background-color,border-color,box-shadow,opacity]",
     theme.border.base,
+    theme.disabled,
     theme.duration,
     theme.outline,
     theme.rounded,

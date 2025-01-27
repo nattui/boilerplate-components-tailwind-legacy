@@ -12,6 +12,7 @@ export const theme = {
       hover: "hover:border-gray-a8",
     },
   },
+  disabled: ["disabled:cursor-not-allowed", "disabled:opacity-50"].join(" "),
   duration: "duration-150",
   outline: [
     "focus-visible:outline-2",
