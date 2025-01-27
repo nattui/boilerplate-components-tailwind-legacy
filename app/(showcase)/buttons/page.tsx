@@ -62,6 +62,24 @@ export default function ButtonsPage() {
         </Button>
       </div>
 
+      <div className="flex flex-wrap items-center justify-center gap-8">
+        <Button size="extraSmall" variant="ghost">
+          Extra small
+        </Button>
+        <Button size="small" variant="ghost">
+          Small
+        </Button>
+        <Button size="medium" variant="ghost">
+          Medium
+        </Button>
+        <Button size="large" variant="ghost">
+          Large
+        </Button>
+        <Button size="extraLarge" variant="ghost">
+          Extra large
+        </Button>
+      </div>
+
       {/* Leading visual */}
       <div className="flex flex-wrap items-center justify-center gap-8">
         <Button leadingVisual={<ArrowLeft size={16} />} size="extraSmall">
@@ -225,6 +243,49 @@ export default function ButtonsPage() {
         </Button>
       </div>
 
+      <div className="flex flex-wrap items-center justify-center gap-8">
+        <Button
+          leadingVisual={<ArrowLeft size={16} />}
+          size="extraSmall"
+          trailingVisual={<ArrowRight size={16} />}
+          variant="ghost"
+        >
+          Extra small
+        </Button>
+        <Button
+          leadingVisual={<ArrowLeft size={16} />}
+          size="small"
+          trailingVisual={<ArrowRight size={16} />}
+          variant="ghost"
+        >
+          Small
+        </Button>
+        <Button
+          leadingVisual={<ArrowLeft size={16} />}
+          size="medium"
+          trailingVisual={<ArrowRight size={16} />}
+          variant="ghost"
+        >
+          Medium
+        </Button>
+        <Button
+          leadingVisual={<ArrowLeft size={16} />}
+          size="large"
+          trailingVisual={<ArrowRight size={16} />}
+          variant="ghost"
+        >
+          Large
+        </Button>
+        <Button
+          leadingVisual={<ArrowLeft size={16} />}
+          size="extraLarge"
+          trailingVisual={<ArrowRight size={16} />}
+          variant="ghost"
+        >
+          Extra large
+        </Button>
+      </div>
+
       {/* Disabled */}
       <div className="flex flex-wrap items-center justify-center gap-8">
         <Button disabled size="extraSmall">
@@ -299,6 +360,42 @@ export default function ButtonsPage() {
         </Button>
       </div>
 
+      <div className="flex flex-wrap items-center justify-center gap-8">
+        <Button isLoading size="extraSmall" variant="accent">
+          Extra small
+        </Button>
+        <Button isLoading size="small" variant="accent">
+          Small
+        </Button>
+        <Button isLoading size="medium" variant="accent">
+          Medium
+        </Button>
+        <Button isLoading size="large" variant="accent">
+          Large
+        </Button>
+        <Button isLoading size="extraLarge" variant="accent">
+          Extra large
+        </Button>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-center gap-8">
+        <Button isLoading size="extraSmall" variant="ghost">
+          Extra small
+        </Button>
+        <Button isLoading size="small" variant="ghost">
+          Small
+        </Button>
+        <Button isLoading size="medium" variant="ghost">
+          Medium
+        </Button>
+        <Button isLoading size="large" variant="ghost">
+          Large
+        </Button>
+        <Button isLoading size="extraLarge" variant="ghost">
+          Extra large
+        </Button>
+      </div>
+
       {/* Full width */}
       <div className="flex w-full max-w-320 items-center justify-center gap-8">
         <Button fullWidth size="large">
@@ -314,6 +411,12 @@ export default function ButtonsPage() {
 
       <div className="flex w-full max-w-320 items-center justify-center gap-8">
         <Button fullWidth size="large" variant="accent">
+          Full width
+        </Button>
+      </div>
+
+      <div className="flex w-full max-w-320 items-center justify-center gap-8">
+        <Button fullWidth size="large" variant="ghost">
           Full width
         </Button>
       </div>

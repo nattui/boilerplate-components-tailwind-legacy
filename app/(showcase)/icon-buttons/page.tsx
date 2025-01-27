@@ -82,6 +82,24 @@ export default function IconButtonsPage() {
         </IconButton>
       </div>
 
+      <div className="flex flex-wrap items-center justify-center gap-8">
+        <IconButton size="extraSmall" variant="ghost">
+          <DownloadSimple size={16} />
+        </IconButton>
+        <IconButton size="small" variant="ghost">
+          <DownloadSimple size={16} />
+        </IconButton>
+        <IconButton size="medium" variant="ghost">
+          <DownloadSimple size={16} />
+        </IconButton>
+        <IconButton size="large" variant="ghost">
+          <DownloadSimple size={16} />
+        </IconButton>
+        <IconButton size="extraLarge" variant="ghost">
+          <DownloadSimple size={16} />
+        </IconButton>
+      </div>
+
       {/* Disabled */}
       <div className="flex flex-wrap items-center justify-center gap-8">
         <IconButton disabled size="extraSmall">
