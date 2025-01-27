@@ -18,7 +18,7 @@ export type ButtonSize =
   | "large"
   | "medium"
   | "small"
-export type ButtonVariant = "accent" | "primary" | "secondary"
+export type ButtonVariant = "accent" | "ghost" | "primary" | "secondary"
 
 export const buttonStyles = {
   base: [
@@ -57,6 +57,15 @@ export const buttonStyles = {
       "shadow-[inset_0_-1px_0_1px_color-mix(in_oklab,var(--color-primary-9)_100%,transparent),inset_0_0_0_1px_rgba(255,255,255,0.25)]",
       "text-primary-1",
     ].join(" "),
+    ghost: [
+      "active:bg-gray-5",
+      "bg-gray-2",
+      "border-transparent",
+      "data-[active=true]:bg-gray-5",
+      "disabled:!bg-gray-2",
+      "hover:bg-gray-4",
+      "text-gray-12",
+    ].join(" "),
     primary: [
       "active:bg-gray-12/80",
       "active:shadow-[inset_0_0_0_0_transparent]",
@@ -76,7 +85,6 @@ export const buttonStyles = {
       "data-[active=true]:bg-gray-4",
       "disabled:!bg-gray-2",
       "hover:bg-gray-3/50",
-      "hover:border-gray-a8",
       "text-gray-12",
       theme.border.color.active,
       theme.border.color.base,

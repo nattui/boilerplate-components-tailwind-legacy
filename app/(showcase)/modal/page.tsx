@@ -31,9 +31,9 @@ export default function ModalPage() {
       <Input className="mb-32" id="role" name="role" type="text" />
 
       <div className="flex gap-x-8">
-        <div className="flex-grow">
-          <Button variant="secondary">Cancel</Button>
-        </div>
+        <Button className="mr-auto" variant="ghost">
+          Cancel
+        </Button>
         <Button variant="secondary">Back</Button>
         <Button variant="accent">Connect account</Button>
       </div>

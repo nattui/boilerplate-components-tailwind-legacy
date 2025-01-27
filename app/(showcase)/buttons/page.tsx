@@ -14,6 +14,7 @@ export default function ButtonsPage() {
         <Button variant="primary">Primary</Button>
         <Button variant="secondary">Secondary</Button>
         <Button variant="accent">Accent</Button>
+        <Button variant="ghost">Ghost</Button>
       </div>
 
       {/* Base */}
