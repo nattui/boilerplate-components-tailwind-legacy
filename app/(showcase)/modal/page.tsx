@@ -36,7 +36,7 @@ export default function ModalPage() {
       <Label className="mb-4" htmlFor="role">
         IAM Role setup
       </Label>
-      <div className="rounded-8 border-gray-a4 mb-32 flex flex-col border border-solid p-16">
+      <div className="rounded-8 border-gray-a4 shadow-1 mb-32 flex flex-col border border-solid p-16">
         <h3 className="text-14 mb-4">
           Connect your account via CloudFormation
         </h3>
