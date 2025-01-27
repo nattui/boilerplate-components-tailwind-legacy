@@ -18,5 +18,12 @@ export default function Textarea(props: TextareaProps): JSX.Element {
     .replaceAll(/\s+/g, " ")
     .trim()
 
-  return <textarea className={combinedStyles} rows={rows} {...rest} />
+  return (
+    <textarea
+      className={combinedStyles}
+      rows={rows}
+      style={{ minHeight: `${20 * rows + 20}px` }}
+      {...rest}
+    />
+  )
 }
