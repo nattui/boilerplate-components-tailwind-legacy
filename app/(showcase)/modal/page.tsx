@@ -1,14 +1,13 @@
-"use client"
-
 import Button from "@/components/ui/button"
 import Input from "@/components/ui/input"
 import Label from "@/components/ui/label"
+import { Cloud, Plus } from "@phosphor-icons/react/dist/ssr"
 
 export default function ModalPage() {
   return (
-    <div className="border-gray-a4 rounded-8 flex w-full max-w-448 flex-col border border-solid p-16">
+    <div className="border-gray-a4 rounded-12 flex w-full max-w-448 flex-col border border-solid p-16">
       <h2 className="text-20 mb-4">Connect AWS via CloudFormation</h2>
-      <p className="text-14 mb-16">
+      <p className="text-14 mb-24">
         Connect your AWS account with an IAM Role to let the app securely access
         your resources without sharing your access key. You control the access
         level and can revoke it anytime.
@@ -28,14 +27,28 @@ export default function ModalPage() {
       <Label className="mb-4" htmlFor="role">
         IAM Role setup
       </Label>
-      <Input className="mb-32" id="role" name="role" type="text" />
+      <div className="rounded-8 border-gray-a4 mb-32 flex flex-col border border-solid p-16">
+        <h3 className="text-14 mb-4">
+          Connect your account via CloudFormation
+        </h3>
+        <p className="text-14 mb-16">
+          You’ll be prompted to create a role with read only in-line policies
+          using CloudFormation. Boilerplate will automatically detect the role
+          presence and begin syncing your account data.
+        </p>
+        <Button leadingVisual={<Cloud />} variant="accent">
+          Launch stack
+        </Button>
+      </div>
 
       <div className="flex gap-x-8">
         <Button className="mr-auto" variant="ghost">
           Cancel
         </Button>
         <Button variant="secondary">Back</Button>
-        <Button variant="accent">Connect account</Button>
+        <Button leadingVisual={<Plus />} variant="primary">
+          Connect account
+        </Button>
       </div>
     </div>
   )
