@@ -26,6 +26,7 @@ export const ROUTE = {
   MODAL: "/modal",
   SIGNIN: "/signin",
   SIGNUP: "/signup",
+  TEXTAREA: "/textarea",
   USERS: "/users",
 } as const
 

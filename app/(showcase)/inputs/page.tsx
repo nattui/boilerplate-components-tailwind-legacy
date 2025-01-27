@@ -1,5 +1,3 @@
-"use client"
-
 import Button from "@/components/ui/button"
 import Input from "@/components/ui/input"
 import Label from "@/components/ui/label"
@@ -11,10 +9,7 @@ import {
 
 export default function InputsPage() {
   return (
-    <form
-      className="flex w-320 flex-col"
-      onSubmit={(event) => event.preventDefault()}
-    >
+    <div className="flex w-320 flex-col">
       <Label className="mb-4" htmlFor="email">
         Email
       </Label>
@@ -60,6 +55,6 @@ export default function InputsPage() {
       >
         Sign in
       </Button>
-    </form>
+    </div>
   )
 }
