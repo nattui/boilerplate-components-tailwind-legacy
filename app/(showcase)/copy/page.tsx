@@ -3,7 +3,7 @@
 import Button from "@/components/ui/button"
 import Input from "@/components/ui/input"
 
-export default function InputsPage() {
+export default function CopyPage() {
   return (
     <div>
       <h1 className="text-16 mb-12">Team members</h1>
