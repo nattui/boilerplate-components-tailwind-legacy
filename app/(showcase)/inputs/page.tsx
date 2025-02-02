@@ -1,4 +1,5 @@
 import Button from "@/components/ui/button"
+import IconButton from "@/components/ui/icon-button"
 import Input from "@/components/ui/input"
 import {
   EnvelopeSimple,
@@ -40,10 +41,16 @@ export default function InputsPage() {
                 Forgot password?
               </Link>
 
-              <Eye
-                className="text-gray-9 hover:text-gray-12 absolute top-12 right-12 cursor-pointer"
-                size={16}
-              />
+              <IconButton
+                className="group absolute top-4 right-4"
+                size="small"
+                variant="ghost"
+              >
+                <Eye
+                  className="text-gray-9 group-hover:text-gray-12 transition-colors"
+                  size={16}
+                />
+              </IconButton>
             </>
           }
           id="password"
