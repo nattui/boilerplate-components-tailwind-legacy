@@ -34,13 +34,7 @@ export default function InputsPage() {
           className="mb-16 pl-36"
           end={
             <>
-              <Link
-                className="text-13 text-gray-a11 absolute -top-24 right-0 underline"
-                href="/inputs"
-              >
-                Forgot password?
-              </Link>
-
+              {/* Order matters: accessibility */}
               <IconButton
                 className="group absolute top-4 right-4"
                 size="small"
@@ -51,6 +45,13 @@ export default function InputsPage() {
                   size={16}
                 />
               </IconButton>
+
+              <Link
+                className="text-13 text-gray-a11 absolute -top-24 right-0 underline"
+                href="/inputs"
+              >
+                Forgot password?
+              </Link>
             </>
           }
           id="password"
