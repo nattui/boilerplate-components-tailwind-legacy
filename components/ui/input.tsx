@@ -17,6 +17,7 @@ export const inputStyles = {
     "font-400",
     "h-40",
     "leading-150",
+    "placeholder:select-none",
     "placeholder:text-gray-9",
     "px-12",
     "text-14",
