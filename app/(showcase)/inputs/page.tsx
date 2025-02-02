@@ -2,9 +2,9 @@ import Button from "@/components/ui/button"
 import IconButton from "@/components/ui/icon-button"
 import Input from "@/components/ui/input"
 import {
+  Copy,
   EnvelopeSimple,
   Eye,
-  FileText,
   LockSimple,
   Prohibit,
   SignIn,
@@ -32,7 +32,7 @@ export default function InputsPage() {
         />
 
         <Input
-          className="mb-16 pl-36"
+          className="mb-16 px-36"
           end={
             <>
               {/* Order matters: accessibility */}
@@ -97,18 +97,24 @@ export default function InputsPage() {
 
       <div className="mt-64 flex w-320 flex-col">
         <Input
-          className="pl-36"
+          className="pr-36"
           defaultValue="This is a read-only input"
+          end={
+            <IconButton
+              className="group absolute top-4 right-4"
+              size="small"
+              variant="ghost"
+            >
+              <Copy
+                className="text-gray-9 group-hover:text-gray-12 transition-colors"
+                size={16}
+              />
+            </IconButton>
+          }
           id="read-only"
           label="Read-only"
           placeholder="Read-only"
           readOnly
-          start={
-            <FileText
-              className="text-gray-9 pointer-events-none absolute top-12 left-12"
-              size={16}
-            />
-          }
         />
       </div>
     </>
