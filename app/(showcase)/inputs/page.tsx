@@ -117,6 +117,27 @@ export default function InputsPage() {
           readOnly
         />
       </div>
+
+      <div className="mt-64 flex w-320 flex-col">
+        <Input
+          className="rounded-e-0 pr-36"
+          end={
+            <IconButton
+              className="group rounded-s-0 border-s-0"
+              size="large"
+              variant="secondary"
+            >
+              <Copy
+                className="text-gray-9 group-hover:text-gray-12 transition-colors"
+                size={16}
+              />
+            </IconButton>
+          }
+          id="email2"
+          label="Input with end icon button"
+          placeholder="Email"
+        />
+      </div>
     </>
   )
 }
