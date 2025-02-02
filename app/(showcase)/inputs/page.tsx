@@ -48,7 +48,7 @@ export default function InputsPage() {
               </IconButton>
 
               <Link
-                className="text-13 text-gray-a11 absolute -top-24 right-0 underline"
+                className="text-13 text-gray-a11 hover:text-gray-12 absolute -top-24 right-0 underline transition-colors"
                 href="/inputs"
               >
                 Forgot password?
