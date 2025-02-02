@@ -3,6 +3,7 @@ import IconButton from "@/components/ui/icon-button"
 import Input from "@/components/ui/input"
 import {
   Copy,
+  DownloadSimple,
   EnvelopeSimple,
   Eye,
   LockSimple,
@@ -127,7 +128,7 @@ export default function InputsPage() {
               size="large"
               variant="secondary"
             >
-              <Copy
+              <DownloadSimple
                 className="text-gray-9 group-hover:text-gray-12 transition-colors"
                 size={16}
               />
