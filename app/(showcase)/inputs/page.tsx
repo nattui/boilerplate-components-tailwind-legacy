@@ -2,10 +2,12 @@ import Button from "@/components/ui/button"
 import Input from "@/components/ui/input"
 import {
   EnvelopeSimple,
+  Eye,
   LockSimple,
   Prohibit,
   SignIn,
 } from "@phosphor-icons/react/dist/ssr"
+import Link from "next/link"
 
 export default function InputsPage() {
   return (
@@ -29,6 +31,21 @@ export default function InputsPage() {
 
         <Input
           className="mb-16 pl-36"
+          end={
+            <>
+              <Link
+                className="text-13 text-gray-a11 absolute -top-24 right-0 underline"
+                href="/inputs"
+              >
+                Forgot password?
+              </Link>
+
+              <Eye
+                className="text-gray-9 hover:text-gray-12 absolute top-12 right-12 cursor-pointer"
+                size={16}
+              />
+            </>
+          }
           id="password"
           label="Password"
           placeholder="••••••••"
