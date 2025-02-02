@@ -120,10 +120,10 @@ export default function InputsPage() {
 
       <div className="mt-64 flex w-320 flex-col">
         <Input
-          className="rounded-e-0 pr-36"
+          className="rounded-e-0 pr-36 focus-visible:z-10"
           end={
             <IconButton
-              className="group rounded-s-0 border-s-0"
+              className="group rounded-s-0 -ml-1 focus-visible:z-10"
               size="large"
               variant="secondary"
             >
