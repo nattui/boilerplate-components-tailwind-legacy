@@ -1,4 +1,5 @@
 /* Order matters */
 @import "./tailwind.css";
 @import "./tailwind-reset.css";
+@import "./colors.css";
 @import "./custom.css";

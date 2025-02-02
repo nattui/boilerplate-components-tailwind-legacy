@@ -1,0 +1,57 @@
+@theme {
+  --color-*: initial;
+
+  /* Mauve */
+  --color-gray-1: oklch(99.18% 0.0018 321.1);
+  --color-gray-2: oklch(98.32% 0.0033 311.2);
+  --color-gray-3: oklch(95.56% 0.0059 314.2);
+  --color-gray-4: oklch(93.16% 0.0078 310);
+  --color-gray-5: oklch(90.9% 0.0101 306.6);
+  --color-gray-6: oklch(88.6% 0.0116 304);
+  --color-gray-7: oklch(85.36% 0.0143 300.6);
+  --color-gray-8: oklch(79.36% 0.0193 293.5);
+  --color-gray-9: oklch(64.58% 0.0195 292.6);
+  --color-gray-10: oklch(61.06% 0.0185 293.1);
+  --color-gray-11: oklch(50.48% 0.016 296.1);
+  --color-gray-12: oklch(24.46% 0.0134 298);
+
+  --color-gray-a1: oklch(33.98% 0.1617 331.4 / 0.012);
+  --color-gray-a2: oklch(26.91% 0.1388 301.3 / 0.024);
+  --color-gray-a3: oklch(21.64% 0.1142 301.9 / 0.063);
+  --color-gray-a4: oklch(19.23% 0.0986 297 / 0.095);
+  --color-gray-a5: oklch(19.47% 0.1031 297.5 / 0.126);
+  --color-gray-a6: oklch(16.2% 0.0898 290.1 / 0.153);
+  --color-gray-a7: oklch(16.99% 0.0892 293.4 / 0.197);
+  --color-gray-a8: oklch(14.9% 0.0896 275.6 / 0.271);
+  --color-gray-a9: oklch(12.08% 0.0638 286.4 / 0.451);
+  --color-gray-a10: oklch(11% 0.0579 281.5 / 0.491);
+  --color-gray-a11: oklch(9.46% 0.0525 300.4 / 0.612);
+  --color-gray-a12: oklch(7.314% 0.0401 303.4 / 0.879);
+
+  /* Crimson */
+  --color-primary-1: oklch(99.38% 0.0033 356.3);
+  --color-primary-2: oklch(98.18% 0.008 357.2);
+  --color-primary-3: oklch(95.41% 0.0261 356.3);
+  --color-primary-4: oklch(92.52% 0.0411 356.3);
+  --color-primary-5: oklch(89.28% 0.0537 355.8);
+  --color-primary-6: oklch(85.5% 0.0646 355.6);
+  --color-primary-7: oklch(80.78% 0.0784 354.8);
+  --color-primary-8: oklch(75% 0.0988 354.1);
+  --color-primary-9: oklch(63.43% 0.213 1.304);
+  --color-primary-10: oklch(60.8% 0.2111 2.355);
+  --color-primary-11: oklch(55.21% 0.2074 4.487);
+  --color-primary-12: oklch(34.08% 0.1129 356.8);
+
+  --color-primary-a1: oklch(49.97% 0.2243 1.784 / 0.012);
+  --color-primary-a2: oklch(53.46% 0.2389 13.83 / 0.032);
+  --color-primary-a3: oklch(58.61% 0.2636 14.75 / 0.083);
+  --color-primary-a4: oklch(57.05% 0.2565 13.41 / 0.134);
+  --color-primary-a5: oklch(53.24% 0.2392 12.82 / 0.189);
+  --color-primary-a6: oklch(49.45% 0.2224 12.68 / 0.244);
+  --color-primary-a7: oklch(46.29% 0.2083 9.384 / 0.318);
+  --color-primary-a8: oklch(45.25% 0.2037 8.319 / 0.408);
+  --color-primary-a9: oklch(54.48% 0.2456 11.5 / 0.702);
+  --color-primary-a10: oklch(52.38% 0.2362 12.11 / 0.734);
+  --color-primary-a11: oklch(55.21% 0.2074 4.487);
+  --color-primary-a12: oklch(34.08% 0.1129 356.8);
+}
