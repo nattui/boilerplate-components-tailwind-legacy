@@ -1,7 +1,12 @@
-import type { ComponentProps, JSX } from "react"
+import type { ComponentProps, JSX, ReactNode } from "react"
+import Label from "@/components/ui/label"
 import { theme } from "@/components/ui/theme"
 
-export interface InputProps extends ComponentProps<"input"> {}
+export interface InputProps extends ComponentProps<"input"> {
+  end?: ReactNode
+  label?: string
+  start?: ReactNode
+}
 
 export const inputStyles = {
   base: [
@@ -34,7 +39,16 @@ export const inputStyles = {
 } as const
 
 export default function Input(props: InputProps): JSX.Element {
-  const { className: customStyles = "", type = "text", ...rest } = props
+  const {
+    className: customStyles = "",
+    end,
+    id = "",
+    label = "",
+    required = false,
+    start,
+    type = "text",
+    ...rest
+  } = props
 
   const combinedStyles = `
     ${inputStyles.base}
@@ -44,5 +58,25 @@ export default function Input(props: InputProps): JSX.Element {
     .replaceAll(/\s+/g, " ")
     .trim()
 
-  return <input className={combinedStyles} type={type} {...rest} />
+  return (
+    <>
+      {label && (
+        <Label className="mb-4" htmlFor={id} required={required}>
+          {label}
+        </Label>
+      )}
+      <div className="relative">
+        {start}
+        <input
+          className={combinedStyles}
+          id={id}
+          name={id}
+          required={required}
+          type={type}
+          {...rest}
+        />
+        {end}
+      </div>
+    </>
+  )
 }

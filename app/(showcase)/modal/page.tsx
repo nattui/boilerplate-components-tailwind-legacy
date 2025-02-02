@@ -22,14 +22,11 @@ export default function ModalPage() {
         level and can revoke it anytime.
       </p>
 
-      <Label className="mb-4" htmlFor="name">
-        Account name
-      </Label>
       <Input
         className="mb-16"
         defaultValue="dev-aws-account"
         id="name"
-        name="name"
+        label="Account name"
         type="text"
       />
 
