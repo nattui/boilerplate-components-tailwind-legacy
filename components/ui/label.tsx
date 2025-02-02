@@ -11,6 +11,10 @@ export const labelStyles = {
 export default function Label(props: LabelProps): JSX.Element {
   const { children = "", className: customStyles = "", ...rest } = props
 
+  const isEndingWithAsterisk = children.endsWith("*")
+
+  const processedText = isEndingWithAsterisk ? children.slice(0, -1) : children
+
   const combinedStyles = `
     ${labelStyles.base}
     ${customStyles}
@@ -20,7 +24,8 @@ export default function Label(props: LabelProps): JSX.Element {
 
   return (
     <label className={combinedStyles} {...rest}>
-      {children}
+      {processedText}
+      {isEndingWithAsterisk && <span className="text-[#ff0000]">*</span>}
     </label>
   )
 }
