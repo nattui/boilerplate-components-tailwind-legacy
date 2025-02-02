@@ -44,8 +44,8 @@ export default function InputsPage() {
 
         <Button
           fullWidth
-          start={<SignIn size={16} />}
           size="extraLarge"
+          start={<SignIn size={16} />}
           type="submit"
           variant="accent"
         >

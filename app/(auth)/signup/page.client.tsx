@@ -51,8 +51,8 @@ export default function SignUpClientPage() {
         <Button
           fullWidth
           isLoading={pending}
-          start={<SignIn size={16} />}
           size="extraLarge"
+          start={<SignIn size={16} />}
           type="submit"
         >
           Sign up

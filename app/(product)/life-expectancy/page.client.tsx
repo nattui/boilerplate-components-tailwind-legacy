@@ -66,8 +66,8 @@ export default function LifeExpectancyClientPage({
             className="ml-auto"
             disabled={!birthday}
             isLoading={birthdayPending}
-            start={<FloppyDisk size={16} />}
             size="small"
+            start={<FloppyDisk size={16} />}
             type="submit"
           >
             Save
@@ -94,8 +94,8 @@ export default function LifeExpectancyClientPage({
             className="ml-auto"
             disabled={!country}
             isLoading={countryPending}
-            start={<FloppyDisk size={16} />}
             size="small"
+            start={<FloppyDisk size={16} />}
             type="submit"
           >
             Save
