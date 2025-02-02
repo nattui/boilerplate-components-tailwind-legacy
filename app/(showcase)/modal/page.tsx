@@ -42,7 +42,7 @@ export default function ModalPage() {
           using CloudFormation. Boilerplate will automatically detect the role
           presence and begin syncing your account data.
         </p>
-        <Button leadingVisual={<Cloud size={16} />} variant="accent">
+        <Button start={<Cloud size={16} />} variant="accent">
           Launch stack
         </Button>
       </div>
@@ -52,7 +52,7 @@ export default function ModalPage() {
           Cancel
         </Button>
         <Button variant="secondary">Back</Button>
-        <Button leadingVisual={<Plus size={16} />} variant="primary">
+        <Button start={<Plus size={16} />} variant="primary">
           Connect account
         </Button>
       </div>

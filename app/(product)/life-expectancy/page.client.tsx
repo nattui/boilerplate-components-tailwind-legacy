@@ -66,7 +66,7 @@ export default function LifeExpectancyClientPage({
             className="ml-auto"
             disabled={!birthday}
             isLoading={birthdayPending}
-            leadingVisual={<FloppyDisk size={16} />}
+            start={<FloppyDisk size={16} />}
             size="small"
             type="submit"
           >
@@ -94,7 +94,7 @@ export default function LifeExpectancyClientPage({
             className="ml-auto"
             disabled={!country}
             isLoading={countryPending}
-            leadingVisual={<FloppyDisk size={16} />}
+            start={<FloppyDisk size={16} />}
             size="small"
             type="submit"
           >
@@ -177,7 +177,7 @@ function Dashboard({ dashboard, profile }: DashboardProps) {
         <Button
           className="ml-auto"
           isLoading={pending}
-          leadingVisual={<Trash size={16} />}
+          start={<Trash size={16} />}
           type="submit"
         >
           Reset

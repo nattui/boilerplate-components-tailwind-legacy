@@ -44,7 +44,7 @@ export default function InputsPage() {
 
         <Button
           fullWidth
-          leadingVisual={<SignIn size={16} />}
+          start={<SignIn size={16} />}
           size="extraLarge"
           type="submit"
           variant="accent"

@@ -4,11 +4,11 @@ import { theme } from "@/components/ui/theme"
 
 export interface ButtonProps extends ComponentProps<"button"> {
   children?: string
+  end?: ReactNode
   fullWidth?: boolean
   isLoading?: boolean
-  leadingVisual?: ReactNode
   size?: ButtonSize
-  trailingVisual?: ReactNode
+  start?: ReactNode
   variant?: ButtonVariant
 }
 
@@ -102,11 +102,11 @@ export default function Button(props: ButtonProps): JSX.Element {
     children = "",
     className: customStyles = "",
     disabled = false,
+    end,
     fullWidth = false,
     isLoading = false,
-    leadingVisual,
     size = "medium",
-    trailingVisual,
+    start,
     type = "button",
     variant = "primary",
     ...rest
@@ -129,10 +129,10 @@ export default function Button(props: ButtonProps): JSX.Element {
       type={type}
       {...rest}
     >
-      {!isLoading && leadingVisual}
+      {!isLoading && start}
       {isLoading && <ButtonSpinner />}
       <span>{children}</span>
-      {trailingVisual}
+      {end}
     </button>
   )
 }

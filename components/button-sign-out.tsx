@@ -19,7 +19,7 @@ export default function ButtonSignOut({ className }: ButtonSignOutProps) {
       <Button
         className={className}
         isLoading={pending}
-        leadingVisual={<SignOut size={16} />}
+        start={<SignOut size={16} />}
         type="submit"
       >
         Sign out

@@ -19,7 +19,7 @@ export default function CopyPage() {
           type="text"
         />
         <Button
-          leadingVisual={<Copy size={16} />}
+          start={<Copy size={16} />}
           size="large"
           type="submit"
           variant="secondary"
