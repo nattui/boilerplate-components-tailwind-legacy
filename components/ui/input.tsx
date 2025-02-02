@@ -61,7 +61,7 @@ export default function Input(props: InputProps): JSX.Element {
   return (
     <>
       {label && (
-        <Label className="mb-4" htmlFor={id} required={required}>
+        <Label className="mb-4" htmlFor={id}>
           {label}
         </Label>
       )}

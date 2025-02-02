@@ -2,7 +2,6 @@ import type { ComponentProps, JSX } from "react"
 
 export interface LabelProps extends ComponentProps<"label"> {
   children?: string
-  required?: boolean
 }
 
 export const labelStyles = {
@@ -10,12 +9,7 @@ export const labelStyles = {
 } as const
 
 export default function Label(props: LabelProps): JSX.Element {
-  const {
-    children = "",
-    className: customStyles = "",
-    required = false,
-    ...rest
-  } = props
+  const { children = "", className: customStyles = "", ...rest } = props
 
   const combinedStyles = `
     ${labelStyles.base}
@@ -27,7 +21,6 @@ export default function Label(props: LabelProps): JSX.Element {
   return (
     <label className={combinedStyles} {...rest}>
       {children}
-      {required && <span className="text-[#ff0000]"> *</span>}
     </label>
   )
 }
