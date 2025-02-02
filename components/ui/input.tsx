@@ -20,6 +20,7 @@ export const inputStyles = {
     "placeholder:select-none",
     "placeholder:text-gray-9",
     "px-12",
+    "read-only:bg-gray-a3",
     "text-14",
     "text-gray-12",
     "transition-[background-color,border-color,opacity]",

@@ -4,6 +4,7 @@ import Input from "@/components/ui/input"
 import {
   EnvelopeSimple,
   Eye,
+  FileText,
   LockSimple,
   Prohibit,
   SignIn,
@@ -87,6 +88,23 @@ export default function InputsPage() {
           placeholder="Disabled"
           start={
             <Prohibit
+              className="text-gray-9 pointer-events-none absolute top-12 left-12"
+              size={16}
+            />
+          }
+        />
+      </div>
+
+      <div className="mt-64 flex w-320 flex-col">
+        <Input
+          className="pl-36"
+          defaultValue="This is a read-only input"
+          id="read-only"
+          label="Read-only"
+          placeholder="Read-only"
+          readOnly
+          start={
+            <FileText
               className="text-gray-9 pointer-events-none absolute top-12 left-12"
               size={16}
             />
