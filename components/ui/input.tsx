@@ -66,7 +66,7 @@ export default function Input(props: InputProps): JSX.Element {
           {label}
         </Label>
       )}
-      <div className="relative flex">
+      <div className="relative flex w-full">
         {start}
         <input
           className={combinedStyles}
