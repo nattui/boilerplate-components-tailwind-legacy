@@ -23,10 +23,10 @@ export default function ModalPage() {
       </p>
 
       <Input
-        className="mb-16"
+        className={{ root: "mb-16" }}
         defaultValue="dev-aws-account"
         id="name"
-        label="Account name"
+        text={{ label: "Account name" }}
         type="text"
       />
 

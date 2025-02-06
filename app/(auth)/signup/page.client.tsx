@@ -28,7 +28,7 @@ export default function SignUpClientPage() {
         <Input
           autoComplete="email"
           autoFocus
-          className="mb-16"
+          className={{ root: "mb-16" }}
           defaultValue="test@example.com"
           id="email"
           name="email"
@@ -40,7 +40,7 @@ export default function SignUpClientPage() {
         </Label>
         <Input
           autoComplete="current-password"
-          className="mb-16"
+          className={{ root: "mb-16" }}
           defaultValue="123123123"
           id="password"
           minLength={8}

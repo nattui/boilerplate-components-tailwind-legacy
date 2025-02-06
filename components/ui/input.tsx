@@ -2,10 +2,19 @@ import type { ComponentProps, JSX, ReactNode } from "react"
 import Label from "@/components/ui/label"
 import { theme } from "@/components/ui/theme"
 
-export interface InputProps extends ComponentProps<"input"> {
+export interface InputProps extends Omit<ComponentProps<"input">, "className"> {
+  className?: {
+    helper?: string
+    input?: string
+    label?: string
+    root?: string
+  }
   end?: ReactNode
-  label?: string
   start?: ReactNode
+  text?: {
+    helper?: string
+    label?: string
+  }
 }
 
 export const inputStyles = {
@@ -41,12 +50,20 @@ export const inputStyles = {
 
 export default function Input(props: InputProps): JSX.Element {
   const {
-    className: customStyles = "",
+    className = {
+      helper: "",
+      input: "",
+      label: "",
+      root: "",
+    },
     end,
     id = "",
-    label = "",
     required = false,
     start,
+    text = {
+      helper: "",
+      label: "",
+    },
     type = "text",
     ...rest
   } = props
@@ -54,18 +71,19 @@ export default function Input(props: InputProps): JSX.Element {
   const combinedStyles = `
     ${inputStyles.base}
     ${type === "password" ? inputStyles.password : ""}
-    ${customStyles}
+    ${className?.input}
   `
     .replaceAll(/\s+/g, " ")
     .trim()
 
   return (
-    <>
-      {label && (
-        <Label className="mb-4" htmlFor={id}>
-          {label}
+    <div className={`flex flex-col ${className?.root}`.trim()}>
+      {text.label && (
+        <Label className={`mb-4 ${className?.label}`.trim()} htmlFor={id}>
+          {text.label}
         </Label>
       )}
+
       <div className="relative flex w-full">
         {start}
         <input
@@ -78,6 +96,12 @@ export default function Input(props: InputProps): JSX.Element {
         />
         {end}
       </div>
-    </>
+
+      {text.helper && (
+        <p className={`text-13 text-gray-11 mt-4 ${className?.helper}`.trim()}>
+          {text.helper}
+        </p>
+      )}
+    </div>
   )
 }

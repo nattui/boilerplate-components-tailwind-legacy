@@ -18,9 +18,8 @@ export default function InputsPage() {
       <div className="flex w-320 flex-col">
         <Input
           autoFocus
-          className="mb-16 pl-36"
+          className={{ input: "pl-36", root: "mb-16" }}
           id="email"
-          label="Email"
           placeholder="email@example.com"
           required
           start={
@@ -29,11 +28,12 @@ export default function InputsPage() {
               size={16}
             />
           }
+          text={{ label: "Email" }}
           type="email"
         />
 
         <Input
-          className="mb-16 px-36"
+          className={{ input: "px-36", root: "mb-16" }}
           end={
             <>
               {/* Order matters: accessibility */}
@@ -57,7 +57,6 @@ export default function InputsPage() {
             </>
           }
           id="password"
-          label="Password"
           placeholder="••••••••"
           required
           start={
@@ -66,6 +65,7 @@ export default function InputsPage() {
               size={16}
             />
           }
+          text={{ label: "Password" }}
           type="password"
         />
 
@@ -82,10 +82,9 @@ export default function InputsPage() {
 
       <div className="mt-64 flex w-320 flex-col">
         <Input
-          className="pl-36"
+          className={{ input: "pl-36" }}
           disabled
           id="disabled"
-          label="Disabled"
           placeholder="Disabled"
           start={
             <Prohibit
@@ -93,12 +92,13 @@ export default function InputsPage() {
               size={16}
             />
           }
+          text={{ label: "Disabled" }}
         />
       </div>
 
       <div className="mt-64 flex w-320 flex-col">
         <Input
-          className="pr-36"
+          className={{ input: "pr-36" }}
           defaultValue="This is a read-only input"
           end={
             <IconButton
@@ -113,15 +113,15 @@ export default function InputsPage() {
             </IconButton>
           }
           id="read-only"
-          label="Read-only"
           placeholder="Read-only"
           readOnly
+          text={{ label: "Read-only" }}
         />
       </div>
 
       <div className="mt-64 flex w-320 flex-col">
         <Input
-          className="rounded-e-0 pr-36 focus-visible:z-10"
+          className={{ input: "rounded-e-0 pr-36 focus-visible:z-10" }}
           end={
             <IconButton
               className="group rounded-s-0 -ml-1 focus-visible:z-10"
@@ -135,8 +135,8 @@ export default function InputsPage() {
             </IconButton>
           }
           id="email2"
-          label="Input with end icon button"
           placeholder="Email"
+          text={{ label: "Input with end icon button" }}
         />
       </div>
     </>

@@ -31,7 +31,7 @@ export default function SignInClientPage() {
         <Input
           autoComplete="email"
           autoFocus
-          className="mb-16"
+          className={{ root: "mb-16" }}
           id="email"
           name="email"
           onChange={(event) => setEmail(event.target.value)}
@@ -44,7 +44,7 @@ export default function SignInClientPage() {
         </Label>
         <Input
           autoComplete="current-password"
-          className="mb-16"
+          className={{ root: "mb-16" }}
           id="password"
           minLength={8}
           name="password"

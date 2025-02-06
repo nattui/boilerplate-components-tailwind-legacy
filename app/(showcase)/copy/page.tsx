@@ -11,7 +11,7 @@ export default function CopyPage() {
       </p>
       <div className="flex w-full max-w-448 gap-x-12">
         <Input
-          className="mb-16"
+          className={{ root: "mb-16" }}
           defaultValue="https://example.com/teams/invite/eHGJEj12FHDKSi"
           id="text"
           name="text"

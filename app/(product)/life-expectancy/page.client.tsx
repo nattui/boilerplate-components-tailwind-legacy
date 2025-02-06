@@ -55,7 +55,7 @@ export default function LifeExpectancyClientPage({
           </Label>
           <Input
             autoComplete="birthday"
-            className="mb-8"
+            className={{ root: "mb-8" }}
             id="birthday"
             name="birthday"
             onChange={(e) => setBirthday(e.target.value)}
