@@ -139,6 +139,22 @@ export default function InputsPage() {
           text={{ label: "Input with end icon button" }}
         />
       </div>
+
+      <div className="mt-64 flex w-320 flex-col">
+        <Input
+          id="info"
+          text={{ info: "This is an info text", label: "Information" }}
+        />
+      </div>
+
+      <div className="mt-64 flex w-320 flex-col">
+        <Input
+          data-invalid={true}
+          defaultValue="invalid@email"
+          id="error"
+          text={{ error: "Email is invalid", label: "Error" }}
+        />
+      </div>
     </>
   )
 }

@@ -4,15 +4,14 @@ import { theme } from "@/components/ui/theme"
 
 export interface InputProps extends Omit<ComponentProps<"input">, "className"> {
   className?: {
-    helper?: string
     input?: string
-    label?: string
     root?: string
   }
   end?: ReactNode
   start?: ReactNode
   text?: {
-    helper?: string
+    error?: string
+    info?: string
     label?: string
   }
 }
@@ -25,6 +24,8 @@ export const inputStyles = {
     "disabled:bg-gray-2",
     "font-400",
     "h-40",
+    "data-[invalid]:!border-[crimson]",
+    "data-[invalid]:!text-[crimson]",
     "leading-150",
     "placeholder:select-none",
     "placeholder:text-gray-9",
@@ -51,9 +52,7 @@ export const inputStyles = {
 export default function Input(props: InputProps): JSX.Element {
   const {
     className = {
-      helper: "",
       input: "",
-      label: "",
       root: "",
     },
     end,
@@ -61,7 +60,8 @@ export default function Input(props: InputProps): JSX.Element {
     required = false,
     start,
     text = {
-      helper: "",
+      error: "",
+      info: "",
       label: "",
     },
     type = "text",
@@ -77,9 +77,9 @@ export default function Input(props: InputProps): JSX.Element {
     .trim()
 
   return (
-    <div className={`flex flex-col ${className?.root}`.trim()}>
+    <div className={`flex w-full flex-col ${className?.root}`.trim()}>
       {text.label && (
-        <Label className={`mb-4 ${className?.label}`.trim()} htmlFor={id}>
+        <Label className="mb-4" htmlFor={id}>
           {text.label}
         </Label>
       )}
@@ -97,10 +97,11 @@ export default function Input(props: InputProps): JSX.Element {
         {end}
       </div>
 
-      {text.helper && (
-        <p className={`text-13 text-gray-11 mt-4 ${className?.helper}`.trim()}>
-          {text.helper}
-        </p>
+      {text.info && !text.error && (
+        <p className="text-13 text-gray-11 mt-4">{text.info}</p>
+      )}
+      {text.error && !text.info && (
+        <p className="text-13 mt-4 text-[crimson]">{text.error}</p>
       )}
     </div>
   )
