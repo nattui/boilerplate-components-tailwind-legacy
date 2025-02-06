@@ -14,11 +14,11 @@
 
 /* Highlight */
 ::-moz-selection {
-  background: var(--color-primary-a10);
+  background: var(--color-primary-10);
   color: var(--color-gray-2);
 }
 ::selection {
-  background: var(--color-primary-a10);
+  background: var(--color-primary-10);
   color: var(--color-gray-2);
 }
 
@@ -26,7 +26,7 @@
 input::-webkit-datetime-edit-day-field:focus,
 input::-webkit-datetime-edit-month-field:focus,
 input::-webkit-datetime-edit-year-field:focus {
-  background: var(--color-primary-a10);
+  background: var(--color-primary-10);
   color: var(--color-gray-2);
 }
 
@@ -39,6 +39,6 @@ input::-webkit-datetime-edit-year-field:focus {
 .dark input::-webkit-datetime-edit-day-field:focus,
 .dark input::-webkit-datetime-edit-month-field:focus,
 .dark input::-webkit-datetime-edit-year-field:focus {
-  background: var(--color-primary-a10);
+  background: var(--color-primary-10);
   color: var(--color-gray-2);
 }

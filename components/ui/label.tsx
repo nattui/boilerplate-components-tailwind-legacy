@@ -5,7 +5,7 @@ export interface LabelProps extends ComponentProps<"label"> {
 }
 
 export const labelStyles = {
-  base: ["text-13", "text-gray-a11", "w-fit"].join(" "),
+  base: ["text-13", "text-gray-11", "w-fit"].join(" "),
 } as const
 
 export default function Label(props: LabelProps): JSX.Element {

@@ -6,7 +6,7 @@ import { Cloud, Plus, X } from "@phosphor-icons/react/dist/ssr"
 
 export default function ModalPage() {
   return (
-    <div className="border-gray-a4 rounded-12 shadow-5 relative flex w-full max-w-384 flex-col border border-solid p-16">
+    <div className="border-gray-5 rounded-12 shadow-5 relative flex w-full max-w-384 flex-col border border-solid p-16">
       <IconButton
         className="absolute top-12 right-12"
         size="small"
@@ -33,7 +33,7 @@ export default function ModalPage() {
       <Label className="mb-4" htmlFor="role">
         IAM Role setup
       </Label>
-      <div className="rounded-8 border-gray-a4 shadow-1 mb-32 flex flex-col border border-solid p-16">
+      <div className="rounded-8 border-gray-5 shadow-1 mb-32 flex flex-col border border-solid p-16">
         <h3 className="text-14 mb-4">
           Connect your account via CloudFormation
         </h3>
