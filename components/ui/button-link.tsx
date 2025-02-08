@@ -5,8 +5,10 @@ import Link from "next/link"
 
 export interface ButtonLinkProps extends ComponentProps<typeof Link> {
   children?: ButtonProps["children"]
+  end?: ButtonProps["end"]
   fullWidth?: ButtonProps["fullWidth"]
   size?: ButtonProps["size"]
+  start?: ButtonProps["start"]
   variant?: ButtonProps["variant"]
 }
 
@@ -14,8 +16,10 @@ export default function ButtonLink(props: ButtonLinkProps): JSX.Element {
   const {
     children = "",
     className: customStyles = "",
+    end,
     fullWidth = false,
     size = "medium",
+    start,
     variant = "primary",
     ...rest
   } = props
@@ -32,7 +36,9 @@ export default function ButtonLink(props: ButtonLinkProps): JSX.Element {
 
   return (
     <Link className={combinedStyles} {...rest}>
+      {start}
       {children}
+      {end}
     </Link>
   )
 }
