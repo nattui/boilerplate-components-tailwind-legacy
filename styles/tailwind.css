@@ -3,6 +3,10 @@
 @import "@nattui/tailwind-tokenless/styles/10/index.css";
 
 @layer base {
+  .d {
+    border: 1px dashed red;
+  }
+
   html {
     font-size: 10px;
   }
