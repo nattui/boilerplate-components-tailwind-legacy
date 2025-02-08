@@ -132,7 +132,7 @@ export default function Button(props: ButtonProps): JSX.Element {
       {!isLoading && start}
       {isLoading && <ButtonSpinner />}
       <span>{children}</span>
-      {end}
+      {!isLoading && end}
     </button>
   )
 }
