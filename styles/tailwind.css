@@ -49,6 +49,10 @@
     font-feature-settings: "ss04";
   }
 
+  p {
+    font-size: 1.6rem;
+  }
+
   button {
     font-weight: 500;
   }
