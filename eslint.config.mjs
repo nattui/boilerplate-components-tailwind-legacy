@@ -12,21 +12,21 @@ const compat = new FlatCompat({ baseDirectory: __dirname })
 
 const eslintConfig = [
   ...compat.config({
-    extends: ["next/core-web-vitals", "next/typescript", "prettier"],
+    extends: ["next/core-web-vitals", "next/typescript"],
   }),
+  perfectionist.configs["recommended-natural"],
+  unicorn.configs["flat/all"],
   {
     plugins: {
-      perfectionist,
-      unicorn,
       "unused-imports": unusedImports,
     },
     rules: {
-      ...perfectionist.configs["recommended-natural"].rules,
-      ...unicorn.configs["flat/all"].rules,
       "@next/next/no-img-element": "off",
       "@typescript-eslint/no-empty-object-type": [
         "error",
-        { allowInterfaces: "with-single-extends" },
+        {
+          allowInterfaces: "with-single-extends",
+        },
       ],
       "perfectionist/sort-imports": [
         "error",
