@@ -27,7 +27,7 @@ export const buttonStyles = {
     "select-none",
     "shrink-0",
     "text-14",
-    "transition-[background-color,border-color,box-shadow,opacity]",
+    "transition-[background-color,border-color,box-shadow,color,opacity]",
     theme.border.base,
     theme.disabled,
     theme.duration,
