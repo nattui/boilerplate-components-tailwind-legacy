@@ -2,14 +2,14 @@ import Button from "@/components/ui/button"
 import IconButton from "@/components/ui/icon-button"
 import Input from "@/components/ui/input"
 import {
-  Copy,
-  DownloadSimple,
-  EnvelopeSimple,
-  Eye,
-  LockSimple,
-  Prohibit,
-  SignIn,
-} from "@phosphor-icons/react/dist/ssr"
+  LucideBan,
+  LucideCopy,
+  LucideDownload,
+  LucideEye,
+  LucideLock,
+  LucideLogIn,
+  LucideMail,
+} from "lucide-react"
 import Link from "next/link"
 
 export default function InputsPage() {
@@ -23,7 +23,7 @@ export default function InputsPage() {
           placeholder="email@example.com"
           required
           start={
-            <EnvelopeSimple
+            <LucideMail
               className="text-gray-9 pointer-events-none absolute top-12 left-12"
               size={16}
             />
@@ -42,7 +42,7 @@ export default function InputsPage() {
                 size="small"
                 variant="ghost"
               >
-                <Eye
+                <LucideEye
                   className="text-gray-9 group-hover:text-gray-12 transition-colors"
                   size={16}
                 />
@@ -60,7 +60,7 @@ export default function InputsPage() {
           placeholder="••••••••"
           required
           start={
-            <LockSimple
+            <LucideLock
               className="text-gray-9 pointer-events-none absolute top-12 left-12"
               size={16}
             />
@@ -72,7 +72,7 @@ export default function InputsPage() {
         <Button
           fullWidth
           size="extraLarge"
-          start={<SignIn size={16} />}
+          start={<LucideLogIn size={16} />}
           type="submit"
           variant="accent"
         >
@@ -87,7 +87,7 @@ export default function InputsPage() {
           id="disabled"
           placeholder="Disabled"
           start={
-            <Prohibit
+            <LucideBan
               className="text-gray-9 pointer-events-none absolute top-12 left-12"
               size={16}
             />
@@ -106,7 +106,7 @@ export default function InputsPage() {
               size="small"
               variant="ghost"
             >
-              <Copy
+              <LucideCopy
                 className="text-gray-9 group-hover:text-gray-12 transition-colors"
                 size={16}
               />
@@ -128,7 +128,7 @@ export default function InputsPage() {
               size="large"
               variant="secondary"
             >
-              <DownloadSimple
+              <LucideDownload
                 className="text-gray-9 group-hover:text-gray-12 transition-colors"
                 size={16}
               />

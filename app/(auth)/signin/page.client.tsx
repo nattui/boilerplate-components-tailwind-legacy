@@ -4,14 +4,14 @@ import { signInCredentials } from "@/actions/sign-in-credentials"
 import Button from "@/components/ui/button"
 import Input from "@/components/ui/input"
 import Label from "@/components/ui/label"
-import { SignIn } from "@phosphor-icons/react"
+import { LucideLogIn } from "lucide-react"
 import { useActionState, useState } from "react"
-
-const initialState = { message: "" }
 
 export default function SignInClientPage() {
   const [email, setEmail] = useState("test@example.com")
   const [password, setPassword] = useState("123123123")
+
+  const initialState = { message: "" }
 
   const [state, formAction, pending] = useActionState(
     signInCredentials,
@@ -57,7 +57,7 @@ export default function SignInClientPage() {
           fullWidth
           isLoading={pending}
           size="extraLarge"
-          start={<SignIn size={16} />}
+          start={<LucideLogIn size={16} />}
           type="submit"
         >
           Sign in

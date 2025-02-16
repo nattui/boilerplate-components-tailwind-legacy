@@ -18,10 +18,10 @@
   },
   "dependencies": {
     "@nattui/tailwind-tokenless": "0.0.0-alpha.10",
-    "@phosphor-icons/react": "^2.1.7",
     "bcrypt": "^5.1.1",
     "drizzle-orm": "^0.38.4",
     "jose": "^5.9.6",
+    "lucide-react": "^0.475.0",
     "next": "^15.1.6",
     "postgres": "^3.4.5",
     "radix-ui": "^1.1.3",

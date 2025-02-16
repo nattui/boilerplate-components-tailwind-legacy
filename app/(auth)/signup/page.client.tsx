@@ -4,7 +4,7 @@ import { signUpCredentials } from "@/actions/sign-up-credentials"
 import Button from "@/components/ui/button"
 import Input from "@/components/ui/input"
 import Label from "@/components/ui/label"
-import { SignIn } from "@phosphor-icons/react"
+import { LucideLogIn } from "lucide-react"
 import { useActionState } from "react"
 
 const initialState = { message: "" }
@@ -52,7 +52,7 @@ export default function SignUpClientPage() {
           fullWidth
           isLoading={pending}
           size="extraLarge"
-          start={<SignIn size={16} />}
+          start={<LucideLogIn size={16} />}
           type="submit"
         >
           Sign up

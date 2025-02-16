@@ -1,6 +1,6 @@
 import type { ComponentProps, JSX } from "react"
 import { inputStyles } from "@/components/ui/input"
-import { CaretDown } from "@phosphor-icons/react"
+import { LucideChevronDown } from "lucide-react"
 
 export interface SelectProps extends ComponentProps<"select"> {}
 
@@ -19,7 +19,7 @@ export default function Select(props: SelectProps): JSX.Element {
       <select className={combinedStyles} {...rest}>
         {children}
       </select>
-      <CaretDown className="absolute top-12 right-12" size={16} />
+      <LucideChevronDown className="absolute top-12 right-12" size={16} />
     </div>
   )
 }

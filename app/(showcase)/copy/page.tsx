@@ -1,6 +1,6 @@
 import Button from "@/components/ui/button"
 import Input from "@/components/ui/input"
-import { Copy } from "@phosphor-icons/react/dist/ssr"
+import { LucideCopy } from "lucide-react"
 
 export default function CopyPage() {
   return (
@@ -21,7 +21,7 @@ export default function CopyPage() {
         />
         <Button
           size="large"
-          start={<Copy size={16} />}
+          start={<LucideCopy size={16} />}
           type="submit"
           variant="secondary"
         >

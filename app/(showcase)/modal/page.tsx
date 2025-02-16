@@ -2,8 +2,7 @@ import Button from "@/components/ui/button"
 import IconButton from "@/components/ui/icon-button"
 import Input from "@/components/ui/input"
 import Label from "@/components/ui/label"
-import { Cloud, Plus, X } from "@phosphor-icons/react/dist/ssr"
-
+import { LucideCloud, LucidePlus, LucideX } from "lucide-react"
 export default function ModalPage() {
   return (
     <div className="border-gray-5 rounded-12 shadow-5 relative flex w-full max-w-384 flex-col border border-solid p-16">
@@ -12,7 +11,7 @@ export default function ModalPage() {
         size="small"
         variant="ghost"
       >
-        <X />
+        <LucideX />
       </IconButton>
 
       <h2 className="text-20 mr-32 mb-4">Connect AWS via CloudFormation</h2>
@@ -42,7 +41,7 @@ export default function ModalPage() {
           using CloudFormation. Boilerplate will automatically detect the role
           presence and begin syncing your account data.
         </p>
-        <Button start={<Cloud size={16} />} variant="accent">
+        <Button start={<LucideCloud size={16} />} variant="accent">
           Launch stack
         </Button>
       </div>
@@ -52,7 +51,7 @@ export default function ModalPage() {
           Cancel
         </Button>
         <Button variant="secondary">Back</Button>
-        <Button start={<Plus size={16} />} variant="primary">
+        <Button start={<LucidePlus size={16} />} variant="primary">
           Connect account
         </Button>
       </div>

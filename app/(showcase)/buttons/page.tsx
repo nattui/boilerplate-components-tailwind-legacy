@@ -1,5 +1,5 @@
 import Button from "@/components/ui/button"
-import { ArrowLeft, ArrowRight } from "@phosphor-icons/react/dist/ssr"
+import { LucideArrowLeft, LucideArrowRight } from "lucide-react"
 
 export default function ButtonsPage() {
   return (
@@ -72,32 +72,32 @@ export default function ButtonsPage() {
 
       {/* Leading visual */}
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button size="small" start={<ArrowLeft size={16} />}>
+        <Button size="small" start={<LucideArrowLeft size={16} />}>
           Small
         </Button>
-        <Button size="medium" start={<ArrowLeft size={16} />}>
+        <Button size="medium" start={<LucideArrowLeft size={16} />}>
           Medium
         </Button>
-        <Button size="large" start={<ArrowLeft size={16} />}>
+        <Button size="large" start={<LucideArrowLeft size={16} />}>
           Large
         </Button>
-        <Button size="extraLarge" start={<ArrowLeft size={16} />}>
+        <Button size="extraLarge" start={<LucideArrowLeft size={16} />}>
           Extra large
         </Button>
       </div>
 
       {/* Trailing visual */}
       <div className="flex flex-wrap items-center justify-center gap-8">
-        <Button end={<ArrowRight size={16} />} size="small">
+        <Button end={<LucideArrowRight size={16} />} size="small">
           Small
         </Button>
-        <Button end={<ArrowRight size={16} />} size="medium">
+        <Button end={<LucideArrowRight size={16} />} size="medium">
           Medium
         </Button>
-        <Button end={<ArrowRight size={16} />} size="large">
+        <Button end={<LucideArrowRight size={16} />} size="large">
           Large
         </Button>
-        <Button end={<ArrowRight size={16} />} size="extraLarge">
+        <Button end={<LucideArrowRight size={16} />} size="extraLarge">
           Extra large
         </Button>
       </div>
@@ -105,30 +105,30 @@ export default function ButtonsPage() {
       {/* Leading and trailing visual */}
       <div className="flex flex-wrap items-center justify-center gap-8">
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="small"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
         >
           Small
         </Button>
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="medium"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
         >
           Medium
         </Button>
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="large"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
         >
           Large
         </Button>
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="extraLarge"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
         >
           Extra large
         </Button>
@@ -136,33 +136,33 @@ export default function ButtonsPage() {
 
       <div className="flex flex-wrap items-center justify-center gap-8">
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="small"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
           variant="secondary"
         >
           Small
         </Button>
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="medium"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
           variant="secondary"
         >
           Medium
         </Button>
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="large"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
           variant="secondary"
         >
           Large
         </Button>
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="extraLarge"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
           variant="secondary"
         >
           Extra large
@@ -171,33 +171,33 @@ export default function ButtonsPage() {
 
       <div className="flex flex-wrap items-center justify-center gap-8">
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="small"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
           variant="accent"
         >
           Small
         </Button>
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="medium"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
           variant="accent"
         >
           Medium
         </Button>
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="large"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
           variant="accent"
         >
           Large
         </Button>
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="extraLarge"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
           variant="accent"
         >
           Extra large
@@ -206,33 +206,33 @@ export default function ButtonsPage() {
 
       <div className="flex flex-wrap items-center justify-center gap-8">
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="small"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
           variant="ghost"
         >
           Small
         </Button>
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="medium"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
           variant="ghost"
         >
           Medium
         </Button>
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="large"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
           variant="ghost"
         >
           Large
         </Button>
         <Button
-          end={<ArrowRight size={16} />}
+          end={<LucideArrowRight size={16} />}
           size="extraLarge"
-          start={<ArrowLeft size={16} />}
+          start={<LucideArrowLeft size={16} />}
           variant="ghost"
         >
           Extra large

@@ -8,7 +8,7 @@ import Input from "@/components/ui/input"
 import Label from "@/components/ui/label"
 import Select from "@/components/ui/select"
 import { LifeExpectancy } from "@/libs/db/schema"
-import { FloppyDisk, Trash } from "@phosphor-icons/react"
+import { LucideSave, LucideTrash } from "lucide-react"
 import { useActionState } from "react"
 import { useState } from "react"
 
@@ -67,7 +67,7 @@ export default function LifeExpectancyClientPage({
             disabled={!birthday}
             isLoading={birthdayPending}
             size="small"
-            start={<FloppyDisk size={16} />}
+            start={<LucideSave size={16} />}
             type="submit"
           >
             Save
@@ -95,7 +95,7 @@ export default function LifeExpectancyClientPage({
             disabled={!country}
             isLoading={countryPending}
             size="small"
-            start={<FloppyDisk size={16} />}
+            start={<LucideSave size={16} />}
             type="submit"
           >
             Save
@@ -177,7 +177,7 @@ function Dashboard({ dashboard, profile }: DashboardProps) {
         <Button
           className="ml-auto"
           isLoading={pending}
-          start={<Trash size={16} />}
+          start={<LucideTrash size={16} />}
           type="submit"
         >
           Reset
