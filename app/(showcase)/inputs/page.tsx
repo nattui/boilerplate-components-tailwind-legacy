@@ -43,7 +43,7 @@ export default function InputsPage() {
                 variant="ghost"
               >
                 <LucideEye
-                  className="text-gray-9 group-hover:text-gray-12 transition-colors"
+                  className="text-gray-9 group-hover:text-gray-12 group-active:text-gray-12 transition-colors"
                   size={16}
                 />
               </IconButton>
@@ -96,6 +96,7 @@ export default function InputsPage() {
         />
       </div>
 
+      {/* Read-only */}
       <div className="mt-64 flex w-320 flex-col">
         <Input
           className={{ input: "pr-36" }}
@@ -107,7 +108,7 @@ export default function InputsPage() {
               variant="ghost"
             >
               <LucideCopy
-                className="text-gray-9 group-hover:text-gray-12 transition-colors"
+                className="text-gray-9 group-hover:text-gray-12 group-active:text-gray-12 transition-colors"
                 size={16}
               />
             </IconButton>
