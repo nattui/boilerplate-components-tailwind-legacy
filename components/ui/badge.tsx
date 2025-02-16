@@ -1,11 +1,10 @@
-import type { ReactNode } from "react"
+import type { ComponentProps, JSX } from "react"
 
-export interface BadgeProps {
-  children?: ReactNode
+export interface BadgeProps extends ComponentProps<"div"> {
   value?: string
 }
 
-export default function Badge(props: BadgeProps) {
+export default function Badge(props: BadgeProps): JSX.Element {
   const { children, value = "", ...rest } = props
 
   return (

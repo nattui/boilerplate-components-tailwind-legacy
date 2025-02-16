@@ -1,5 +1,4 @@
 .base {
-  --size: 16px;
   position: relative;
   scale: -1 1;
   animation: spinner 1000ms steps(12, end) infinite;
