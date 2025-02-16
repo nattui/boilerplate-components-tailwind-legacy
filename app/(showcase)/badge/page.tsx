@@ -6,7 +6,7 @@ export default function BadgePage() {
   return (
     <>
       <div className="flex flex-wrap items-center justify-center gap-x-16">
-        <Badge value="8">
+        <Badge value="9+">
           <IconButton variant="primary">
             <LucideMail size={16} />
           </IconButton>
@@ -18,7 +18,7 @@ export default function BadgePage() {
           </IconButton>
         </Badge>
 
-        <Badge value="24+">
+        <Badge value="8">
           <IconButton variant="ghost">
             <LucideMail size={16} />
           </IconButton>
