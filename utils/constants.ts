@@ -17,6 +17,7 @@ export const API = {
 } as const
 
 export const ROUTE = {
+  BADGE: "/badge",
   BUTTONS: "/buttons",
   COPY: "/copy",
   HOME: "/",
