@@ -44,7 +44,7 @@ export const inputStyles = {
     theme.duration,
     theme.outline,
     theme.rounded,
-    theme.shadow,
+    theme.shadow.box,
   ].join(" "),
   password: "font-mono",
 } as const

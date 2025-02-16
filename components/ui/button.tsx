@@ -42,7 +42,6 @@ export const buttonStyles = {
   },
   variant: {
     accent: [
-      "[text-shadow:0_1px_0px_rgba(0,0,0,0.1),0_-1px_0px_rgba(255,255,255,0.1)]",
       "active:bg-primary-9/75",
       "active:shadow-[inset_0_0_0_0_transparent]",
       "bg-primary-9",
@@ -52,8 +51,10 @@ export const buttonStyles = {
       "disabled:!shadow-[inset_0_-1px_0_1px_color-mix(in_oklab,var(--color-primary-9)_100%,transparent),inset_0_0_0_1px_rgba(255,255,255,0.25)]",
       "hover:bg-primary-9/85",
       "hover:shadow-[inset_0_0_0_0_transparent]",
-      "shadow-[inset_0_-1px_0_1px_color-mix(in_oklab,var(--color-primary-9)_100%,transparent),inset_0_0_0_1px_rgba(255,255,255,0.25),0_1px_rgb(0_0_0_/_0.05)]",
+      "shadow-[inset_0_-1px_0_1px_color-mix(in_oklab,var(--color-primary-9)_100%,transparent),inset_0_0_0_1px_rgba(255,255,255,0.25)]",
       "text-primary-1",
+      theme.shadow.filter,
+      theme.shadow.text,
     ].join(" "),
     ghost: [
       "active:bg-gray-5",
@@ -62,12 +63,11 @@ export const buttonStyles = {
       "border-transparent",
       "data-[active=true]:bg-gray-5",
       "disabled:!bg-gray-2",
-      "hover:bg-gray-4",
+      "hover:bg-gray-4/75",
       "hover:text-gray-12",
       "text-gray-11",
     ].join(" "),
     primary: [
-      "[text-shadow:0_1px_0px_rgba(0,0,0,0.1),0_-1px_0px_rgba(255,255,255,0.1)]",
       "active:bg-gray-12/75",
       "active:shadow-[inset_0_0_0_0_transparent]",
       "bg-gray-12",
@@ -77,8 +77,10 @@ export const buttonStyles = {
       "disabled:!shadow-[inset_0_-1px_0_1px_color-mix(in_oklab,var(--color-gray-12)_100%,transparent),inset_0_0_0_1px_rgba(255,255,255,0.25)]",
       "hover:bg-gray-12/85",
       "hover:shadow-[inset_0_0_0_0_transparent]",
-      "shadow-[inset_0_-1px_0_1px_color-mix(in_oklab,var(--color-gray-12)_100%,transparent),inset_0_0_0_1px_rgba(255,255,255,0.25),0_1px_rgb(0_0_0_/_0.05)]",
+      "shadow-[inset_0_-1px_0_1px_color-mix(in_oklab,var(--color-gray-12)_100%,transparent),inset_0_0_0_1px_rgba(255,255,255,0.25)]",
       "text-gray-1",
+      theme.shadow.filter,
+      theme.shadow.text,
     ].join(" "),
     secondary: [
       "active:bg-gray-4/75",
@@ -94,7 +96,7 @@ export const buttonStyles = {
       theme.border.color.disabled,
       theme.border.color.focus,
       theme.border.color.hover,
-      theme.shadow,
+      theme.shadow.box,
     ].join(" "),
   },
   width: {
