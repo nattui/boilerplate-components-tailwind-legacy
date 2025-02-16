@@ -9,7 +9,7 @@ export default function Select2() {
 
   return (
     <Select.Root defaultValue="apple" onValueChange={setValue}>
-      <Select.Trigger className="rounded-8 border-gray-5 bg-gray-2 outline-primary-9 shadow-1 flex h-40 min-w-256 items-center justify-between border border-solid px-12 outline-0 outline-offset-2 select-none focus-visible:outline-2">
+      <Select.Trigger className="rounded-8 border-gray-5 bg-gray-2 outline-primary-9 shadow-1 flex h-40 min-w-256 cursor-pointer items-center justify-between border border-solid px-12 outline-0 outline-offset-2 select-none focus-visible:outline-2">
         {value}
         <LucideChevronDown size={16} />
       </Select.Trigger>
