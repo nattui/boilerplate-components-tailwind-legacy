@@ -1,4 +1,8 @@
 export const theme = {
+  bg: {
+    base: "bg-gray-2",
+    disabled: "disabled:!bg-gray-2",
+  },
   border: {
     base: ["border-solid", "border"].join(" "),
     color: {

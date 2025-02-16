@@ -19,9 +19,7 @@ export interface InputProps extends Omit<ComponentProps<"input">, "className"> {
 export const inputStyles = {
   base: [
     "appearance-none",
-    "bg-gray-2",
     "cursor-text",
-    "disabled:bg-gray-2",
     "font-400",
     "h-40",
     "data-[invalid]:!border-[crimson]",
@@ -34,6 +32,8 @@ export const inputStyles = {
     "text-gray-12",
     "transition-[background-color,border-color,opacity]",
     "w-full",
+    theme.bg.base,
+    theme.bg.disabled,
     theme.border.base,
     theme.border.color.active,
     theme.border.color.base,
