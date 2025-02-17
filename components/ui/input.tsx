@@ -71,6 +71,7 @@ export default function Input(props: InputProps): JSX.Element {
 
   const isPassword =
     autoComplete === "current-password" ||
+    autoComplete === "new-password" ||
     id === "password" ||
     type === "password"
 
