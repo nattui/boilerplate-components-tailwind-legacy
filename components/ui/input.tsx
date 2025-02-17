@@ -83,14 +83,14 @@ export default function Input(props: InputProps): JSX.Element {
     .trim()
 
   return (
-    <div className={`flex w-full flex-col ${className?.root}`.trim()}>
+    <div className={`flex flex-col ${className?.root}`.trim()}>
       {text.label && (
         <Label className="mb-4" htmlFor={id}>
           {text.label}
         </Label>
       )}
 
-      <div className="relative flex w-full">
+      <div className="relative flex">
         {start}
         <input
           className={combinedStyles}
