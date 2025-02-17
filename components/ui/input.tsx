@@ -51,6 +51,7 @@ export const inputStyles = {
 
 export default function Input(props: InputProps): JSX.Element {
   const {
+    autoComplete = "off",
     className = {
       input: "",
       root: "",
@@ -68,9 +69,14 @@ export default function Input(props: InputProps): JSX.Element {
     ...rest
   } = props
 
+  const isPassword =
+    autoComplete === "current-password" &&
+    id === "password" &&
+    type === "password"
+
   const combinedStyles = `
     ${inputStyles.base}
-    ${type === "password" ? inputStyles.password : ""}
+    ${isPassword ? inputStyles.password : ""}
     ${className?.input}
   `
     .replaceAll(/\s+/g, " ")
