@@ -70,8 +70,8 @@ export default function Input(props: InputProps): JSX.Element {
   } = props
 
   const isPassword =
-    autoComplete === "current-password" &&
-    id === "password" &&
+    autoComplete === "current-password" ||
+    id === "password" ||
     type === "password"
 
   const combinedStyles = `
