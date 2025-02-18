@@ -9,7 +9,13 @@ import {
   LucideImage,
   LucideX,
 } from "lucide-react"
-import { ReactNode, useEffect, useId, useState } from "react"
+import {
+  type KeyboardEvent,
+  type ReactNode,
+  useEffect,
+  useId,
+  useState,
+} from "react"
 
 export interface MultiSelectOption {
   image?: ReactNode
@@ -18,6 +24,7 @@ export interface MultiSelectOption {
 }
 
 export default function MultiSelect() {
+  const [highlightedIndex, setHighlightedIndex] = useState<number>(0)
   const [isOpen, setIsOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedOptions, setSelectedOptions] = useState<MultiSelectOption[]>(
@@ -65,6 +72,52 @@ export default function MultiSelect() {
     setSelectedOptions((previous) =>
       previous.filter((selected) => selected.value !== option.value),
     )
+  }
+
+  const filteredOptions = options.filter((option: MultiSelectOption) => {
+    const isNotSelected = !selectedOptions.some(
+      (selected) => selected.value === option.value,
+    )
+    const matchesSearch =
+      searchTerm.trim() === "" ||
+      option.label.toLowerCase().includes(searchTerm.toLowerCase())
+    return isNotSelected && matchesSearch
+  })
+
+  function handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
+    if (!isOpen) return
+    switch (event.key) {
+      case "ArrowDown": {
+        event.preventDefault()
+        if (filteredOptions.length === 0) return
+        setHighlightedIndex((prev) =>
+          prev < filteredOptions.length - 1 ? prev + 1 : 0,
+        )
+
+        break
+      }
+      case "ArrowUp": {
+        event.preventDefault()
+        if (filteredOptions.length === 0) return
+        setHighlightedIndex((prev) =>
+          prev > 0 ? prev - 1 : filteredOptions.length - 1,
+        )
+
+        break
+      }
+      case "Enter": {
+        if (
+          highlightedIndex >= 0 &&
+          highlightedIndex < filteredOptions.length
+        ) {
+          event.preventDefault()
+          onSelect(filteredOptions[highlightedIndex])
+          setHighlightedIndex(0)
+        }
+
+        break
+      }
+    }
   }
 
   useEffect(() => {
@@ -146,6 +199,7 @@ export default function MultiSelect() {
           id={id}
           onChange={(event) => setSearchTerm(event.target.value)}
           onFocus={() => setIsOpen(true)}
+          onKeyDown={handleKeyDown}
           type="text"
           value={searchTerm}
         />
@@ -176,27 +230,17 @@ export default function MultiSelect() {
           ref={refs.setFloating}
           style={floatingStyles}
         >
-          {options
-            .filter((option: MultiSelectOption) => {
-              const isNotSelected = !selectedOptions.some(
-                (selected) => selected.value === option.value,
-              )
-              const matchesSearch =
-                searchTerm.trim() === "" ||
-                option.label.toLowerCase().includes(searchTerm.toLowerCase())
-              return isNotSelected && matchesSearch
-            })
-            .map((option: MultiSelectOption) => (
-              <button
-                className="text-gray-11 hover:bg-gray-3 hover:text-gray-12 focus:bg-gray-3 focus:text-gray-12 flex h-36 shrink-0 cursor-pointer items-center gap-x-8 px-12 outline-0 transition-colors [&>svg]:size-16"
-                key={option.value}
-                onClick={() => onSelect(option)}
-                type="button"
-              >
-                {option.image}
-                <span className="truncate">{option.label}</span>
-              </button>
-            ))}
+          {filteredOptions.map((option: MultiSelectOption, index: number) => (
+            <div
+              className="text-gray-11 hover:bg-gray-3 hover:text-gray-12 data-[is-highlighted=true]:bg-gray-3 data-[is-highlighted=true]:text-gray-12 flex h-36 shrink-0 cursor-pointer items-center gap-x-8 px-12 outline-0 transition-colors [&>svg]:size-16"
+              data-is-highlighted={highlightedIndex === index}
+              key={option.value}
+              onClick={() => onSelect(option)}
+            >
+              {option.image}
+              <span className="truncate">{option.label}</span>
+            </div>
+          ))}
         </div>
       )}
     </div>
