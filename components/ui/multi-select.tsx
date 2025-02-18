@@ -9,6 +9,7 @@ import {
 } from "@floating-ui/react-dom"
 import { LucideChevronDown, LucideX } from "lucide-react"
 import {
+  type ComponentProps,
   type Dispatch,
   type KeyboardEvent,
   type ReactNode,
@@ -18,7 +19,7 @@ import {
   useState,
 } from "react"
 
-export interface MultiSelectOption {
+export interface MultiSelectOption extends ComponentProps<"div"> {
   image?: ReactNode
   label: string
   value: string
@@ -44,6 +45,7 @@ export default function MultiSelect(props: MultiSelectProps) {
     options = [],
     placeholder = "",
     setSelectedOptions,
+    ...rest
   } = props
 
   const id = useId()
@@ -180,7 +182,7 @@ export default function MultiSelect(props: MultiSelectProps) {
   }, [internalSelectedOptions, options, setSelectedOptions])
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" {...rest}>
       {/* Label */}
       {label && (
         <label
