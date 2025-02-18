@@ -2,10 +2,17 @@
 
 import IconButton from "@/components/ui/icon-button"
 import { autoUpdate, size, useFloating } from "@floating-ui/react-dom"
-import { LucideChevronDown, LucideX } from "lucide-react"
-import { useEffect, useId, useState } from "react"
+import {
+  LucideChevronDown,
+  LucideFile,
+  LucideGlobe,
+  LucideImage,
+  LucideX,
+} from "lucide-react"
+import { ReactNode, useEffect, useId, useState } from "react"
 
 export interface MultiSelectOption {
+  image?: ReactNode
   label: string
   value: string
 }
@@ -115,9 +122,10 @@ export default function MultiSelect() {
         {/* Chips */}
         {selectedOptions.map((option, index) => (
           <div
-            className="border-gray-5 flex max-w-full items-center gap-x-4 border border-solid px-4"
+            className="border-gray-5 flex max-w-full items-center gap-x-4 border border-solid px-4 [&>svg]:mr-2 [&>svg]:size-14"
             key={index}
           >
+            {option.image}
             <span className="text-gray-12 text-14 truncate">
               {option.label}
             </span>
@@ -180,11 +188,12 @@ export default function MultiSelect() {
             })
             .map((option: MultiSelectOption) => (
               <button
-                className="text-gray-11 hover:bg-gray-3 hover:text-gray-12 focus:bg-gray-3 focus:text-gray-12 flex h-36 shrink-0 cursor-pointer items-center gap-x-8 px-12 outline-0 transition-colors"
+                className="text-gray-11 hover:bg-gray-3 hover:text-gray-12 focus:bg-gray-3 focus:text-gray-12 flex h-36 shrink-0 cursor-pointer items-center gap-x-8 px-12 outline-0 transition-colors [&>svg]:size-16"
                 key={option.value}
                 onClick={() => onSelect(option)}
                 type="button"
               >
+                {option.image}
                 <span className="truncate">{option.label}</span>
               </button>
             ))}
@@ -196,26 +205,32 @@ export default function MultiSelect() {
 
 const options: MultiSelectOption[] = [
   {
+    image: <LucideImage />,
     label: "Option 1",
     value: "option-1",
   },
   {
+    image: <LucideImage />,
     label: "Option 2",
     value: "option-2",
   },
   {
+    image: <LucideFile />,
     label: "Option 3",
     value: "option-3",
   },
   {
+    image: <LucideFile />,
     label: "Option 4",
     value: "option-4",
   },
   {
+    image: <LucideGlobe />,
     label: "Option 5",
     value: "option-5",
   },
   {
+    image: <LucideGlobe />,
     label: "Option 6",
     value: "option-6",
   },
