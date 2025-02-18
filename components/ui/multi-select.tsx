@@ -1,7 +1,7 @@
 "use client"
 
 import IconButton from "@/components/ui/icon-button"
-import { size, useFloating } from "@floating-ui/react"
+import { autoUpdate, size, useFloating } from "@floating-ui/react"
 import { LucideChevronDown, LucideX } from "lucide-react"
 import { type KeyboardEvent, useEffect, useId, useState } from "react"
 
@@ -30,6 +30,7 @@ export default function MultiSelect() {
       }),
     ],
     placement: "bottom",
+    whileElementsMounted: autoUpdate,
   })
   // Floating UI end //////////////////////////////////////////////////////////
 
@@ -94,7 +95,7 @@ export default function MultiSelect() {
       {/* Trigger */}
       <label
         className="element-trigger border-gray-5 hover:border-gray-8 data-[focused=true]:border-gray-12 relative flex min-h-40 w-full cursor-text flex-wrap items-center gap-4 border border-solid py-8 pr-64 pl-12 transition-colors"
-        data-focused={isFocused}
+        data-focused={isFocused || isOpen}
         htmlFor={id}
         ref={refs.setReference}
       >
