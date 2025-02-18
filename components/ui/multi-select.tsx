@@ -3,9 +3,12 @@
 import IconButton from "@/components/ui/icon-button"
 import { autoUpdate, size, useFloating } from "@floating-ui/react"
 import { LucideChevronDown, LucideX } from "lucide-react"
-import { type KeyboardEvent, useEffect, useId, useState } from "react"
+import { useEffect, useId, useState } from "react"
 
-type Option = (typeof options)[number]
+interface Option {
+  label: string
+  value: string
+}
 
 export default function MultiSelect() {
   const [isFocused, setIsFocused] = useState(false)
@@ -14,9 +17,6 @@ export default function MultiSelect() {
   const [selectedOptions, setSelectedOptions] = useState<Option[]>([])
 
   const id = useId()
-
-  console.log(":::: selectedOptions:", selectedOptions)
-  console.log(":::: id:", id)
 
   // Floating UI start ////////////////////////////////////////////////////////
   const { floatingStyles, refs } = useFloating({
@@ -34,27 +34,31 @@ export default function MultiSelect() {
   })
   // Floating UI end //////////////////////////////////////////////////////////
 
-  function onKeyDown(event: KeyboardEvent<HTMLInputElement>) {
-    if (event.key === "Enter") {
-      alert(searchTerm)
-    }
-  }
-
   function onClear() {
     setSearchTerm("")
     setSelectedOptions([])
   }
 
   function onSelect(option: Option) {
+    // Focus on the trigger element
+    const triggerElement = document.querySelector(
+      ".element-trigger",
+    ) as HTMLLabelElement
+    triggerElement?.focus()
+
+    // Clear the search term
+    setSearchTerm("")
+
+    // Add the selected option to the list of selected options
     setSelectedOptions((previous) => [...previous, option])
   }
 
-  function onFocus() {
+  function onInputFocus() {
     setIsFocused(true)
     setIsOpen(true)
   }
 
-  function onRemove(option: Option) {
+  function onChipRemove(option: Option) {
     setSelectedOptions((previous) =>
       previous.filter((selected) => selected.value !== option.value),
     )
@@ -121,7 +125,7 @@ export default function MultiSelect() {
             <p className="text-gray-12 text-14">{option.label}</p>
             <IconButton
               className="!rounded-0 !h-16 !w-16"
-              onClick={() => onRemove(option)}
+              onClick={() => onChipRemove(option)}
               variant="ghost"
             >
               <LucideX size={14} />
@@ -135,8 +139,7 @@ export default function MultiSelect() {
           id={id}
           onBlur={() => setIsFocused(false)}
           onChange={(event) => setSearchTerm(event.target.value)}
-          onFocus={onFocus}
-          onKeyDown={onKeyDown}
+          onFocus={onInputFocus}
           type="text"
           value={searchTerm}
         />
@@ -168,12 +171,15 @@ export default function MultiSelect() {
           style={floatingStyles}
         >
           {options
-            .filter(
-              (option: Option) =>
-                !selectedOptions.some(
-                  (selected) => selected.value === option.value,
-                ),
-            )
+            .filter((option: Option) => {
+              const isNotSelected = !selectedOptions.some(
+                (selected) => selected.value === option.value,
+              )
+              const matchesSearch =
+                searchTerm.trim() === "" ||
+                option.label.toLowerCase().includes(searchTerm.toLowerCase())
+              return isNotSelected && matchesSearch
+            })
             .map((option: Option) => (
               <button
                 className="text-gray-11 hover:bg-gray-3 hover:text-gray-12 focus:bg-gray-3 focus:text-gray-12 flex h-36 shrink-0 cursor-pointer items-center gap-x-8 px-12 outline-0 transition-colors"
@@ -190,7 +196,7 @@ export default function MultiSelect() {
   )
 }
 
-const options = [
+const options: Option[] = [
   {
     label: "Option 1",
     value: "option-1",
