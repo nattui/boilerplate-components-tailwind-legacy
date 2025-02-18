@@ -3,7 +3,7 @@
 import IconButton from "@/components/ui/icon-button"
 import { shift, size, useFloating } from "@floating-ui/react"
 import { LucideChevronDown, LucideX } from "lucide-react"
-import { type KeyboardEvent, type MouseEvent, useId, useState } from "react"
+import { type KeyboardEvent, useId, useState } from "react"
 
 const options = [
   {
@@ -30,7 +30,25 @@ const options = [
     label: "Option 6",
     value: "option-6",
   },
+  {
+    label: "Option 7",
+    value: "option-7",
+  },
+  {
+    label: "Option 8",
+    value: "option-8",
+  },
+  {
+    label: "Option 9",
+    value: "option-9",
+  },
+  {
+    label: "Option 10",
+    value: "option-10",
+  },
 ]
+
+type Option = (typeof options)[number]
 
 export default function MultiSelect() {
   const [isFocused, setIsFocused] = useState(false)
@@ -60,10 +78,12 @@ export default function MultiSelect() {
     }
   }
 
-  function onClear(event: MouseEvent<HTMLButtonElement>) {
-    event.stopPropagation()
+  function onClear() {
     setValue("")
-    // setIsOpen(true)
+  }
+
+  function onSelect(option: Option) {
+    setValue(option.label)
   }
 
   return (
@@ -116,18 +136,15 @@ export default function MultiSelect() {
 
       {isOpen && (
         <div
-          className="shadow-3 border-gray-5 bg-gray-1 flex flex-col overflow-y-auto border border-solid"
+          className="shadow-3 border-gray-5 bg-gray-1 flex max-h-320 flex-col overflow-y-auto border border-solid"
           ref={refs.setFloating}
           style={floatingStyles}
         >
-          {options.map((option) => (
+          {options.map((option: Option, index: number) => (
             <div
-              className="text-gray-11 hover:bg-gray-3 hover:text-gray-12 flex h-36 cursor-pointer items-center gap-x-8 px-12 transition-colors"
-              key={option.value}
-              onClick={() => {
-                setValue(option.label)
-                setIsOpen(false)
-              }}
+              className="text-gray-11 hover:bg-gray-3 hover:text-gray-12 flex h-36 shrink-0 cursor-pointer items-center gap-x-8 px-12 transition-colors"
+              key={index}
+              onClick={() => onSelect(option)}
             >
               {option.label}
             </div>
