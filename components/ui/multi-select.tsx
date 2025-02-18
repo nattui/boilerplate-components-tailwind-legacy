@@ -11,7 +11,6 @@ interface Option {
 }
 
 export default function MultiSelect() {
-  const [isFocused, setIsFocused] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedOptions, setSelectedOptions] = useState<Option[]>([])
@@ -51,11 +50,6 @@ export default function MultiSelect() {
 
     // Add the selected option to the list of selected options
     setSelectedOptions((previous) => [...previous, option])
-  }
-
-  function onInputFocus() {
-    setIsFocused(true)
-    setIsOpen(true)
   }
 
   function onChipRemove(option: Option) {
@@ -104,8 +98,8 @@ export default function MultiSelect() {
 
       {/* Trigger */}
       <label
-        className="element-trigger border-gray-5 hover:border-gray-8 data-[focused=true]:border-gray-12 relative flex min-h-40 w-full cursor-text flex-wrap items-center gap-4 border border-solid py-8 pr-64 pl-12 transition-colors"
-        data-focused={isFocused || isOpen}
+        className="element-trigger border-gray-5 hover:border-gray-8 data-[is-focused=true]:border-gray-12 relative flex min-h-40 w-full cursor-text flex-wrap items-center gap-4 border border-solid py-8 pr-64 pl-12 transition-colors"
+        data-is-focused={isOpen}
         htmlFor={id}
         ref={refs.setReference}
       >
@@ -135,11 +129,11 @@ export default function MultiSelect() {
 
         {/* Input */}
         <input
-          className="text-gray-12 grow-1 outline-0"
+          className="text-gray-12 grow-1 outline-0 data-[is-rendered=true]:absolute"
+          data-is-rendered={!isOpen}
           id={id}
-          onBlur={() => setIsFocused(false)}
           onChange={(event) => setSearchTerm(event.target.value)}
-          onFocus={onInputFocus}
+          onFocus={() => setIsOpen(true)}
           type="text"
           value={searchTerm}
         />
