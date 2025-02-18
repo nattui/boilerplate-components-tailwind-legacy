@@ -136,6 +136,7 @@ export default function MultiSelect(props: MultiSelectProps) {
     }
   }
 
+  // Close the dropdown when clicking outside
   useEffect(() => {
     function handleOptionClickOutside(event: MouseEvent) {
       const contentElement = document.querySelector(".element-content")
@@ -164,6 +165,7 @@ export default function MultiSelect(props: MultiSelectProps) {
     }
   }, [isOpen])
 
+  // Update the selected options
   useEffect(() => {
     if (setSelectedOptions) {
       setSelectedOptions(internalSelectedOptions)
