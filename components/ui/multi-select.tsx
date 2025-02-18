@@ -2,16 +2,12 @@
 
 import IconButton from "@/components/ui/icon-button"
 import { autoUpdate, size, useFloating } from "@floating-ui/react-dom"
+import { LucideChevronDown, LucideX } from "lucide-react"
 import {
-  LucideChevronDown,
-  LucideFile,
-  LucideGlobe,
-  LucideImage,
-  LucideX,
-} from "lucide-react"
-import {
+  type Dispatch,
   type KeyboardEvent,
   type ReactNode,
+  type SetStateAction,
   useEffect,
   useId,
   useState,
@@ -23,13 +19,27 @@ export interface MultiSelectOption {
   value: string
 }
 
-export default function MultiSelect() {
+export interface MultiSelectProps {
+  label?: string
+  options?: MultiSelectOption[]
+  placeholder?: string
+  setSelectedOptions?: Dispatch<SetStateAction<MultiSelectOption[]>>
+}
+
+export default function MultiSelect(props: MultiSelectProps) {
   const [highlightedIndex, setHighlightedIndex] = useState<number>(0)
   const [isOpen, setIsOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState("")
-  const [selectedOptions, setSelectedOptions] = useState<MultiSelectOption[]>(
-    [],
-  )
+  const [internalSelectedOptions, setInternalSelectedOptions] = useState<
+    MultiSelectOption[]
+  >([])
+
+  const {
+    label = "",
+    options = [],
+    placeholder = "",
+    setSelectedOptions,
+  } = props
 
   const id = useId()
 
@@ -51,7 +61,7 @@ export default function MultiSelect() {
 
   function onClear() {
     setSearchTerm("")
-    setSelectedOptions([])
+    setInternalSelectedOptions([])
   }
 
   function onSelect(option: MultiSelectOption) {
@@ -65,17 +75,17 @@ export default function MultiSelect() {
     setSearchTerm("")
 
     // Add the selected option to the list of selected options
-    setSelectedOptions((previous) => [...previous, option])
+    setInternalSelectedOptions((previous) => [...previous, option])
   }
 
   function onChipRemove(option: MultiSelectOption) {
-    setSelectedOptions((previous) =>
+    setInternalSelectedOptions((previous) =>
       previous.filter((selected) => selected.value !== option.value),
     )
   }
 
   const filteredOptions = options.filter((option: MultiSelectOption) => {
-    const isNotSelected = !selectedOptions.some(
+    const isNotSelected = !internalSelectedOptions.some(
       (selected) => selected.value === option.value,
     )
     const matchesSearch =
@@ -148,15 +158,23 @@ export default function MultiSelect() {
     }
   }, [isOpen])
 
+  useEffect(() => {
+    if (setSelectedOptions) {
+      setSelectedOptions(internalSelectedOptions)
+    }
+  }, [internalSelectedOptions, options, setSelectedOptions])
+
   return (
     <div className="flex flex-col">
       {/* Label */}
-      <label
-        className="text-gray-12 text-14 element-label mb-4 inline-block"
-        htmlFor={id}
-      >
-        Multi select
-      </label>
+      {label && (
+        <label
+          className="text-gray-12 text-14 element-label mb-4 inline-block"
+          htmlFor={id}
+        >
+          {label}
+        </label>
+      )}
 
       {/* Trigger */}
       <label
@@ -166,14 +184,14 @@ export default function MultiSelect() {
         ref={refs.setReference}
       >
         {/* Placeholder */}
-        {!searchTerm && selectedOptions.length === 0 && (
+        {!searchTerm && internalSelectedOptions.length === 0 && (
           <p className="text-gray-9 text-14 pointer-events-none absolute left-12 select-none">
-            Theme
+            {placeholder}
           </p>
         )}
 
         {/* Chips */}
-        {selectedOptions.map((option, index) => (
+        {internalSelectedOptions.map((option, index) => (
           <div
             className="border-gray-5 flex max-w-full items-center border border-solid pr-4 pl-6 [&>svg]:mr-4 [&>svg]:size-14 [&>svg]:shrink-0"
             key={index}
@@ -205,7 +223,7 @@ export default function MultiSelect() {
         />
 
         {/* Clear button */}
-        {(searchTerm || selectedOptions.length > 0) && (
+        {(searchTerm || internalSelectedOptions.length > 0) && (
           <IconButton
             className="!rounded-0 absolute right-28 !h-24 !w-24"
             onClick={onClear}
@@ -246,65 +264,3 @@ export default function MultiSelect() {
     </div>
   )
 }
-
-const options: MultiSelectOption[] = [
-  {
-    image: <LucideImage />,
-    label: "Option 1",
-    value: "option-1",
-  },
-  {
-    image: <LucideImage />,
-    label: "Option 2",
-    value: "option-2",
-  },
-  {
-    image: <LucideFile />,
-    label: "Option 3",
-    value: "option-3",
-  },
-  {
-    image: <LucideFile />,
-    label: "Option 4",
-    value: "option-4",
-  },
-  {
-    image: <LucideGlobe />,
-    label: "Option 5",
-    value: "option-5",
-  },
-  {
-    image: <LucideGlobe />,
-    label: "Option 6",
-    value: "option-6",
-  },
-  {
-    label: "Option 7",
-    value: "option-7",
-  },
-  {
-    label: "Option 8",
-    value: "option-8",
-  },
-  {
-    label: "Option 9",
-    value: "option-9",
-  },
-  {
-    label: "Option 10",
-    value: "option-10",
-  },
-  {
-    label: "Option 11",
-    value: "option-11",
-  },
-  {
-    label: "A super duper super duper super duper long option",
-    value: "option-12",
-  },
-  {
-    image: <LucideFile />,
-    label: "Another super duper super duper super duper long option",
-    value: "option-13",
-  },
-]
