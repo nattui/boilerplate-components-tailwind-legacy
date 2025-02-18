@@ -250,7 +250,7 @@ export default function MultiSelect(props: MultiSelectProps) {
         >
           {filteredOptions.map((option: MultiSelectOption, index: number) => (
             <div
-              className="text-gray-11 hover:bg-gray-3 hover:text-gray-12 data-[is-highlighted=true]:bg-gray-3 data-[is-highlighted=true]:text-gray-12 flex h-36 shrink-0 cursor-pointer items-center gap-x-8 px-12 outline-0 transition-colors [&>svg]:size-16"
+              className="text-gray-11 hover:bg-gray-3 hover:text-gray-12 data-[is-highlighted=true]:bg-gray-3 data-[is-highlighted=true]:text-gray-12 flex h-36 shrink-0 cursor-pointer items-center gap-x-8 px-12 outline-0 transition-colors select-none [&>svg]:size-16"
               data-is-highlighted={highlightedIndex === index}
               key={option.value}
               onClick={() => onSelect(option)}
