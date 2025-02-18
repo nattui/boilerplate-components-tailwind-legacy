@@ -5,7 +5,7 @@ import { autoUpdate, size, useFloating } from "@floating-ui/react-dom"
 import { LucideChevronDown, LucideX } from "lucide-react"
 import { useEffect, useId, useState } from "react"
 
-interface Option {
+export interface MultiSelectOption {
   label: string
   value: string
 }
@@ -13,7 +13,9 @@ interface Option {
 export default function MultiSelect() {
   const [isOpen, setIsOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState("")
-  const [selectedOptions, setSelectedOptions] = useState<Option[]>([])
+  const [selectedOptions, setSelectedOptions] = useState<MultiSelectOption[]>(
+    [],
+  )
 
   const id = useId()
 
@@ -38,7 +40,7 @@ export default function MultiSelect() {
     setSelectedOptions([])
   }
 
-  function onSelect(option: Option) {
+  function onSelect(option: MultiSelectOption) {
     // Focus on the trigger element
     const triggerElement = document.querySelector(
       ".element-trigger",
@@ -52,7 +54,7 @@ export default function MultiSelect() {
     setSelectedOptions((previous) => [...previous, option])
   }
 
-  function onChipRemove(option: Option) {
+  function onChipRemove(option: MultiSelectOption) {
     setSelectedOptions((previous) =>
       previous.filter((selected) => selected.value !== option.value),
     )
@@ -113,10 +115,12 @@ export default function MultiSelect() {
         {/* Chips */}
         {selectedOptions.map((option, index) => (
           <div
-            className="border-gray-5 flex items-center gap-x-4 border border-solid px-4"
+            className="border-gray-5 flex max-w-full items-center gap-x-4 border border-solid px-4"
             key={index}
           >
-            <p className="text-gray-12 text-14">{option.label}</p>
+            <span className="text-gray-12 text-14 truncate">
+              {option.label}
+            </span>
             <IconButton
               className="!rounded-0 !h-16 !w-16"
               onClick={() => onChipRemove(option)}
@@ -165,7 +169,7 @@ export default function MultiSelect() {
           style={floatingStyles}
         >
           {options
-            .filter((option: Option) => {
+            .filter((option: MultiSelectOption) => {
               const isNotSelected = !selectedOptions.some(
                 (selected) => selected.value === option.value,
               )
@@ -174,14 +178,14 @@ export default function MultiSelect() {
                 option.label.toLowerCase().includes(searchTerm.toLowerCase())
               return isNotSelected && matchesSearch
             })
-            .map((option: Option) => (
+            .map((option: MultiSelectOption) => (
               <button
                 className="text-gray-11 hover:bg-gray-3 hover:text-gray-12 focus:bg-gray-3 focus:text-gray-12 flex h-36 shrink-0 cursor-pointer items-center gap-x-8 px-12 outline-0 transition-colors"
                 key={option.value}
                 onClick={() => onSelect(option)}
                 type="button"
               >
-                {option.label}
+                <span className="truncate">{option.label}</span>
               </button>
             ))}
         </div>
@@ -190,7 +194,7 @@ export default function MultiSelect() {
   )
 }
 
-const options: Option[] = [
+const options: MultiSelectOption[] = [
   {
     label: "Option 1",
     value: "option-1",
