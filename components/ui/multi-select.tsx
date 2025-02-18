@@ -122,7 +122,7 @@ export default function MultiSelect() {
         {/* Chips */}
         {selectedOptions.map((option, index) => (
           <div
-            className="border-gray-5 flex max-w-full items-center border border-solid pr-4 pl-6 [&>svg]:mr-4 [&>svg]:size-14"
+            className="border-gray-5 flex max-w-full items-center border border-solid pr-4 pl-6 [&>svg]:mr-4 [&>svg]:size-14 [&>svg]:shrink-0"
             key={index}
           >
             {option.image}
@@ -257,5 +257,10 @@ const options: MultiSelectOption[] = [
   {
     label: "A super duper super duper super duper long option",
     value: "option-12",
+  },
+  {
+    image: <LucideFile />,
+    label: "Another super duper super duper super duper long option",
+    value: "option-13",
   },
 ]
