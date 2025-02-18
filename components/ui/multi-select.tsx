@@ -47,10 +47,14 @@ export default function MultiSelect(props: MultiSelectProps) {
   const { floatingStyles, refs } = useFloating({
     middleware: [
       size({
-        apply({ elements, rects }) {
-          Object.assign(elements.floating.style, {
-            width: `${rects.reference.width}px`,
-          })
+        apply({ availableHeight, elements, rects }) {
+          const maxHeight = availableHeight - 16
+          const maxHeightIsTooSmall = maxHeight < 240
+
+          elements.floating.style.maxHeight = maxHeightIsTooSmall
+            ? "240px"
+            : `${maxHeight}px`
+          elements.floating.style.width = `${rects.reference.width}px`
         },
       }),
     ],
@@ -244,7 +248,7 @@ export default function MultiSelect(props: MultiSelectProps) {
       {/* Content */}
       {isOpen && (
         <div
-          className="element-content bg-gray-1 border-gray-5 flex max-h-320 flex-col overflow-y-auto border-x border-b border-solid"
+          className="element-content bg-gray-1 border-gray-5 flex flex-col overflow-y-auto border-x border-b border-solid"
           ref={refs.setFloating}
           style={floatingStyles}
         >
