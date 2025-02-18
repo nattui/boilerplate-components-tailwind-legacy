@@ -147,7 +147,7 @@ export default function MultiSelect() {
         {/* Clear button */}
         {(searchTerm || selectedOptions.length > 0) && (
           <IconButton
-            className="absolute right-28 !h-24 !w-24"
+            className="!rounded-0 absolute right-28 !h-24 !w-24"
             onClick={onClear}
             variant="ghost"
           >
