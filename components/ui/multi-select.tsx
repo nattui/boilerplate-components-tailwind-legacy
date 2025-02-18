@@ -1,7 +1,7 @@
 "use client"
 
 import IconButton from "@/components/ui/icon-button"
-import { autoUpdate, size, useFloating } from "@floating-ui/react"
+import { autoUpdate, size, useFloating } from "@floating-ui/react-dom"
 import { LucideChevronDown, LucideX } from "lucide-react"
 import { useEffect, useId, useState } from "react"
 
@@ -236,7 +236,7 @@ const options: Option[] = [
     value: "option-11",
   },
   {
-    label: "Option 12",
+    label: "A super duper super duper super duper long option",
     value: "option-12",
   },
 ]
