@@ -129,8 +129,8 @@ export default function MultiSelect() {
 
         {/* Input */}
         <input
-          className="text-gray-12 grow-1 outline-0 data-[is-rendered=true]:absolute"
-          data-is-rendered={!isOpen}
+          className="text-gray-12 grow-1 outline-0 data-[is-rendered=true]:pointer-events-none data-[is-rendered=true]:absolute"
+          data-is-rendered={!isOpen && !searchTerm}
           id={id}
           onChange={(event) => setSearchTerm(event.target.value)}
           onFocus={() => setIsOpen(true)}
