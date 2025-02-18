@@ -55,17 +55,17 @@ export default function MultiSelect() {
 
   useEffect(() => {
     function handleOptionClickOutside(event: MouseEvent) {
+      const contentElement = document.querySelector(".element-content")
       const labelElement = document.querySelector(".element-label")
-      const optionsElement = document.querySelector(".element-options")
-      const referenceElement = document.querySelector(".element-reference")
+      const triggerElement = document.querySelector(".element-trigger")
 
       const isClickOutside =
+        contentElement &&
+        !contentElement.contains(event.target as Node) &&
         labelElement &&
         !labelElement.contains(event.target as Node) &&
-        optionsElement &&
-        !optionsElement.contains(event.target as Node) &&
-        referenceElement &&
-        !referenceElement.contains(event.target as Node)
+        triggerElement &&
+        !triggerElement.contains(event.target as Node)
 
       if (isClickOutside) {
         setIsOpen(false)
@@ -83,6 +83,7 @@ export default function MultiSelect() {
 
   return (
     <>
+      {/* Label */}
       <label
         className="text-gray-12 text-14 element-label mb-4 inline-block"
         htmlFor={id}
@@ -90,20 +91,29 @@ export default function MultiSelect() {
         Multi select
       </label>
 
+      {/* Trigger */}
       <label
-        className="element-reference border-gray-5 hover:border-gray-8 data-[focused=true]:border-gray-12 relative flex h-40 w-full cursor-text items-center border border-solid pr-64 pl-12 transition-colors"
+        className="element-trigger border-gray-5 hover:border-gray-8 data-[focused=true]:border-gray-12 relative flex min-h-40 w-full cursor-text flex-wrap items-center gap-4 border border-solid py-8 pr-64 pl-12 transition-colors"
         data-focused={isFocused}
         htmlFor={id}
         ref={refs.setReference}
       >
-        {!searchTerm && (
+        {/* Placeholder */}
+        {!searchTerm && selectedOptions.length === 0 && (
           <p className="text-gray-9 text-14 pointer-events-none absolute left-12 select-none">
             Theme
           </p>
         )}
 
+        {/* Chips */}
+        {selectedOptions.map((option, index) => (
+          <div className="text-gray-11 text-14 d" key={index}>
+            {option.label}
+          </div>
+        ))}
+
         <input
-          className="text-gray-12 h-full w-full outline-0"
+          className="text-gray-12 grow-1 outline-0"
           id={id}
           onBlur={() => setIsFocused(false)}
           onChange={(event) => setSearchTerm(event.target.value)}
@@ -113,7 +123,8 @@ export default function MultiSelect() {
           value={searchTerm}
         />
 
-        {searchTerm && (
+        {/* Clear button */}
+        {(searchTerm || selectedOptions.length > 0) && (
           <IconButton
             className="absolute right-28 !h-24 !w-24"
             onClick={onClear}
@@ -124,6 +135,7 @@ export default function MultiSelect() {
           </IconButton>
         )}
 
+        {/* Chevron icon */}
         <LucideChevronDown
           className="pointer-events-none absolute right-8 transition-transform data-[is-open=true]:rotate-180"
           data-is-open={isOpen}
@@ -131,9 +143,10 @@ export default function MultiSelect() {
         />
       </label>
 
+      {/* Content */}
       {isOpen && (
         <div
-          className="element-options bg-gray-1 border-gray-5 flex max-h-320 flex-col overflow-y-auto border-x border-b border-solid"
+          className="element-content bg-gray-1 border-gray-5 flex max-h-320 flex-col overflow-y-auto border-x border-b border-solid"
           ref={refs.setFloating}
           style={floatingStyles}
         >
