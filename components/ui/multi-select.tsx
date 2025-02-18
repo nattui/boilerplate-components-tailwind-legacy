@@ -107,11 +107,18 @@ export default function MultiSelect() {
 
         {/* Chips */}
         {selectedOptions.map((option, index) => (
-          <div className="text-gray-11 text-14 d" key={index}>
-            {option.label}
+          <div
+            className="border-gray-5 flex items-center gap-x-4 border border-solid px-4"
+            key={index}
+          >
+            <p className="text-gray-12 text-14">{option.label}</p>
+            <IconButton className="!rounded-0 !h-16 !w-16" variant="ghost">
+              <LucideX size={14} />
+            </IconButton>
           </div>
         ))}
 
+        {/* Input */}
         <input
           className="text-gray-12 grow-1 outline-0"
           id={id}
@@ -128,7 +135,6 @@ export default function MultiSelect() {
           <IconButton
             className="absolute right-28 !h-24 !w-24"
             onClick={onClear}
-            size="small"
             variant="ghost"
           >
             <LucideX size={16} />
