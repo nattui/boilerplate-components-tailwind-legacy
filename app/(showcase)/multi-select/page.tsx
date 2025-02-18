@@ -13,7 +13,7 @@ export default function Inputs2Page() {
 
   return (
     <>
-      <div className="w-320">
+      <div className="w-full max-w-320">
         <MultiSelect
           label="Multi select"
           options={options}
@@ -22,7 +22,7 @@ export default function Inputs2Page() {
         />
       </div>
 
-      <div className="mt-32 w-672">
+      <div className="mt-32 w-full max-w-672">
         {selectedOptions.map((option, index) => (
           <div className="mb-16 flex flex-col gap-4" key={index}>
             <p className="text-gray-12 text-14 font-mono">
