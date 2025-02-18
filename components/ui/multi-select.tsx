@@ -54,6 +54,12 @@ export default function MultiSelect() {
     setIsOpen(true)
   }
 
+  function onRemove(option: Option) {
+    setSelectedOptions((previous) =>
+      previous.filter((selected) => selected.value !== option.value),
+    )
+  }
+
   useEffect(() => {
     function handleOptionClickOutside(event: MouseEvent) {
       const contentElement = document.querySelector(".element-content")
@@ -113,7 +119,11 @@ export default function MultiSelect() {
             key={index}
           >
             <p className="text-gray-12 text-14">{option.label}</p>
-            <IconButton className="!rounded-0 !h-16 !w-16" variant="ghost">
+            <IconButton
+              className="!rounded-0 !h-16 !w-16"
+              onClick={() => onRemove(option)}
+              variant="ghost"
+            >
               <LucideX size={14} />
             </IconButton>
           </div>
@@ -157,16 +167,23 @@ export default function MultiSelect() {
           ref={refs.setFloating}
           style={floatingStyles}
         >
-          {options.map((option: Option, index: number) => (
-            <button
-              className="text-gray-11 hover:bg-gray-3 hover:text-gray-12 focus:bg-gray-3 focus:text-gray-12 flex h-36 shrink-0 cursor-pointer items-center gap-x-8 px-12 outline-0 transition-colors"
-              key={index}
-              onClick={() => onSelect(option)}
-              type="button"
-            >
-              {option.label}
-            </button>
-          ))}
+          {options
+            .filter(
+              (option: Option) =>
+                !selectedOptions.some(
+                  (selected) => selected.value === option.value,
+                ),
+            )
+            .map((option: Option) => (
+              <button
+                className="text-gray-11 hover:bg-gray-3 hover:text-gray-12 focus:bg-gray-3 focus:text-gray-12 flex h-36 shrink-0 cursor-pointer items-center gap-x-8 px-12 outline-0 transition-colors"
+                key={option.value}
+                onClick={() => onSelect(option)}
+                type="button"
+              >
+                {option.label}
+              </button>
+            ))}
         </div>
       )}
     </>
