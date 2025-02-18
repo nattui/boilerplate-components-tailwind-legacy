@@ -101,6 +101,16 @@ export default function MultiSelect(props: MultiSelectProps) {
   })
 
   function handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
+    if (
+      (event.key === "Backspace" || event.key === "Delete") &&
+      searchTerm.trim() === "" &&
+      internalSelectedOptions.length > 0
+    ) {
+      event.preventDefault()
+      setInternalSelectedOptions((prev) => prev.slice(0, -1))
+      return
+    }
+
     if (!isOpen) return
     switch (event.key) {
       case "ArrowDown": {
@@ -109,7 +119,6 @@ export default function MultiSelect(props: MultiSelectProps) {
         setHighlightedIndex((prev) =>
           prev < filteredOptions.length - 1 ? prev + 1 : 0,
         )
-
         break
       }
       case "ArrowUp": {
@@ -118,7 +127,6 @@ export default function MultiSelect(props: MultiSelectProps) {
         setHighlightedIndex((prev) =>
           prev > 0 ? prev - 1 : filteredOptions.length - 1,
         )
-
         break
       }
       case "Enter": {
@@ -130,7 +138,6 @@ export default function MultiSelect(props: MultiSelectProps) {
           onSelect(filteredOptions[highlightedIndex])
           setHighlightedIndex(0)
         }
-
         break
       }
     }
