@@ -87,7 +87,7 @@ export default function MultiSelect() {
   }, [isOpen])
 
   return (
-    <>
+    <div className="flex flex-col">
       {/* Label */}
       <label
         className="text-gray-12 text-14 element-label mb-4 inline-block"
@@ -186,7 +186,7 @@ export default function MultiSelect() {
             ))}
         </div>
       )}
-    </>
+    </div>
   )
 }
 

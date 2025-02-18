@@ -15,7 +15,7 @@ export default async function Topbar() {
       <NavLink href={ROUTE.INPUTS}>Inputs</NavLink>
       <NavLink href={ROUTE.TEXTAREA}>Textarea</NavLink>
       <NavLink href={ROUTE.SELECT_2}>Select 2</NavLink>
-      <NavLink href={ROUTE.SELECT_3}>Select 3</NavLink>
+      <NavLink href={ROUTE.MULTI_SELECT}>Multi select</NavLink>
       <NavLink href={ROUTE.COPY}>Copy</NavLink>
       <NavLink href={ROUTE.MODAL}>Modal</NavLink>
       <NavLink href={ROUTE.USERS}>Users</NavLink>
