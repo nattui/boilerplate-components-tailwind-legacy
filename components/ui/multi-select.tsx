@@ -122,7 +122,7 @@ export default function MultiSelect() {
         {/* Chips */}
         {selectedOptions.map((option, index) => (
           <div
-            className="border-gray-5 flex max-w-full items-center gap-x-4 border border-solid px-4 [&>svg]:mr-2 [&>svg]:size-14"
+            className="border-gray-5 flex max-w-full items-center border border-solid pr-4 pl-6 [&>svg]:mr-4 [&>svg]:size-14"
             key={index}
           >
             {option.image}
@@ -130,7 +130,7 @@ export default function MultiSelect() {
               {option.label}
             </span>
             <IconButton
-              className="!rounded-0 !h-16 !w-16"
+              className="!rounded-0 !mr-0 ml-2 !h-16 !w-16"
               onClick={() => onChipRemove(option)}
               variant="ghost"
             >
