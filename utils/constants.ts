@@ -26,6 +26,7 @@ export const ROUTE = {
   LIFE_EXPECTANCY: "/life-expectancy",
   MODAL: "/modal",
   SELECT_2: "/select-2",
+  SELECT_3: "/select-3",
   SIGNIN: "/signin",
   SIGNUP: "/signup",
   TEXTAREA: "/textarea",
