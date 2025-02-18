@@ -1,7 +1,12 @@
 "use client"
 
 import IconButton from "@/components/ui/icon-button"
-import { autoUpdate, size, useFloating } from "@floating-ui/react-dom"
+import {
+  autoPlacement,
+  autoUpdate,
+  size,
+  useFloating,
+} from "@floating-ui/react-dom"
 import { LucideChevronDown, LucideX } from "lucide-react"
 import {
   type Dispatch,
@@ -46,19 +51,16 @@ export default function MultiSelect(props: MultiSelectProps) {
   // Floating UI start ////////////////////////////////////////////////////////
   const { floatingStyles, refs } = useFloating({
     middleware: [
+      autoPlacement({
+        allowedPlacements: ["bottom", "top"],
+      }),
       size({
         apply({ availableHeight, elements, rects }) {
-          const maxHeight = availableHeight - 16
-          const maxHeightIsTooSmall = maxHeight < 240
-
-          elements.floating.style.maxHeight = maxHeightIsTooSmall
-            ? "240px"
-            : `${maxHeight}px`
+          elements.floating.style.maxHeight = `${availableHeight - 16}px`
           elements.floating.style.width = `${rects.reference.width}px`
         },
       }),
     ],
-    placement: "bottom",
     whileElementsMounted: autoUpdate,
   })
   // Floating UI end //////////////////////////////////////////////////////////
@@ -248,7 +250,7 @@ export default function MultiSelect(props: MultiSelectProps) {
       {/* Content */}
       {isOpen && (
         <div
-          className="element-content bg-gray-1 border-gray-5 flex flex-col overflow-y-auto border-x border-b border-solid"
+          className="element-content bg-gray-1 border-gray-5 flex flex-col overflow-y-auto border border-solid"
           ref={refs.setFloating}
           style={floatingStyles}
         >
