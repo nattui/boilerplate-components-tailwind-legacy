@@ -169,7 +169,7 @@ export default function MultiSelect(props: MultiSelectProps) {
       {/* Label */}
       {label && (
         <label
-          className="text-gray-12 text-14 element-label mb-4 inline-block"
+          className="text-gray-12 text-14 element-label mb-4 inline-block w-fit"
           htmlFor={id}
         >
           {label}

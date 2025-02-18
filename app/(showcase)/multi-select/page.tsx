@@ -4,16 +4,12 @@ import MultiSelect, {
   type MultiSelectOption,
 } from "@/components/ui/multi-select"
 import { LucideFile, LucideGlobe, LucideImage } from "lucide-react"
-import { useMemo, useState } from "react"
+import { useState } from "react"
 
 export default function Inputs2Page() {
   const [selectedOptions, setSelectedOptions] = useState<MultiSelectOption[]>(
     [],
   )
-
-  const values = useMemo(() => {
-    return selectedOptions.map((option) => option.value)
-  }, [selectedOptions])
 
   return (
     <>
@@ -26,8 +22,17 @@ export default function Inputs2Page() {
         />
       </div>
 
-      <div className="w-320">
-        <pre>{JSON.stringify(values, undefined, 2)}</pre>
+      <div className="mt-32 w-672">
+        {selectedOptions.map((option, index) => (
+          <div className="mb-16 flex flex-col gap-4" key={index}>
+            <p className="text-gray-12 text-14 font-mono">
+              label: {option.label}
+            </p>
+            <p className="text-gray-12 text-14 font-mono">
+              Value: {option.value}
+            </p>
+          </div>
+        ))}
       </div>
     </>
   )
