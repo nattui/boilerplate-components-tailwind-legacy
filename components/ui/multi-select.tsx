@@ -1,16 +1,9 @@
 "use client"
 
 import IconButton from "@/components/ui/icon-button"
-import {
-  size,
-  useClick,
-  useDismiss,
-  useFloating,
-  useInteractions,
-  useRole,
-} from "@floating-ui/react"
+import { size, useFloating } from "@floating-ui/react"
 import { LucideChevronDown, LucideX } from "lucide-react"
-import { type KeyboardEvent, useId, useState } from "react"
+import { type KeyboardEvent, useEffect, useId, useState } from "react"
 
 type Option = (typeof options)[number]
 
@@ -20,12 +13,13 @@ export default function MultiSelect() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedOptions, setSelectedOptions] = useState<Option[]>([])
 
-  console.log(":::: selectedOptions:", selectedOptions)
-
   const id = useId()
 
+  console.log(":::: selectedOptions:", selectedOptions)
+  console.log(":::: id:", id)
+
   // Floating UI start ////////////////////////////////////////////////////////
-  const { context, floatingStyles, refs } = useFloating({
+  const { floatingStyles, refs } = useFloating({
     middleware: [
       size({
         apply({ elements, rects }) {
@@ -35,20 +29,8 @@ export default function MultiSelect() {
         },
       }),
     ],
-    onOpenChange: setIsOpen,
-    open: isOpen,
     placement: "bottom",
   })
-
-  const click = useClick(context)
-  const dismiss = useDismiss(context)
-  const role = useRole(context)
-
-  const { getFloatingProps, getReferenceProps } = useInteractions([
-    click,
-    dismiss,
-    role,
-  ])
   // Floating UI end //////////////////////////////////////////////////////////
 
   function onKeyDown(event: KeyboardEvent<HTMLInputElement>) {
@@ -66,20 +48,56 @@ export default function MultiSelect() {
     setSelectedOptions((previous) => [...previous, option])
   }
 
+  function onFocus() {
+    setIsFocused(true)
+    setIsOpen(true)
+  }
+
+  useEffect(() => {
+    function handleOptionClickOutside(event: MouseEvent) {
+      const labelElement = document.querySelector(".element-label")
+      const optionsElement = document.querySelector(".element-options")
+      const referenceElement = document.querySelector(".element-reference")
+
+      const isClickOutside =
+        labelElement &&
+        !labelElement.contains(event.target as Node) &&
+        optionsElement &&
+        !optionsElement.contains(event.target as Node) &&
+        referenceElement &&
+        !referenceElement.contains(event.target as Node)
+
+      if (isClickOutside) {
+        setIsOpen(false)
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleOptionClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleOptionClickOutside)
+    }
+  }, [isOpen])
+
   return (
     <>
-      <label className="text-gray-12 text-14 mb-4 inline-block" htmlFor={id}>
+      <label
+        className="text-gray-12 text-14 element-label mb-4 inline-block"
+        htmlFor={id}
+      >
         Multi select
       </label>
+
       <label
-        className="border-gray-5 hover:border-gray-8 data-[focused=true]:border-gray-12 relative flex h-40 w-full cursor-text items-center border border-solid pr-64 pl-12 transition-colors"
+        className="element-reference border-gray-5 hover:border-gray-8 data-[focused=true]:border-gray-12 relative flex h-40 w-full cursor-text items-center border border-solid pr-64 pl-12 transition-colors"
         data-focused={isFocused}
         htmlFor={id}
         ref={refs.setReference}
-        {...getReferenceProps()}
       >
         {!searchTerm && (
-          <p className="text-gray-9 text-14 absolute left-12 select-none">
+          <p className="text-gray-9 text-14 pointer-events-none absolute left-12 select-none">
             Theme
           </p>
         )}
@@ -89,8 +107,7 @@ export default function MultiSelect() {
           id={id}
           onBlur={() => setIsFocused(false)}
           onChange={(event) => setSearchTerm(event.target.value)}
-          onClick={() => setIsOpen(true)}
-          onFocus={() => setIsFocused(true)}
+          onFocus={onFocus}
           onKeyDown={onKeyDown}
           type="text"
           value={searchTerm}
@@ -108,7 +125,7 @@ export default function MultiSelect() {
         )}
 
         <LucideChevronDown
-          className="absolute right-8 transition-transform data-[is-open=true]:rotate-180"
+          className="pointer-events-none absolute right-8 transition-transform data-[is-open=true]:rotate-180"
           data-is-open={isOpen}
           size={16}
         />
@@ -116,10 +133,9 @@ export default function MultiSelect() {
 
       {isOpen && (
         <div
-          className="bg-gray-1 border-gray-5 flex max-h-320 flex-col overflow-y-auto border-x border-b border-solid"
+          className="element-options bg-gray-1 border-gray-5 flex max-h-320 flex-col overflow-y-auto border-x border-b border-solid"
           ref={refs.setFloating}
           style={floatingStyles}
-          {...getFloatingProps()}
         >
           {options.map((option: Option, index: number) => (
             <button
