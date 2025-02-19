@@ -195,7 +195,7 @@ export default function MultiSelect(props: MultiSelectProps) {
 
       {/* Trigger */}
       <label
-        className="element-trigger border-gray-5 hover:border-gray-8 data-[is-focused=true]:border-gray-12 relative flex min-h-40 w-full cursor-text flex-wrap items-center gap-4 border border-solid py-8 pr-64 pl-8 transition-colors"
+        className="element-trigger border-gray-5 hover:border-gray-8 data-[is-focused=true]:border-gray-12 relative flex min-h-40 w-full cursor-text flex-wrap items-center gap-4 border border-solid py-8 pr-56 pl-8 transition-colors"
         data-is-focused={isOpen}
         htmlFor={id}
         ref={refs.setReference}
