@@ -4,9 +4,10 @@ import IconButton from "@/components/ui/icon-button"
 import {
   autoPlacement,
   autoUpdate,
+  FloatingPortal,
   size,
   useFloating,
-} from "@floating-ui/react-dom"
+} from "@floating-ui/react"
 import { LucideChevronDown, LucideX } from "lucide-react"
 import {
   type ComponentProps,
@@ -57,8 +58,22 @@ export default function MultiSelect(props: MultiSelectProps) {
         allowedPlacements: ["bottom", "top"],
       }),
       size({
-        apply({ availableHeight, elements, rects }) {
-          elements.floating.style.maxHeight = `${availableHeight - 16}px`
+        apply({ elements, rects }) {
+          // Get viewport height
+          const viewportHeight = window.innerHeight
+
+          // Get the reference element's position relative to viewport
+          const referenceRect = elements.reference.getBoundingClientRect()
+
+          // Calculate maximum available height
+          const maxHeight = Math.min(
+            // Space above the reference
+            referenceRect.top,
+            // Space below the reference
+            viewportHeight - referenceRect.bottom,
+          )
+
+          elements.floating.style.maxHeight = `${maxHeight - 16}px`
           elements.floating.style.width = `${rects.reference.width}px`
         },
       }),
@@ -260,23 +275,25 @@ export default function MultiSelect(props: MultiSelectProps) {
 
       {/* Content */}
       {isOpen && (
-        <div
-          className="element-content bg-gray-1 border-gray-5 flex flex-col overflow-y-auto border border-solid"
-          ref={refs.setFloating}
-          style={floatingStyles}
-        >
-          {filteredOptions.map((option: MultiSelectOption, index: number) => (
-            <div
-              className="text-gray-11 hover:bg-gray-3 hover:text-gray-12 data-[is-highlighted=true]:bg-gray-3 data-[is-highlighted=true]:text-gray-12 flex h-36 shrink-0 cursor-pointer items-center gap-x-8 px-12 outline-0 transition-colors select-none [&>svg]:size-16"
-              data-is-highlighted={highlightedIndex === index}
-              key={option.value}
-              onClick={() => onSelect(option)}
-            >
-              {option.image}
-              <span className="truncate">{option.label}</span>
-            </div>
-          ))}
-        </div>
+        <FloatingPortal>
+          <div
+            className="element-content bg-gray-1 border-gray-5 flex flex-col overflow-y-auto border border-solid"
+            ref={refs.setFloating}
+            style={floatingStyles}
+          >
+            {filteredOptions.map((option: MultiSelectOption, index: number) => (
+              <div
+                className="text-gray-11 hover:bg-gray-3 hover:text-gray-12 data-[is-highlighted=true]:bg-gray-3 data-[is-highlighted=true]:text-gray-12 flex h-36 shrink-0 cursor-pointer items-center gap-x-8 px-12 outline-0 transition-colors select-none [&>svg]:size-16"
+                data-is-highlighted={highlightedIndex === index}
+                key={option.value}
+                onClick={() => onSelect(option)}
+              >
+                {option.image}
+                <span className="truncate">{option.label}</span>
+              </div>
+            ))}
+          </div>
+        </FloatingPortal>
       )}
     </div>
   )
