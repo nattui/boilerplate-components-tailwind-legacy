@@ -1,6 +1,6 @@
 "use client"
 
-import { ChevronDownIcon } from "lucide-react"
+import { LucideChevronDown } from "lucide-react"
 import { Select } from "radix-ui"
 
 export default function Select2() {
@@ -10,7 +10,7 @@ export default function Select2() {
         <Select.Value placeholder="Theme" />
 
         <Select.Icon asChild>
-          <ChevronDownIcon size={16} />
+          <LucideChevronDown size={16} />
         </Select.Icon>
       </Select.Trigger>
 
