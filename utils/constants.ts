@@ -18,6 +18,7 @@ export const API = {
 
 export const ROUTE = {
   BADGE: "/badge",
+  BUTTON_LINKS: "/button-links",
   BUTTONS: "/buttons",
   COPY: "/copy",
   HOME: "/",
