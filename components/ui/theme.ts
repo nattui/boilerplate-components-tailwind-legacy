@@ -1,7 +1,7 @@
 export const theme = {
   bg: {
     base: "bg-gray-1",
-    disabled: "disabled:!bg-gray-1",
+    disabled: "disabled:bg-gray-1",
   },
   border: {
     base: ["border-solid", "border"].join(" "),
@@ -10,13 +10,17 @@ export const theme = {
         " ",
       ),
       base: "border-gray-5",
-      disabled: "disabled:!border-gray-5",
+      disabled: "disabled:border-gray-5",
       focus: "focus:border-gray-8",
       hover: "hover:border-gray-8",
     },
   },
   disabled: ["disabled:cursor-not-allowed", "disabled:opacity-50"].join(" "),
   duration: "duration-150",
+  opacity: {
+    active: ["data-[active=true]:opacity-70", "active:opacity-70"].join(" "),
+    hover: "hover:opacity-85",
+  },
   outline: [
     "focus-visible:outline-2",
     "outline-0",
@@ -27,6 +31,15 @@ export const theme = {
   shadow: {
     box: "shadow-1",
     filter: "[filter:drop-shadow(0_1px_rgb(0_0_0_/_0.05))]",
-    text: "[text-shadow:0_1px_0px_rgba(0,0,0,0.1),0_-1px_0px_rgba(255,255,255,0.1)]",
+    text: {
+      base: "[text-shadow:0_1px_0px_rgba(0,0,0,0.1)]",
+      disabled: "disabled:[text-shadow:0_1px_0px_rgba(0,0,0,0.1)]",
+      none: [
+        "active:[text-shadow:none]",
+        "data-[active=true]:[text-shadow:none]",
+        "focus:[text-shadow:none]",
+        "hover:[text-shadow:none]",
+      ].join(" "),
+    },
   },
 }
