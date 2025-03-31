@@ -37,7 +37,7 @@ export default function ButtonLink(props: ButtonLinkProps): JSX.Element {
   return (
     <Link className={combinedStyles} {...rest}>
       {start}
-      {children}
+      <span>{children}</span>
       {end}
     </Link>
   )
