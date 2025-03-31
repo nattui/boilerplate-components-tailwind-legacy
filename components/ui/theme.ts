@@ -30,16 +30,14 @@ export const theme = {
   rounded: "rounded-8",
   shadow: {
     box: "shadow-1",
-    filter: "[filter:drop-shadow(0_1px_rgb(0_0_0_/_0.05))]",
-    text: {
-      base: "[text-shadow:0_1px_0px_rgba(0,0,0,0.1)]",
-      disabled: "disabled:[text-shadow:0_1px_0px_rgba(0,0,0,0.1)]",
+    content: {
+      base: "*:[filter:drop-shadow(0_1px_rgb(0_0_0_/_0.05))]",
       none: [
-        "active:[text-shadow:none]",
-        "data-[active=true]:[text-shadow:none]",
-        "focus:[text-shadow:none]",
-        "hover:[text-shadow:none]",
+        "hover:*:[filter:none]",
+        "active:*:[filter:none]",
+        "data-[active=true]:*:[filter:none]",
       ].join(" "),
     },
+    filter: "[filter:drop-shadow(0_1px_rgb(0_0_0_/_0.05))]",
   },
 }

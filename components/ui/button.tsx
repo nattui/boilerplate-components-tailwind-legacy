@@ -30,7 +30,7 @@ export const buttonStyles = {
     "select-none",
     "shrink-0",
     "text-14",
-    "transition-[background-color,border-color,box-shadow,color,opacity,text-shadow]",
+    "transition-[background-color,border-color,box-shadow,color,filter,opacity]",
     theme.border.base,
     theme.disabled,
     theme.duration,
@@ -45,7 +45,7 @@ export const buttonStyles = {
   },
   variant: {
     accent: [
-      "active:shadow-[inset_0_0_0_0_transparent]",
+      "active:shadow-[inset_0_-1px_0_0_rgba(255,255,255,0.25),inset_0_1px_0_0_rgba(0,0,0,0.1),0_1px_0_0_rgba(0,0,0,0.05)]",
       "bg-linear-to-b",
       "border-transparent",
       "data-[active=true]:shadow-[inset_0_0_0_0_transparent]",
@@ -57,10 +57,9 @@ export const buttonStyles = {
       "to-primary-10",
       theme.opacity.active,
       theme.opacity.hover,
+      theme.shadow.content.base,
+      theme.shadow.content.none,
       theme.shadow.filter,
-      theme.shadow.text.base,
-      theme.shadow.text.disabled,
-      theme.shadow.text.none,
     ].join(" "),
     ghost: [
       "active:bg-gray-5",
@@ -75,7 +74,7 @@ export const buttonStyles = {
       theme.bg.disabled,
     ].join(" "),
     primary: [
-      "active:shadow-[inset_0_0_0_0_transparent]",
+      "active:shadow-[inset_0_-1px_0_0_rgba(255,255,255,0.25),inset_0_1px_0_0_rgba(0,0,0,0.1),0_1px_0_0_rgba(0,0,0,0.05)]",
       "bg-linear-to-b",
       "border-transparent",
       "disabled:!shadow-[inset_0_-1px_0_1px_color-mix(in_oklab,var(--color-gray-12)_100%,transparent),inset_0_0_0_1px_rgba(255,255,255,0.25)]",
@@ -86,10 +85,9 @@ export const buttonStyles = {
       "to-gray-12",
       theme.opacity.active,
       theme.opacity.hover,
+      theme.shadow.content.base,
+      theme.shadow.content.none,
       theme.shadow.filter,
-      theme.shadow.text.base,
-      theme.shadow.text.disabled,
-      theme.shadow.text.none,
     ].join(" "),
     secondary: [
       "active:bg-gray-4/75",
