@@ -19,7 +19,7 @@
     "update": "pnpx npm-check-updates --upgrade"
   },
   "dependencies": {
-    "@floating-ui/react": "^0.27.5",
+    "@floating-ui/react": "^0.27.6",
     "@nattui/tailwind-tokenless": "0.0.0-alpha.10",
     "bcrypt": "^5.1.1",
     "drizzle-orm": "^0.38.4",
@@ -34,15 +34,15 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@tailwindcss/postcss": "^4.0.17",
+    "@tailwindcss/postcss": "^4.1.1",
     "@types/bcrypt": "^5.0.2",
-    "@types/node": "^20.17.28",
-    "@types/react": "^19.0.12",
-    "@types/react-dom": "^19.0.4",
+    "@types/node": "^20.17.30",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.1",
     "drizzle-kit": "^0.30.6",
     "eslint": "^9.23.0",
     "eslint-config-next": "^15.2.4",
-    "eslint-plugin-perfectionist": "^4.10.1",
+    "eslint-plugin-perfectionist": "^4.11.0",
     "eslint-plugin-unicorn": "^56.0.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "postcss": "^8.5.3",
@@ -51,7 +51,7 @@
     "prettier-plugin-packagejson": "^2.5.10",
     "prettier-plugin-sort-json": "^4.1.1",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^4.0.17",
+    "tailwindcss": "^4.1.1",
     "typescript": "^5.8.2"
   }
 }
