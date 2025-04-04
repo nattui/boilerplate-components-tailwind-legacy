@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.6",
-    "@nattui/tailwind-tokenless": "0.0.0-alpha.12",
+    "@nattui/tailwind-tokenless": "0.0.0-alpha.13",
     "bcrypt": "^5.1.1",
     "drizzle-orm": "^0.38.4",
     "jose": "^5.10.0",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@tailwindcss/postcss": "^4.1.1",
+    "@tailwindcss/postcss": "^4.1.2",
     "@types/bcrypt": "^5.0.2",
     "@types/node": "^20.17.30",
     "@types/react": "^19.1.0",
@@ -51,7 +51,7 @@
     "prettier-plugin-packagejson": "^2.5.10",
     "prettier-plugin-sort-json": "^4.1.1",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^4.1.1",
+    "tailwindcss": "^4.1.2",
     "typescript": "^5.8.2"
   }
 }
