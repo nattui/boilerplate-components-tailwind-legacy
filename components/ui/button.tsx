@@ -24,6 +24,7 @@ export const buttonStyles = {
     "flex",
     "font-500",
     "gap-8",
+    "group",
     "items-center",
     "justify-center",
     "leading-150",
