@@ -134,7 +134,7 @@ export const buttonStyles = {
     ].join(" "),
   },
   width: {
-    fit: "w-fit",
+    base: "w-max",
     full: "w-full",
   },
 } as const
@@ -158,7 +158,7 @@ export default function Button(props: ButtonProps): JSX.Element {
     ${buttonStyles.base}
     ${buttonStyles.size[size]}
     ${buttonStyles.variant[variant]}
-    ${fullWidth ? buttonStyles.width.full : buttonStyles.width.fit}
+    ${fullWidth ? buttonStyles.width.full : buttonStyles.width.base}
     ${customStyles}
   `
     .replaceAll(/\s+/g, " ")
