@@ -30,7 +30,6 @@ export const buttonStyles = {
     "leading-150",
     "select-none",
     "shrink-0",
-    "text-14",
     "transition-[background-color,border-color,box-shadow,color,filter,opacity]",
     theme.border.base,
     theme.disabled,
@@ -39,10 +38,10 @@ export const buttonStyles = {
     theme.rounded,
   ].join(" "),
   size: {
-    extraLarge: ["px-20", "h-44"].join(" "),
-    large: ["px-16", "h-40"].join(" "),
-    medium: ["px-12", "h-36"].join(" "),
-    small: ["px-8", "h-32"].join(" "),
+    extraLarge: ["h-48", "px-20", "text-16"].join(" "),
+    large: ["h-40", "px-16", "text-14"].join(" "),
+    medium: ["h-36", "px-12", "text-14"].join(" "),
+    small: ["h-32", "px-8", "text-14"].join(" "),
   },
   variant: {
     accent: [
