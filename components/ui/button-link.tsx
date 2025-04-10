@@ -28,7 +28,7 @@ export default function ButtonLink(props: ButtonLinkProps): JSX.Element {
     ${buttonStyles.base}
     ${buttonStyles.size[size]}
     ${buttonStyles.variant[variant]}
-    ${fullWidth ? buttonStyles.width.full : buttonStyles.width.fit}
+    ${fullWidth ? buttonStyles.width.full : buttonStyles.width.base}
     ${customStyles}
   `
     .replaceAll(/\s+/g, " ")
