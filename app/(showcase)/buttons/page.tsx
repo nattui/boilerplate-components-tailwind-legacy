@@ -70,6 +70,22 @@ export default function ButtonsPage() {
         </Button>
       </div>
 
+      {/* Active */}
+      <div className="flex flex-wrap items-center justify-center gap-8">
+        <Button aria-pressed size="small">
+          Small
+        </Button>
+        <Button aria-pressed size="medium">
+          Medium
+        </Button>
+        <Button aria-pressed size="large">
+          Large
+        </Button>
+        <Button aria-pressed size="extraLarge">
+          Extra large
+        </Button>
+      </div>
+
       {/* Leading visual */}
       <div className="flex flex-wrap items-center justify-center gap-8">
         <Button size="small" start={<LucideArrowLeft size={16} />}>

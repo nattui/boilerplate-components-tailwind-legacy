@@ -6,9 +6,7 @@ export const theme = {
   border: {
     base: ["border-solid", "border"].join(" "),
     color: {
-      active: ["data-[active=true]:border-gray-8", "active:border-gray-8"].join(
-        " ",
-      ),
+      active: ["aria-pressed:border-gray-8", "active:border-gray-8"].join(" "),
       base: "border-gray-5",
       disabled: "disabled:border-gray-5",
       focus: "focus:border-gray-8",
@@ -20,7 +18,7 @@ export const theme = {
   opacity: {
     trigger: [
       "active:opacity-85",
-      "data-[active=true]:opacity-85",
+      "aria-pressed:opacity-85",
       "hover:opacity-85",
     ].join(" "),
   },
@@ -35,9 +33,9 @@ export const theme = {
     box: "shadow-1",
     content: {
       trigger: [
-        "hover:*:[filter:none]",
         "active:*:[filter:none]",
-        "data-[active=true]:*:[filter:none]",
+        "aria-pressed:*:[filter:none]",
+        "hover:*:[filter:none]",
       ].join(" "),
     },
     filter: "[filter:drop-shadow(0_1px_rgb(0_0_0_/_0.05))]",
