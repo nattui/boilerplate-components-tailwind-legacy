@@ -1,9 +1,11 @@
-import type { ComponentProps, JSX, ReactNode } from "react"
+import type { ComponentProps, JSX } from "react"
 import { type ButtonProps, buttonStyles } from "@/components/ui/button"
+import ButtonBackground, {
+  buttonBackgroundStyles,
+} from "@/components/ui/button-background"
 import ButtonSpinner from "@/components/ui/button-spinner"
 
 export interface IconButtonProps extends ComponentProps<"button"> {
-  children?: ReactNode
   isLoading?: ButtonProps["isLoading"]
   size?: ButtonProps["size"]
   variant?: ButtonProps["variant"]
@@ -20,7 +22,7 @@ export const iconButtonStyles = {
 
 export default function IconButton(props: IconButtonProps): JSX.Element {
   const {
-    children = "",
+    children = <></>,
     className: customStyles = "",
     disabled = false,
     isLoading = false,
@@ -34,6 +36,7 @@ export default function IconButton(props: IconButtonProps): JSX.Element {
     ${iconButtonStyles.size[size]}
     ${buttonStyles.base}
     ${buttonStyles.variant[variant]}
+    ${buttonBackgroundStyles.parent}
     ${customStyles}
   `
     .replaceAll(/\s+/g, " ")
@@ -46,6 +49,7 @@ export default function IconButton(props: IconButtonProps): JSX.Element {
       type={type}
       {...rest}
     >
+      <ButtonBackground variant={variant} />
       {isLoading && <ButtonSpinner />}
       {!isLoading && children}
     </button>

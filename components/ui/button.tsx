@@ -1,4 +1,7 @@
 import type { ComponentProps, JSX, ReactNode } from "react"
+import ButtonBackground, {
+  buttonBackgroundStyles,
+} from "@/components/ui/button-background"
 import ButtonSpinner from "@/components/ui/button-spinner"
 import { theme } from "@/components/ui/theme"
 
@@ -159,6 +162,7 @@ export default function Button(props: ButtonProps): JSX.Element {
     ${buttonStyles.size[size]}
     ${buttonStyles.variant[variant]}
     ${fullWidth ? buttonStyles.width.full : buttonStyles.width.base}
+    ${buttonBackgroundStyles.parent}
     ${customStyles}
   `
     .replaceAll(/\s+/g, " ")
@@ -171,6 +175,7 @@ export default function Button(props: ButtonProps): JSX.Element {
       type={type}
       {...rest}
     >
+      <ButtonBackground variant={variant} />
       {!isLoading && start}
       {isLoading && <ButtonSpinner />}
       <span>{children}</span>
