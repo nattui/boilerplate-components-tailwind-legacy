@@ -1,6 +1,6 @@
 import type { ComponentProps, JSX } from "react"
-import { inputStyles } from "@/components/ui/input"
 import { LucideChevronDown } from "lucide-react"
+import { inputStyles } from "@/components/ui/input"
 
 export interface SelectProps extends ComponentProps<"select"> {}
 

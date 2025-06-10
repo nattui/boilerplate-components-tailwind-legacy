@@ -1,6 +1,6 @@
+import { LucideMail } from "lucide-react"
 import Badge from "@/components/ui/badge"
 import IconButton from "@/components/ui/icon-button"
-import { LucideMail } from "lucide-react"
 
 export default function BadgePage() {
   return (

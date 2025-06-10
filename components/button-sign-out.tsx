@@ -1,9 +1,9 @@
 "use client"
 
-import { signOut } from "@/actions/sign-out"
-import Button from "@/components/ui/button"
 import { LucideLogOut } from "lucide-react"
 import { useActionState } from "react"
+import { signOut } from "@/actions/sign-out"
+import Button from "@/components/ui/button"
 
 export interface ButtonSignOutProps {
   className?: string

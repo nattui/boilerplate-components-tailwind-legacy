@@ -1,8 +1,8 @@
+import { LucideCloud, LucidePlus, LucideX } from "lucide-react"
 import Button from "@/components/ui/button"
 import IconButton from "@/components/ui/icon-button"
 import Input from "@/components/ui/input"
 import Label from "@/components/ui/label"
-import { LucideCloud, LucidePlus, LucideX } from "lucide-react"
 
 export default function ModalPage() {
   return (

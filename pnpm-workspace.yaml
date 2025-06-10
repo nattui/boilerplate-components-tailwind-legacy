@@ -1,0 +1,5 @@
+# Fix eslint error where failed to load plugin 'react-hooks' declared in eslint-config-next/core-web-vitals
+# Reference: https://github.com/vercel/next.js/issues/78813#issuecomment-2908051088
+publicHoistPattern:
+  - "@next/eslint-plugin-next"
+  - "eslint-plugin-react-hooks"

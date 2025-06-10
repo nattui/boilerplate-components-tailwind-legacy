@@ -1,5 +1,8 @@
 "use client"
 
+import { LucideSave, LucideTrash } from "lucide-react"
+import { useActionState } from "react"
+import { useState } from "react"
 import { profileBirthday } from "@/actions/profile-birthday"
 import { profileCountry } from "@/actions/profile-country"
 import { profileDelete } from "@/actions/profile-delete"
@@ -8,9 +11,6 @@ import Input from "@/components/ui/input"
 import Label from "@/components/ui/label"
 import Select from "@/components/ui/select"
 import { LifeExpectancy } from "@/libs/db/schema"
-import { LucideSave, LucideTrash } from "lucide-react"
-import { useActionState } from "react"
-import { useState } from "react"
 
 interface DashboardProps {
   dashboard?: LifeExpectancy

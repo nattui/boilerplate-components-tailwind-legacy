@@ -1,6 +1,3 @@
-import Button from "@/components/ui/button"
-import IconButton from "@/components/ui/icon-button"
-import Input from "@/components/ui/input"
 import {
   LucideBan,
   LucideCopy,
@@ -11,6 +8,9 @@ import {
   LucideMail,
 } from "lucide-react"
 import Link from "next/link"
+import Button from "@/components/ui/button"
+import IconButton from "@/components/ui/icon-button"
+import Input from "@/components/ui/input"
 
 export default function InputsPage() {
   return (

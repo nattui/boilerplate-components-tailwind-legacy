@@ -1,6 +1,5 @@
 "use client"
 
-import IconButton from "@/components/ui/icon-button"
 import {
   autoPlacement,
   autoUpdate,
@@ -19,6 +18,7 @@ import {
   useId,
   useState,
 } from "react"
+import IconButton from "@/components/ui/icon-button"
 
 export interface MultiSelectOption extends ComponentProps<"div"> {
   image?: ReactNode

@@ -1,11 +1,11 @@
 "use client"
 
+import { LucideLogIn } from "lucide-react"
+import { useActionState, useState } from "react"
 import { signInCredentials } from "@/actions/sign-in-credentials"
 import Button from "@/components/ui/button"
 import Input from "@/components/ui/input"
 import Label from "@/components/ui/label"
-import { LucideLogIn } from "lucide-react"
-import { useActionState, useState } from "react"
 
 export default function SignInClientPage() {
   const [email, setEmail] = useState("test@example.com")

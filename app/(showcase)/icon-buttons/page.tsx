@@ -1,5 +1,5 @@
-import IconButton from "@/components/ui/icon-button"
 import { LucideDownload } from "lucide-react"
+import IconButton from "@/components/ui/icon-button"
 
 export default function IconButtonsPage() {
   return (

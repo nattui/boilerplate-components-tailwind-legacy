@@ -1,7 +1,7 @@
 import type { JSX } from "react"
 import type { ComponentProps } from "react"
-import { type ButtonProps, buttonStyles } from "@/components/ui/button"
 import Link from "next/link"
+import { type ButtonProps, buttonStyles } from "@/components/ui/button"
 
 export interface ButtonLinkProps extends ComponentProps<typeof Link> {
   children?: ButtonProps["children"]

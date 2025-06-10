@@ -1,6 +1,6 @@
+import { LucideArrowLeft, LucideArrowRight } from "lucide-react"
 import ButtonLink from "@/components/ui/button-link"
 import { ROUTE } from "@/utils/constants"
-import { LucideArrowLeft, LucideArrowRight } from "lucide-react"
 
 export default function ButtonLinksPage() {
   return (

@@ -1,10 +1,10 @@
 "use client"
 
+import { LucideFile, LucideGlobe, LucideImage } from "lucide-react"
+import { useState } from "react"
 import MultiSelect, {
   type MultiSelectOption,
 } from "@/components/ui/multi-select"
-import { LucideFile, LucideGlobe, LucideImage } from "lucide-react"
-import { useState } from "react"
 
 export default function Inputs2Page() {
   const [selectedOptions, setSelectedOptions] = useState<MultiSelectOption[]>(

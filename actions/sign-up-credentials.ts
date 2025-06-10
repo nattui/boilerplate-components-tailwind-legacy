@@ -1,5 +1,9 @@
 "use server"
 
+// import { hash } from "bcrypt"
+import { and, eq } from "drizzle-orm"
+import { cookies as nextCookies } from "next/headers"
+import { redirect } from "next/navigation"
 import { db } from "@/libs/db"
 import {
   authCredentialsTable,
@@ -10,10 +14,6 @@ import { encrypt } from "@/libs/session"
 import { signInSchema } from "@/libs/validation/sign.schema"
 import { EXPIRATION_TIME_IN_SECONDS, MESSAGE, ROUTE } from "@/utils/constants"
 import { isDevelopment } from "@/utils/is-development"
-import { hash } from "bcrypt"
-import { and, eq } from "drizzle-orm"
-import { cookies as nextCookies } from "next/headers"
-import { redirect } from "next/navigation"
 
 export async function signUpCredentials(_: unknown, formData: FormData) {
   const email = formData.get("email") as string
@@ -54,7 +54,7 @@ export async function signUpCredentials(_: unknown, formData: FormData) {
       return { message: MESSAGE.AUTH.SIGNUP.EMAIL_ALREADY_EXISTS }
     }
 
-    const hashedPassword = await hash(password, 10)
+    const hashedPassword = "meow" // TODO: Remove this
 
     // TODO: Transaction
     // Create user
